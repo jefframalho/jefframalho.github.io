@@ -358,7 +358,7 @@ function route(){
 window.addEventListener('hashchange',route);
 
 const cliente=id=>db.clientes.find(c=>c.id===id)||{nome:'Cliente removido',tel:''};
-const banner=()=>`<div class="banner" style="background:var(--info-bg);color:var(--info)"><span><b>Demonstração online.</b> Os dados ficam só neste navegador. A versão completa usa banco de dados no computador da loja.</span><a href="maycell.zip">Baixar programa</a></div>`+(db.exemplo?`<div class="banner"><span>Você está vendo <b>dados de exemplo</b> para testar o sistema.</span><a href="#ajustes">Apagar exemplos</a></div>`:'');
+const banner=()=>`<div class="banner" style="background:var(--info-bg);color:var(--info)"><span><b>Demonstração online.</b> Os dados ficam só neste navegador. A versão completa usa banco de dados no computador da loja.</span><a href="https://github.com/jefframalho/maycell" target="_blank" rel="noopener">Ver o programa completo</a></div>`+(db.exemplo?`<div class="banner"><span>Você está vendo <b>dados de exemplo</b> para testar o sistema.</span><a href="#ajustes">Apagar exemplos</a></div>`:'');
 
 function linha(o,porque){
   const c=cliente(o.clienteId);
