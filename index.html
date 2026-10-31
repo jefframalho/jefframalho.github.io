@@ -172,6 +172,17 @@ section{padding-block:88px 24px}
 .receipt .l{display:flex;justify-content:space-between;color:var(--muted)}
 .receipt .t{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding-top:6px;font-weight:500;color:var(--ink)}
 .chip-up{position:absolute;right:16px;bottom:18px;background:var(--accent-soft);color:var(--accent);font-family:var(--f-mono);font-size:12px;padding:6px 10px;border-radius:99px;font-weight:500}
+.osl{width:92%;padding:6px 14px;font-size:12px}
+.osl .r{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.osl .r:last-child{border-bottom:0}
+.osl .n{font-family:var(--f-mono);font-weight:600;font-size:11px;background:#F2B705;color:#1A1E26;padding:2px 7px;border-radius:3px}
+.osl .d{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.osl .s{font-family:var(--f-mono);font-size:10.5px;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.osl .ok{background:color-mix(in srgb,var(--teal) 18%,transparent);color:var(--teal)}
+.osl .warn{background:color-mix(in srgb,var(--sun) 20%,transparent);color:var(--sun)}
+.osl .info{background:var(--accent-soft);color:var(--accent)}
+.osl .tot{font-family:var(--f-mono);font-size:11.5px}
+.links{display:flex;gap:18px;flex-wrap:wrap}
 .table{width:88%;padding:8px 12px;font-family:var(--f-mono);font-size:11.5px}
 .table .r{display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:6px 0;border-bottom:1px solid var(--line);align-items:center}
 .table .r:last-child{border-bottom:0}
@@ -449,7 +460,24 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
             <a class="gh" href="https://github.com/jefframalho/sistema-loja-pdv" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg>Ver código</a>
           </div>
         </article>
-        <article class="tilt card">
+        <article class="tilt card w4">
+          <div class="preview"><div class="ui osl">
+            <div class="r"><span class="n">OS 0042</span><span class="d">iPhone 11 · bateria</span><span class="s warn">aguardando</span></div>
+            <div class="r"><span class="n">OS 0041</span><span class="d">Moto G22 · conector</span><span class="s ok">pronto</span></div>
+            <div class="r"><span class="n">OS 0040</span><span class="d">Notebook · SSD</span><span class="s info">em conserto</span></div>
+            <div class="r tot"><span>Faturado no mês</span><span></span><b>R$ 3.480,00</b></div>
+          </div></div>
+          <div class="info">
+            <div class="top"><h3>Maycell</h3><span class="kicker">Sistema + banco de dados</span></div>
+            <p>Ordem de serviço para assistência técnica: entrada do aparelho com fotos, orçamento, status do conserto, aviso pelo WhatsApp e comprovante com garantia.</p>
+            <div class="tags"><span>Python</span><span>SQLite</span><span>API REST</span><span>JavaScript</span></div>
+            <div class="links">
+              <a class="gh" href="projetos/maycell/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z"/></svg>Testar online</a>
+              <a class="gh" href="https://github.com/jefframalho/jefframalho.github.io/tree/main/projetos/maycell" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg>Ver código</a>
+            </div>
+          </div>
+        </article>
+        <article class="tilt card w3">
           <div class="preview"><div class="gauges">
             <div class="gauge" style="--c:var(--accent);--p:42%"><div>CPU<br>42%</div></div>
             <div class="gauge" style="--c:var(--pink);--p:67%"><div>GPU<br>67%</div></div>
@@ -461,7 +489,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
             <div class="tags"><span>Windows</span><span>Automação</span></div>
           </div>
         </article>
-        <article class="tilt card">
+        <article class="tilt card w3">
           <div class="preview"><div class="books">
             <i style="height:120px;background:var(--sun)"></i><i style="height:96px;background:var(--surface)"></i><i style="height:132px;background:var(--teal)"></i><i style="height:104px;background:var(--accent)"></i>
           </div></div>
