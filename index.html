@@ -155,6 +155,35 @@ section{padding-block:88px 24px}
 .info p{color:var(--muted);font-size:15px}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .tags span{font-family:var(--f-mono);font-size:11.5px;padding:3px 9px;border-radius:99px;background:var(--soft);color:var(--violet)}
+/* sistemas à venda */
+.perks{display:flex;flex-wrap:wrap;gap:8px;margin:-12px 0 26px}
+.perks span{font-family:var(--f-mono);font-size:12.5px;padding:6px 12px;border-radius:99px;border:1px solid rgba(61,255,168,.35);background:rgba(61,255,168,.07);color:var(--teal)}
+.sale .feat{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:5px;font-size:14.5px}
+.sale .feat li{display:flex;gap:8px;align-items:baseline}
+.sale .feat li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0}
+.sale .plan{font-family:var(--f-mono);font-size:12px;color:var(--teal);letter-spacing:.04em;margin-top:4px}
+.sale .acts2{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.sale .acts2 a{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;font-weight:600;font-size:14px;border-radius:99px;transition:transform .2s,box-shadow .2s}
+.sale .acts2 a:hover{transform:translateY(-2px)}
+.sale .acts2 .buy{background:#25D366;color:#04220f;box-shadow:0 8px 24px -10px #25D366}
+.sale .acts2 .try{border:1px solid rgba(34,229,255,.45);background:rgba(34,229,255,.08);color:var(--accent)}
+.sale .acts2 svg{width:16px;height:16px}
+.tagnew{position:absolute;top:12px;left:12px;font-family:var(--f-mono);font-size:11px;background:rgba(4,5,13,.78);color:var(--teal);padding:4px 10px;border-radius:99px;border:1px solid rgba(61,255,168,.45);z-index:2}
+.gym,.agenda,.fiado,.camp,.code{width:90%;font-size:12px}
+.gym .r,.agenda .r,.fiado .r{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.gym .r:last-child,.agenda .r:last-child,.fiado .r:last-child{border-bottom:0}
+.gym .ck{width:18px;height:18px;border-radius:5px;border:2px solid rgba(255,255,255,.55);display:grid;place-items:center;font-size:11px;font-weight:800;flex-shrink:0}
+.gym .ck.ok{background:#C6F432;border-color:#C6F432;color:#111}
+.gym .r span:nth-child(2){flex:1}.gym small,.agenda small{opacity:.75;font-family:var(--f-mono);font-size:11px}
+.gym .ia,.camp .ia{font-family:var(--f-mono);font-size:11px;background:rgba(4,5,13,.55);padding:4px 10px;border-radius:99px;display:inline-block;margin-top:6px}
+.agenda .h{font-family:var(--f-mono);font-weight:700;width:44px}
+.agenda .r span:nth-child(2){flex:1}
+.agenda .st,.fiado .v{font-family:var(--f-mono);font-size:10.5px;padding:2px 8px;border-radius:99px;background:rgba(4,5,13,.5)}
+.fiado .r span:first-child{flex:1}.fiado .tot{font-family:var(--f-mono);font-weight:700}
+.camp{display:grid;gap:8px}.camp b{font-family:var(--f-display);font-size:30px;line-height:1}
+.camp .bars{display:flex;align-items:flex-end;gap:6px;height:58px}.camp .bars i{flex:1;background:rgba(255,255,255,.85);border-radius:4px 4px 0 0}
+.code{font-family:var(--f-mono);font-size:12.5px;line-height:1.7;background:rgba(4,5,13,.6);border-radius:10px;padding:12px 14px}
+.code .c{color:#C6F432}
 .group{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin:44px 0 14px;display:flex;align-items:center;gap:12px}
 .group::after{content:"";flex:1;height:2px;background:var(--grad);opacity:.6;border-radius:2px}
 
@@ -377,7 +406,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#topo"><i>JR</i>Jefferson Ramalho</a>
-    <nav class="links"><a href="#projetos">Projetos</a><a href="#servicos">Serviços</a><a href="#processo">Processo</a><a class="cta" href="#contato">Contato</a><button class="sound" id="sound" aria-pressed="false" title="Ligar sons da interface"><span class="eq"><i></i><i></i><i></i></span><span class="lbl">Som</span></button></nav>
+    <nav class="links"><a href="#sistemas">Sistemas</a><a href="#projetos">Projetos</a><a href="#servicos">Serviços</a><a href="#processo">Processo</a><a class="cta" href="#contato">Contato</a><button class="sound" id="sound" aria-pressed="false" title="Ligar sons da interface"><span class="eq"><i></i><i></i><i></i></span><span class="lbl">Som</span></button></nav>
   </div>
 </header>
 
@@ -391,7 +420,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
     <div class="ctas">
       <a class="btn primary" href="#contato">Vamos conversar
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-      <a class="btn" href="#projetos">Ver projetos</a>
+      <a class="btn" href="#sistemas">Sistemas à venda</a>
     </div>
     <div class="term" aria-label="Terminal">
       <div class="term-bar"><i></i><i></i><i></i><span>jefferson@mauriti: ~</span></div>
@@ -414,10 +443,92 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
     </div>
   </div>
 
+  <section id="sistemas">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-k="// 01 · sistemas à venda">Sistemas prontos para o <em>seu negócio</em></h2>
+        <p>Funcionam no navegador e no celular. Você assina, eu configuro e dou suporte.</p>
+      </div>
+      <div class="perks"><span>✓ teste grátis</span><span>✓ sem instalar nada</span><span>✓ funciona no celular</span><span>✓ suporte pelo WhatsApp</span><span>✓ atualizações inclusas</span></div>
+      <div class="bento">
+        <article class="tilt card sale w3">
+          <div class="preview"><span class="tagnew">NOVO · com IA</span><div class="ui gym"><div class="r"><span class="ck ok">✓</span><span>Supino reto</span><small>4x10 · 40kg</small></div><div class="r"><span class="ck ok">✓</span><span>Puxada frontal</span><small>4x10 · 50kg</small></div><div class="r"><span class="ck"></span><span>Leg press 45°</span><small>4x12</small></div><span class="ia">✨ treino montado pela IA</span></div></div>
+          <div class="info">
+            <div class="top"><h3>FitGestor</h3><span class="kicker">Academias · web</span></div>
+            <p>Sistema completo para academias: a recepção controla alunos e mensalidades, o professor monta treinos e o aluno acompanha tudo pelo celular.</p>
+            <ul class="feat"><li>Alunos, mensalidades e cobrança pelo WhatsApp</li><li>Anamnese, PAR-Q e avaliação física com evolução</li><li>IA que lê a ficha do aluno e monta o treino</li><li>Painel do aluno com treinos e medidas</li></ul>
+            <div class="plan">Mensalidade · 7 dias grátis</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20FitGestor%20para%20minha%20academia." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero para minha academia</a><a class="try" href="https://jefframalho.github.io/fitgestor/?demo" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z"/></svg>Testar grátis</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale w3">
+          <div class="preview"><div class="ui agenda"><div class="r"><span class="h">08:00</span><span>Limpeza</span><span class="st">confirmado</span></div><div class="r"><span class="h">09:30</span><span>Canal · 2ª sessão</span><span class="st">em atendimento</span></div><div class="r"><span class="h">11:00</span><span>Avaliação</span><span class="st">aguardando</span></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Clinix Odonto</h3><span class="kicker">Clínicas · web + Windows</span></div>
+            <p>Gestão para clínicas odontológicas: agenda, prontuário e financeiro, com contrato assinado pelo paciente.</p>
+            <ul class="feat"><li>Agenda e ficha completa do paciente</li><li>Contratos com assinatura do paciente</li><li>Financeiro e controle de pagamentos</li><li>Acesso com login para a equipe</li></ul>
+            <div class="plan">Mensalidade · teste grátis</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Clinix%20Odonto%20para%20minha%20cl%C3%ADnica." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero para minha clínica</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale ">
+          <div class="preview"><div class="ui osl"><div class="r"><span class="n">OS 0042</span><span class="d">iPhone 11 · bateria</span><span class="s warn">aguardando</span></div><div class="r"><span class="n">OS 0041</span><span class="d">Moto G22 · conector</span><span class="s ok">pronto</span></div><div class="r tot"><span>Faturado no mês</span><span></span><b>R$ 3.480,00</b></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Maycell</h3><span class="kicker">Assistência técnica</span></div>
+            <p>Ordem de serviço do balcão à entrega do aparelho.</p>
+            <ul class="feat"><li>Entrada com fotos e orçamento</li><li>Status do conserto e aviso no WhatsApp</li><li>Comprovante com garantia</li></ul>
+            <div class="plan">Mensalidade ou compra única</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Maycell%20%28ordem%20de%20servi%C3%A7o%29%20para%20minha%20assist%C3%AAncia%20t%C3%A9cnica." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero para minha loja</a><a class="try" href="projetos/maycell/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z"/></svg>Testar grátis</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale ">
+          <div class="preview"><div class="ui table"><div class="r"><span>Camiseta dry fit</span><span class="q">32 un</span><span>R$ 49,90</span></div><div class="r"><span>Garrafa 1L</span><span class="q low">3 un</span><span>R$ 29,90</span></div><div class="r"><span>Caixa do dia</span><span></span><span><b>R$ 1.284,50</b></span></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Sistema de Loja</h3><span class="kicker">Comércio · PDV</span></div>
+            <p>Caixa, estoque e vendas do dia a dia num lugar só.</p>
+            <ul class="feat"><li>Produtos, preços e estoque com alerta</li><li>Entradas, saídas e fechamento de caixa</li><li>Relatórios de vendas</li></ul>
+            <div class="plan">Mensalidade ou compra única</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Sistema%20de%20Loja%20%28PDV%29%20para%20o%20meu%20com%C3%A9rcio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero para minha loja</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale ">
+          <div class="preview"><div class="ui fiado"><div class="r"><span>Dona Rita</span><span class="v">R$ 86,50</span></div><div class="r"><span>Seu Zé</span><span class="v">R$ 42,00</span></div><div class="r"><span>Marcos</span><span class="v">R$ 19,90</span></div><div class="r"><span class="tot">A receber</span><span class="tot">R$ 148,40</span></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Caderneta</h3><span class="kicker">App Android</span></div>
+            <p>A caderneta de fiado no celular, sem papel e sem esquecer ninguém.</p>
+            <ul class="feat"><li>Clientes, compras e pagamentos</li><li>Total a receber na hora</li><li>Cobrança pelo WhatsApp</li></ul>
+            <div class="plan">Compra única</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20app%20Caderneta%20%28fiado%29%20para%20o%20meu%20com%C3%A9rcio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero o app</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale w3">
+          <div class="preview"><div class="ui camp"><small style="font-family:var(--f-mono);opacity:.8">campanha de aniversariantes</small><b>124 mensagens</b><div class="bars"><i style="height:35%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:66%"></i><i style="height:80%"></i><i style="height:100%"></i></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Clientela</h3><span class="kicker">Comércio · Windows</span></div>
+            <p>Ajuda o comércio a vender mais para quem já é cliente.</p>
+            <ul class="feat"><li>Cadastro de clientes e histórico de compras</li><li>Campanhas de WhatsApp (aniversário, promoções, quem sumiu)</li><li>Painel com os resultados de cada campanha</li></ul>
+            <div class="plan">Mensalidade · teste grátis</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Clientela%20para%20o%20meu%20com%C3%A9rcio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero vender mais</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale w3">
+          <div class="preview"><div class="ui code"><span class="c">// seu negócio</span><br>const sistema = criar({<br>&nbsp;&nbsp;nome: "<span class="c">o seu</span>",<br>&nbsp;&nbsp;celular: true, whatsapp: true,<br>&nbsp;&nbsp;ia: <span class="c">"se ajudar"</span><br>});</div></div>
+          <div class="info">
+            <div class="top"><h3>Sob medida</h3><span class="kicker">Qualquer ramo</span></div>
+            <p>Não achou o sistema do seu ramo? Eu crio do zero, do jeito que o seu negócio funciona.</p>
+            <ul class="feat"><li>Site, app Android ou sistema para Windows</li><li>Integração com WhatsApp e IA</li><li>Você acompanha cada versão</li></ul>
+            <div class="plan">Orçamento sem compromisso</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20quero%20um%20or%C3%A7amento%20de%20um%20sistema%20sob%20medida%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Pedir orçamento</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="projetos">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-k="// 01 · projetos">Projetos <em>selecionados</em></h2>
+        <h2 data-k="// 02 · projetos">Projetos <em>selecionados</em></h2>
         <p>Cada um começou com um problema real: estudar melhor, gastar menos, vender mais.</p>
       </div>
 
@@ -546,7 +657,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
           <div class="face f6"><span>Electron<small>Windows</small></span></div>
         </div>
       </div>
-      <div class="skills"><span class="hud" style="margin-bottom:2px"><span>02 · tecnologias</span></span>
+      <div class="skills"><span class="hud" style="margin-bottom:2px"><span>03 · tecnologias</span></span>
         <h2 style="font-size:clamp(30px,4.6vw,48px);margin-bottom:10px">O que tem <em>por trás</em></h2>
         <div class="skill"><div class="row"><span>HTML, CSS e JavaScript</span><span>sites, fanpages e apps web</span></div><div class="bar"><i style="width:92%"></i></div></div>
         <div class="skill"><div class="row"><span>Android</span><span>apps instaláveis</span></div><div class="bar"><i style="width:74%"></i></div></div>
@@ -558,7 +669,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
 
   <section id="servicos">
     <div class="wrap">
-      <div class="sec-head"><h2 data-k="// 03 · serviços">Como posso <em>ajudar</em></h2><p>Do primeiro site da sua empresa a um sistema completo.</p></div>
+      <div class="sec-head"><h2 data-k="// 04 · serviços">Como posso <em>ajudar</em></h2><p>Do primeiro site da sua empresa a um sistema completo.</p></div>
       <div class="services">
         <div class="svc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 9h18"/></svg></span><h3>Sites e fanpages</h3><p>Página da empresa ou fanpage do Instagram, bonita no celular, com WhatsApp e mapa.</p></div>
         <div class="svc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span><h3>Apps Android</h3><p>Aplicativo instalável no celular, que funciona até sem internet.</p></div>
@@ -570,7 +681,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
 
   <section id="processo">
     <div class="wrap">
-      <div class="sec-head"><h2 data-k="// 04 · processo">Do papo ao <em>projeto no ar</em></h2></div>
+      <div class="sec-head"><h2 data-k="// 05 · processo">Do papo ao <em>projeto no ar</em></h2></div>
       <div class="steps">
         <div class="step"><span class="n">01</span><h3>Conversa</h3><p>Entendo o seu negócio e o que precisa resolver.</p></div>
         <div class="step"><span class="n">02</span><h3>Primeira versão</h3><p>Em poucos dias você já vê o projeto funcionando.</p></div>
@@ -725,7 +836,7 @@ const Sfx = (()=>{
     ["cmd","whoami"],
     ["out","Jefferson Ramalho · desenvolvedor · Mauriti, CE"],
     ["cmd","ls projetos/"],
-    ["out","estudos  conta-do-mercado  sistema-loja  automacao-pc\napp-livros  js-revestimento  dra-raylla  aem-store"],
+    ["out","fitgestor  clinix-odonto  maycell  sistema-loja  caderneta\nclientela  estudos  conta-do-mercado  app-livros"],
     ["cmd","cat stack.txt"],
     ["out","html · css · javascript · python · android · ia"],
     ["cmd","status"],
