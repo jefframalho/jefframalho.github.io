@@ -402,6 +402,9 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
 .obra .r div{display:flex;justify-content:space-between;gap:8px;font-family:var(--f-mono);font-size:11px}
 .obra .pb{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
 .obra .pb i{display:block;height:100%;border-radius:99px;background:var(--grad)}
+.card.w6{grid-column:span 6}
+@media (max-width:960px){.card.w6{grid-column:span 2}}
+@media (max-width:620px){.card.w6{grid-column:span 1}}
 .order-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:24px;border:1px solid rgba(124,92,255,.22);border-radius:6px;background:rgba(11,14,32,.72);backdrop-filter:blur(8px)}
 .order-form .f{display:grid;gap:6px;min-width:0}
 .order-form .f.full{grid-column:1/-1}
@@ -565,7 +568,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
           </div>
         </article>
         <article class="tilt card sale w3">
-          <div class="preview"><span class="tagnew">EM BREVE</span><div class="ui osl"><div class="r"><span class="n">0112</span><span class="d">2x Pizza grande</span><span class="s info">a caminho</span></div><div class="r"><span class="n">0111</span><span class="d">Combo hambúrguer</span><span class="s ok">entregue</span></div><div class="r"><span class="n">0113</span><span class="d">Açaí 500ml</span><span class="s warn">preparando</span></div></div></div>
+          <div class="preview"><span class="tagnew">NOVO</span><div class="ui osl"><div class="r"><span class="n">0112</span><span class="d">2x Pizza grande</span><span class="s info">a caminho</span></div><div class="r"><span class="n">0111</span><span class="d">Combo hambúrguer</span><span class="s ok">entregue</span></div><div class="r"><span class="n">0113</span><span class="d">Açaí 500ml</span><span class="s warn">preparando</span></div></div></div>
           <div class="info">
             <div class="top"><h3>Delivery Mauriti</h3><span class="kicker">Delivery · web</span></div>
             <p>Delivery para o comércio da cidade: cada loja com seu link público, painel do lojista e painel administrativo.</p>
@@ -673,37 +676,13 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
             <div class="tags"><span>JavaScript</span><span>Open Library API</span></div>
           </div>
         </article>
-        <article class="tilt card w3">
+        <article class="tilt card w6">
           <div class="preview"><div class="ui gym"><div class="r"><span class="ck ok">✓</span><span>Agachamento livre</span><small>4x10</small></div><div class="r"><span class="ck ok">✓</span><span>Remada curvada</span><small>4x12</small></div><div class="r"><span class="ck"></span><span>Desenvolvimento</span><small>3x12</small></div></div></div>
           <div class="info">
             <div class="top"><h3>Evolui Fit</h3><span class="kicker">Web · treinos</span></div>
             <p>App de treinos para alunos e personal: o personal monta o treino e o aluno acompanha pelo celular.</p>
             <div class="tags"><span>Treinos</span><span>Alunos</span><span>Personal</span></div>
             <a class="gh" href="https://jefframalho.github.io/evolui-fit/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z"/></svg>Abrir o app</a>
-          </div>
-        </article>
-        <article class="tilt card w3">
-          <div class="preview"><div class="ui agenda"><div class="r"><span class="h">08:10</span><span>Chegada · paciente</span><span class="st">registrado</span></div><div class="r"><span class="h">09:40</span><span>Saída · paciente</span><span class="st">registrado</span></div><div class="r"><span class="h">10:30</span><span>Contrato</span><span class="st">assinado</span></div></div></div>
-          <div class="info">
-            <div class="top"><h3>Viver Bem</h3><span class="kicker">Home care · sistema</span></div>
-            <p>Sistema de gestão para atendimento domiciliar: login para administração e profissionais, cadastro de pacientes, registro de chegada e saída e contratos assinados no app.</p>
-            <div class="tags"><span>Firebase</span><span>Login</span><span>Contratos</span></div>
-          </div>
-        </article>
-        <article class="tilt card w3">
-          <div class="preview"><div class="ui browser"><div class="bar"><i></i><i></i><i></i></div><div class="page"><div class="ln big" style="width:55%"></div><div class="ln" style="width:80%"></div><div class="blocks"><i style="background:var(--accent)"></i><i style="background:var(--line)"></i><i style="background:var(--ink)"></i><i style="background:var(--line)"></i><i style="background:var(--muted)"></i><i style="background:var(--accent)"></i></div></div></div></div>
-          <div class="info">
-            <div class="top"><h3>Vitrine da Cidade</h3><span class="kicker">Site · guia local</span></div>
-            <p>Guia de comércio da cidade: o visitante digita o CEP e encontra lojas com contato, Instagram, produtos e catálogo online.</p>
-            <div class="tags"><span>JavaScript</span><span>Firebase</span><span>API de CEP</span></div>
-          </div>
-        </article>
-        <article class="tilt card w3">
-          <div class="preview"><div class="ui camp"><small style="font-family:var(--f-mono);opacity:.8">relatório semanal · segunda 08:00</small><b>PDF + e-mail</b><div class="bars"><i style="height:40%"></i><i style="height:58%"></i><i style="height:52%"></i><i style="height:74%"></i><i style="height:68%"></i><i style="height:100%"></i></div></div></div>
-          <div class="info">
-            <div class="top"><h3>Robô de Relatórios</h3><span class="kicker">Automação · Python</span></div>
-            <p>Lê a planilha de vendas, gera um PDF com gráficos e envia por e-mail toda segunda-feira.</p>
-            <div class="tags"><span>Python</span><span>PDF</span><span>E-mail</span></div>
           </div>
         </article>
       </div>
