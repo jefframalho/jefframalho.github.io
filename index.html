@@ -395,6 +395,29 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
 @media (max-width:620px){.sound .lbl{display:none}}
 
 @media (prefers-reduced-motion:reduce){.floor,.term-body .cur,.sound .eq i{animation:none!important}}
+
+/* obras, pedido pelo site */
+.obra{width:90%;font-size:12px;padding:12px 14px;display:grid;gap:10px}
+.obra .r{display:grid;gap:4px}
+.obra .r div{display:flex;justify-content:space-between;gap:8px;font-family:var(--f-mono);font-size:11px}
+.obra .pb{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.obra .pb i{display:block;height:100%;border-radius:99px;background:var(--grad)}
+.order-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:24px;border:1px solid rgba(124,92,255,.22);border-radius:6px;background:rgba(11,14,32,.72);backdrop-filter:blur(8px)}
+.order-form .f{display:grid;gap:6px;min-width:0}
+.order-form .f.full{grid-column:1/-1}
+.order-form label{font-family:var(--f-mono);font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.order-form input,.order-form select,.order-form textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:rgba(4,6,16,.85);border:1px solid rgba(34,229,255,.3);border-radius:4px;padding:12px 14px}
+.order-form option{background:#0B0E20;color:#E9EDFF}
+.order-form textarea{min-height:96px;resize:vertical}
+.order-form input:focus,.order-form select:focus,.order-form textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(34,229,255,.18)}
+.order-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.order-form .go-row{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.order-form button.btn{cursor:pointer;color:var(--ink)}
+.order-form button.btn.primary{color:#fff}
+.order-status{font-family:var(--f-mono);font-size:13px;color:var(--teal);min-height:1.4em}
+.order-status[data-err="1"]{color:var(--pink)}
+.order-status a{color:var(--accent);text-decoration:underline}
+@media (max-width:620px){.order-form{grid-template-columns:minmax(0,1fr);padding:18px}}
 </style>
 </head>
 <body>
@@ -438,8 +461,8 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
   </div>
   <div class="marquee" aria-label="Tecnologias">
     <div class="track">
-      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Banco de dados</span><span>Electron</span><span>Android</span><span>APIs REST</span><span>IA · Claude</span><span>Git e GitHub</span>
-      <span aria-hidden="true">HTML</span><span aria-hidden="true">CSS</span><span aria-hidden="true">JavaScript</span><span aria-hidden="true">Python</span><span aria-hidden="true">Banco de dados</span><span aria-hidden="true">Electron</span><span aria-hidden="true">Android</span><span aria-hidden="true">APIs REST</span><span aria-hidden="true">IA · Claude</span><span aria-hidden="true">Git e GitHub</span>
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Banco de dados</span><span>Electron</span><span>Android</span><span>APIs REST</span><span>Firebase</span><span>IA · Claude</span><span>Git e GitHub</span>
+      <span aria-hidden="true">HTML</span><span aria-hidden="true">CSS</span><span aria-hidden="true">JavaScript</span><span aria-hidden="true">Python</span><span aria-hidden="true">Banco de dados</span><span aria-hidden="true">Electron</span><span aria-hidden="true">Android</span><span aria-hidden="true">APIs REST</span><span aria-hidden="true">Firebase</span><span aria-hidden="true">IA · Claude</span><span aria-hidden="true">Git e GitHub</span>
     </div>
   </div>
 
@@ -447,7 +470,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
     <div class="wrap">
       <div class="sec-head">
         <h2 data-k="// 01 · sistemas à venda">Sistemas prontos para o <em>seu negócio</em></h2>
-        <p>Funcionam no navegador e no celular. Você assina, eu configuro e dou suporte.</p>
+        <p>Funcionam no navegador e no celular. Você assina, eu configuro e dou suporte. Não achou o seu ramo? Eu crio sob medida.</p>
       </div>
       <div class="perks"><span>✓ teste grátis</span><span>✓ sem instalar nada</span><span>✓ funciona no celular</span><span>✓ suporte pelo WhatsApp</span><span>✓ atualizações inclusas</span></div>
       <div class="bento">
@@ -509,6 +532,46 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
             <ul class="feat"><li>Cadastro de clientes e histórico de compras</li><li>Campanhas de WhatsApp (aniversário, promoções, quem sumiu)</li><li>Painel com os resultados de cada campanha</li></ul>
             <div class="plan">Mensalidade · teste grátis</div>
             <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Clientela%20para%20o%20meu%20com%C3%A9rcio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero vender mais</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale w3">
+          <div class="preview"><span class="tagnew">NOVO</span><div class="ui table"><div class="r"><span>Galaxy A15 · IMEI ..4821</span><span class="q">4 un</span><span>R$ 1.199,00</span></div><div class="r"><span>iPhone 11 · seminovo</span><span class="q low">1 un</span><span>R$ 2.350,00</span></div><div class="r"><span>Caixa do dia</span><span></span><span><b>R$ 3.549,00</b></span></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Cellix</h3><span class="kicker">Lojas de celular · web</span></div>
+            <p>Sistema para lojas de celular, com várias lojas no mesmo sistema: vendas, estoque e assistência técnica num só lugar.</p>
+            <ul class="feat"><li>Vendas (PDV) e caixa</li><li>Estoque com controle de IMEI</li><li>Ordem de serviço da assistência</li><li>Seminovos e troca de aparelhos</li></ul>
+            <div class="plan">Mensalidade</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Cellix%20para%20minha%20loja%20de%20celular." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero para minha loja</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale w3">
+          <div class="preview"><span class="tagnew">JÁ EM USO</span><div class="ui obra"><div class="r"><div><span>Reforma · Sala 3</span><span>72%</span></div><div class="pb"><i style="width:72%"></i></div></div><div class="r"><div><span>Elétrica · Bloco B</span><span>45%</span></div><div class="pb"><i style="width:45%"></i></div></div><div class="r"><div><span>Termo de entrega</span><span>assinado ✓</span></div><div class="pb"><i style="width:100%"></i></div></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Gestor de Obras</h3><span class="kicker">Construtoras · web</span></div>
+            <p>Gestão de obras para construtoras, do orçamento à entrega, com o cliente assinando pelo celular.</p>
+            <ul class="feat"><li>Obras e cronograma</li><li>Orçamento em PDF e controle de custos</li><li>Materiais, estoque, equipe e clientes</li><li>Contrato, vistoria e termo de entrega com assinatura do cliente</li></ul>
+            <div class="plan">Mensalidade</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Gestor%20de%20Obras%20para%20minha%20construtora." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero para minha construtora</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale w3">
+          <div class="preview"><span class="tagnew">NOVO</span><div class="ui table"><div class="r"><span>Dipirona 500mg · val 03/27</span><span class="q">48 un</span><span>R$ 7,90</span></div><div class="r"><span>Amoxicilina · val 11/26</span><span class="q low">6 un</span><span>R$ 32,00</span></div><div class="r"><span>Caixa do dia</span><span></span><span><b>R$ 1.870,40</b></span></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Farmix</h3><span class="kicker">Farmácias · web</span></div>
+            <p>Sistema completo para farmácias: PDV, estoque com lote e validade e controle de receitas.</p>
+            <ul class="feat"><li>PDV, caixa e estoque com lote e validade</li><li>Controlados e receitas</li><li>Fiado/crediário e pedido online com entrega</li><li>Compras, contas a pagar e perfis de usuário</li></ul>
+            <div class="plan">Mensalidade</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Farmix%20para%20minha%20farm%C3%A1cia." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero para minha farmácia</a></div>
+          </div>
+        </article>
+        <article class="tilt card sale w3">
+          <div class="preview"><span class="tagnew">EM BREVE</span><div class="ui osl"><div class="r"><span class="n">0112</span><span class="d">2x Pizza grande</span><span class="s info">a caminho</span></div><div class="r"><span class="n">0111</span><span class="d">Combo hambúrguer</span><span class="s ok">entregue</span></div><div class="r"><span class="n">0113</span><span class="d">Açaí 500ml</span><span class="s warn">preparando</span></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Delivery Mauriti</h3><span class="kicker">Delivery · web</span></div>
+            <p>Delivery para o comércio da cidade: cada loja com seu link público, painel do lojista e painel administrativo.</p>
+            <ul class="feat"><li>Link público para cada loja</li><li>Painel do lojista com os pedidos</li><li>Sem comissão por pedido</li><li>O nome muda conforme a cidade do cliente</li></ul>
+            <div class="plan">R$ 79/mês por loja · sem comissão</div>
+            <div class="acts2"><a class="buy" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson%21%20Vi%20seu%20site%20e%20tenho%20interesse%20no%20Delivery%20Mauriti%20para%20a%20minha%20loja." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>Quero para minha loja</a></div>
           </div>
         </article>
         <article class="tilt card sale w3">
@@ -610,6 +673,39 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
             <div class="tags"><span>JavaScript</span><span>Open Library API</span></div>
           </div>
         </article>
+        <article class="tilt card w3">
+          <div class="preview"><div class="ui gym"><div class="r"><span class="ck ok">✓</span><span>Agachamento livre</span><small>4x10</small></div><div class="r"><span class="ck ok">✓</span><span>Remada curvada</span><small>4x12</small></div><div class="r"><span class="ck"></span><span>Desenvolvimento</span><small>3x12</small></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Evolui Fit</h3><span class="kicker">Web · treinos</span></div>
+            <p>App de treinos para alunos e personal: o personal monta o treino e o aluno acompanha pelo celular.</p>
+            <div class="tags"><span>Treinos</span><span>Alunos</span><span>Personal</span></div>
+            <a class="gh" href="https://jefframalho.github.io/evolui-fit/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5z"/></svg>Abrir o app</a>
+          </div>
+        </article>
+        <article class="tilt card w3">
+          <div class="preview"><div class="ui agenda"><div class="r"><span class="h">08:10</span><span>Chegada · paciente</span><span class="st">registrado</span></div><div class="r"><span class="h">09:40</span><span>Saída · paciente</span><span class="st">registrado</span></div><div class="r"><span class="h">10:30</span><span>Contrato</span><span class="st">assinado</span></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Viver Bem</h3><span class="kicker">Home care · sistema</span></div>
+            <p>Sistema de gestão para atendimento domiciliar: login para administração e profissionais, cadastro de pacientes, registro de chegada e saída e contratos assinados no app.</p>
+            <div class="tags"><span>Firebase</span><span>Login</span><span>Contratos</span></div>
+          </div>
+        </article>
+        <article class="tilt card w3">
+          <div class="preview"><div class="ui browser"><div class="bar"><i></i><i></i><i></i></div><div class="page"><div class="ln big" style="width:55%"></div><div class="ln" style="width:80%"></div><div class="blocks"><i style="background:var(--accent)"></i><i style="background:var(--line)"></i><i style="background:var(--ink)"></i><i style="background:var(--line)"></i><i style="background:var(--muted)"></i><i style="background:var(--accent)"></i></div></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Vitrine da Cidade</h3><span class="kicker">Site · guia local</span></div>
+            <p>Guia de comércio da cidade: o visitante digita o CEP e encontra lojas com contato, Instagram, produtos e catálogo online.</p>
+            <div class="tags"><span>JavaScript</span><span>Firebase</span><span>API de CEP</span></div>
+          </div>
+        </article>
+        <article class="tilt card w3">
+          <div class="preview"><div class="ui camp"><small style="font-family:var(--f-mono);opacity:.8">relatório semanal · segunda 08:00</small><b>PDF + e-mail</b><div class="bars"><i style="height:40%"></i><i style="height:58%"></i><i style="height:52%"></i><i style="height:74%"></i><i style="height:68%"></i><i style="height:100%"></i></div></div></div>
+          <div class="info">
+            <div class="top"><h3>Robô de Relatórios</h3><span class="kicker">Automação · Python</span></div>
+            <p>Lê a planilha de vendas, gera um PDF com gráficos e envia por e-mail toda segunda-feira.</p>
+            <div class="tags"><span>Python</span><span>PDF</span><span>E-mail</span></div>
+          </div>
+        </article>
       </div>
 
       <div class="group">Sites e fanpages para clientes</div>
@@ -661,7 +757,7 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
         <h2 style="font-size:clamp(30px,4.6vw,48px);margin-bottom:10px">O que tem <em>por trás</em></h2>
         <div class="skill"><div class="row"><span>HTML, CSS e JavaScript</span><span>sites, fanpages e apps web</span></div><div class="bar"><i style="width:92%"></i></div></div>
         <div class="skill"><div class="row"><span>Android</span><span>apps instaláveis</span></div><div class="bar"><i style="width:74%"></i></div></div>
-        <div class="skill"><div class="row"><span>Python e banco de dados</span><span>sistemas e automação</span></div><div class="bar"><i style="width:70%"></i></div></div>
+        <div class="skill"><div class="row"><span>Python, Firebase e banco de dados</span><span>sistemas e automação</span></div><div class="bar"><i style="width:70%"></i></div></div>
         <div class="skill"><div class="row"><span>Integração com IA</span><span>leitura de imagens e textos</span></div><div class="bar"><i style="width:80%"></i></div></div>
       </div>
     </div>
@@ -688,6 +784,20 @@ footer{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;lette
         <div class="step"><span class="n">03</span><h3>Ajustes</h3><p>Mudamos juntos até ficar do seu jeito.</p></div>
         <div class="step"><span class="n">04</span><h3>Entrega</h3><p>Publicado, com o código-fonte para você.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="pedido">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-k="// 06 · pedido">Peça o seu <em>sistema</em></h2><p>Conte o que você precisa e eu te respondo pelo WhatsApp.</p></div>
+      <form class="order-form" id="order" novalidate>
+        <div class="f"><label for="o-nome">Seu nome</label><input id="o-nome" name="nome" autocomplete="name" maxlength="80" required></div>
+        <div class="f"><label for="o-tel">WhatsApp com DDD</label><input id="o-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" placeholder="(83) 90000-0000" required></div>
+        <div class="f full"><label for="o-sis">Qual sistema?</label><select id="o-sis" name="sistema" required><option value="">Escolha um sistema</option><option>FitGestor (academias)</option><option>Clinix Odonto (clínicas)</option><option>Maycell (assistência técnica)</option><option>Sistema de Loja (PDV)</option><option>Caderneta (fiado, app Android)</option><option>Clientela (vender mais)</option><option>Cellix (lojas de celular)</option><option>Gestor de Obras (construtoras)</option><option>Farmix (farmácias)</option><option>Delivery Mauriti (delivery)</option><option>Sob medida (orçamento)</option></select></div>
+        <div class="f full"><label for="o-obs">Conte um pouco do seu negócio (opcional)</label><textarea id="o-obs" name="obs" maxlength="300"></textarea></div>
+        <div class="hp" aria-hidden="true"><label>Não preencha<input name="site" tabindex="-1" autocomplete="off"></label></div>
+        <div class="go-row"><button class="btn primary" type="submit">Enviar pedido</button><span class="order-status" id="order-status" role="status" aria-live="polite"></span></div>
+      </form>
     </div>
   </section>
 
@@ -900,6 +1010,42 @@ document.querySelectorAll("[data-copy]").forEach(b => b.addEventListener("click"
   catch { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selecionado"; }
   setTimeout(() => b.textContent = old, 1800);
 }));
+
+/* ---------- pedido pelo site ---------- */
+// Endereço público do bot de vendas (ex.: "https://meu-bot.onrender.com").
+// Vazio = o formulário só abre o WhatsApp com a mensagem pronta.
+const BOT_URL = "";
+(function(){
+  const form = document.getElementById("order"); if(!form) return;
+  const status = document.getElementById("order-status");
+  const ZAP = "5583921418988";
+  const msg = (t, err) => { status.textContent = t; status.dataset.err = err ? "1" : ""; };
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    if(form.site.value) return;
+    const nome = form.nome.value.trim(), tel = form.tel.value.trim(), sis = form.sistema.value, obs = form.obs.value.trim();
+    if(!nome || tel.replace(/\D/g,"").length < 10 || !sis){ msg("Preencha seu nome, o WhatsApp com DDD e o sistema.", true); return; }
+    const texto = "Olá Jefferson! Meu nome é " + nome + ". Tenho interesse em: " + sis + "." + (obs ? " " + obs : "") + " Meu WhatsApp: " + tel + ".";
+    const wa = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(texto);
+    if(!BOT_URL){ window.open(wa, "_blank", "noopener"); msg("Abrindo o WhatsApp para você enviar o pedido.", false); return; }
+    msg("Enviando…", false);
+    let ok = false;
+    try{
+      const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 8000);
+      const r = await fetch(BOT_URL.replace(/\/$/, "") + "/pedido", {
+        method:"POST", headers:{"Content-Type":"application/json"}, signal: ctl.signal,
+        body: JSON.stringify({cliente:nome, telefone:tel, itens:[{nome:sis, qtd:1}], obs})
+      });
+      clearTimeout(t); ok = r.ok;
+    }catch{}
+    status.textContent = ok ? "Pedido enviado! Já já eu te chamo. " : "Não consegui enviar agora. ";
+    status.dataset.err = ok ? "" : "1";
+    const a = document.createElement("a"); a.href = wa; a.target = "_blank"; a.rel = "noopener";
+    a.textContent = ok ? "Falar agora no WhatsApp" : "Toque aqui para falar no WhatsApp";
+    status.appendChild(a);
+    if(ok) form.reset();
+  });
+})();
 </script>
 
 </body>

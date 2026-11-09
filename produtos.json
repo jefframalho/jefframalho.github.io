@@ -1,0 +1,79 @@
+[
+  {
+    "nome": "FitGestor",
+    "preco": null,
+    "descricao": "Sistema para academias: alunos, mensalidades, cobrança pelo WhatsApp, avaliação física e treino montado por IA. Mensalidade, 7 dias grátis.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/fitgestor/?demo"
+  },
+  {
+    "nome": "Clinix Odonto",
+    "preco": null,
+    "descricao": "Gestão para clínicas odontológicas: agenda, prontuário, financeiro e contrato assinado pelo paciente. Mensalidade, teste grátis.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#sistemas"
+  },
+  {
+    "nome": "Maycell",
+    "preco": null,
+    "descricao": "Ordem de serviço para assistência técnica: fotos, orçamento, status do conserto e comprovante com garantia. Mensalidade ou compra única.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/projetos/maycell/"
+  },
+  {
+    "nome": "Sistema de Loja",
+    "preco": null,
+    "descricao": "Caixa, estoque com alerta e vendas do dia a dia num lugar só. Mensalidade ou compra única.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#sistemas"
+  },
+  {
+    "nome": "Caderneta",
+    "preco": null,
+    "descricao": "App Android de caderneta de fiado: clientes, total a receber e cobrança pelo WhatsApp. Compra única.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#sistemas"
+  },
+  {
+    "nome": "Clientela",
+    "preco": null,
+    "descricao": "Cadastro de clientes e campanhas de WhatsApp com painel de resultados, para o comércio vender mais. Mensalidade, teste grátis.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#sistemas"
+  },
+  {
+    "nome": "Cellix",
+    "preco": null,
+    "descricao": "Sistema para lojas de celular: vendas (PDV) e caixa, estoque com IMEI, ordem de serviço e seminovos. Mensalidade.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#sistemas"
+  },
+  {
+    "nome": "Gestor de Obras",
+    "preco": null,
+    "descricao": "Gestão de obras para construtoras: cronograma, orçamento em PDF, custos, materiais, contratos, vistoria e termo de entrega com assinatura do cliente. Mensalidade.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#sistemas"
+  },
+  {
+    "nome": "Farmix",
+    "preco": null,
+    "descricao": "Sistema para farmácias: PDV, caixa, estoque com lote e validade, controlados e receitas, fiado e pedido online. Mensalidade.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#sistemas"
+  },
+  {
+    "nome": "Delivery Mauriti",
+    "preco": null,
+    "descricao": "Delivery para o comércio da cidade: link público por loja, painel do lojista e painel administrativo. R$ 79 por mês por loja, sem comissão. Em breve.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#sistemas"
+  },
+  {
+    "nome": "Sob medida",
+    "preco": null,
+    "descricao": "Site, app Android ou sistema para Windows feito do zero para o seu negócio. Orçamento sem compromisso.",
+    "imagem": "",
+    "link": "https://jefframalho.github.io/#pedido"
+  }
+]

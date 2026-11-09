@@ -14,6 +14,11 @@ Site pessoal de desenvolvedor, com visual futurista, cena 3D interativa e projet
 - Responsivo: funciona no celular e no computador
 - Respeita quem prefere menos animação (`prefers-reduced-motion`)
 
+## Catálogo e pedidos
+
+- `produtos.json` é o catálogo lido pelo bot de vendas do Discord (`/produtos`, `/produto`, `/comprar`). Edite o arquivo e o bot atualiza em até 1 minuto.
+- O formulário **Peça o seu sistema** abre o WhatsApp com a mensagem pronta. Se `BOT_URL` (no final do `index.html`) apontar para o endereço do bot, o pedido também cai no canal de pedidos do Discord.
+
 ## Tecnologias
 
 `HTML` · `CSS` · `JavaScript` · `Three.js` · `Web Audio API`
