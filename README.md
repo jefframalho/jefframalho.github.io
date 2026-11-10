@@ -1,40 +1,17 @@
-# Portfólio · Jefferson Ramalho
+# Portfólio de Jefferson Ramalho
 
-Site pessoal de desenvolvedor, com visual futurista, cena 3D interativa e projetos em destaque.
+Site estático em HTML, CSS e JavaScript. Abra `index.html` no navegador para testar localmente.
 
-**🔗 Acesse:** https://jefframalho.github.io
+## Editar contato e projetos
 
-## Destaques
+No final de `index.html`, localize o objeto `site`.
 
-- Escultura 3D interativa na capa (arraste para girar), feita com **Three.js**
-- Terminal que digita sozinho apresentando quem sou
-- Cards dos projetos com inclinação 3D e reflexo de luz
-- Cubo 3D com as tecnologias que uso
-- Sons de interface sintetizados com a **Web Audio API** (opcional, começa desligado)
-- Responsivo: funciona no celular e no computador
-- Respeita quem prefere menos animação (`prefers-reduced-motion`)
+- `whatsapp` recebe o número com código do país e DDD, somente dígitos.
+- `photo` recebe o caminho da foto profissional.
+- `projects` reúne os textos, links públicos e imagens de cada projeto. Preencha `url` para mostrar o botão de acesso na página de detalhes. Preencha `image` com o caminho de uma captura autorizada, preferencialmente em WebP. Use capturas sem dados de clientes ou pacientes.
+- `catalogo.html` mantém o catálogo anterior e o formulário de pedidos. `produtos.json` mantém o endereço usado pelo bot do Discord.
 
-## Catálogo e pedidos
+## Publicar
 
-- `produtos.json` é o catálogo lido pelo bot de vendas do Discord (`/produtos`, `/produto`, `/comprar`). Edite o arquivo e o bot atualiza em até 1 minuto.
-- O formulário **Peça o seu sistema** abre o WhatsApp com a mensagem pronta. Se `BOT_URL` (no final do `index.html`) apontar para o endereço do bot, o pedido também cai no canal de pedidos do Discord.
-
-## Tecnologias
-
-`HTML` · `CSS` · `JavaScript` · `Three.js` · `Web Audio API`
-
-Tudo em um único arquivo, `index.html`, sem etapa de build.
-
-## Rodar no seu computador
-
-Baixe o repositório e abra o `index.html` no navegador. Só isso.
-
-## Contato
-
-- WhatsApp: (83) 9 2141-8988
-- E-mail: jeffersonramalhopb@gmail.com
-- Instagram: [@jefferson_ramalhopb](https://instagram.com/jefferson_ramalhopb)
-
----
-
-Feito por Jefferson Ramalho · Mauriti, CE
+- **GitHub Pages** — Em Settings → Pages, selecione Deploy from a branch, `main` e `/ (root)`. Envie os arquivos para essa branch.
+- **Netlify** — Importe o repositório, deixe o comando de build vazio e use `.` como pasta de publicação. Também é possível enviar a pasta do site pelo deploy manual.
