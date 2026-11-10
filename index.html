@@ -57,6 +57,19 @@ nav a{padding-block:.45rem}
   .devices .phone{transform:translateZ(35px)}
 }
 @media(max-width:720px){.hero .wrap{grid-template-columns:1fr}.wrap{width:calc(100% - 2rem)}}
+/* One low-opacity backdrop behind the content. The footer has its own solid surface. */
+body{position:relative;isolation:isolate}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--portfolio-backdrop,none) center top / cover no-repeat;opacity:.22}
+header{background:#fffffff0}
+.hero{background:radial-gradient(ellipse at 85% 25%,#f7efdfaa 0%,transparent 57%),#ffffff60}
+.soft{background:#f6f8fbba}
+.contact{background:#142238ed}
+footer{background:#fff}
+.project-preview{display:block;text-decoration:none}
+.project-preview:focus-visible{outline-offset:-5px}
+.art.has-image{padding:.85rem}
+.has-image .project-image{aspect-ratio:3/2;object-fit:cover;border-radius:.6rem;background:var(--tone)}
+@media(max-width:720px){body::before{background-size:auto 100%;background-position:60% top}}
 </style>
 </head>
 <body>
@@ -86,16 +99,17 @@ nav a{padding-block:.45rem}
 </main>
 <footer><div class="wrap"><small>Desenvolvido por Jefferson Ramalho</small><small>Mauriti, CE · Atendimento remoto</small></div></footer>
 <a class="button float" data-whatsapp href="#contato">WhatsApp</a>
+<script src="portfolio-images.js"></script>
 <script>
 const site = {
   whatsapp: '5583921418988',
   photo: '',
   projects: [
-    {id:'clinix-odonto', name:'Clinix Odonto', area:'Odontologia', tone:'#dceaf2', url:'', image:'',
+    {id:'clinix-odonto', name:'Clinix Odonto', area:'Odontologia', tone:'#dceaf2', url:'https://jefframalho.github.io/clinix-odonto/', image:'',
      summary:'Sistema para clínicas odontológicas com agendamento online e gestão de contratos.',
      purpose:'Reúne a agenda e os contratos da clínica. O agendamento online facilita o pedido de horário pelos pacientes.',
      features:['Agendamento online','Agenda da clínica','Gestão de contratos']},
-    {id:'viver-bem-homecare', name:'Viver Bem Homecare', area:'Atendimento domiciliar', tone:'#e0eee7', url:'https://viverbemhomecare.com.br/', image:'',
+    {id:'viver-bem-homecare', name:'Viver Bem Homecare', area:'Atendimento domiciliar', tone:'#e0eee7', url:'https://www.viverbemhomecare.com.br/', image:'',
      summary:'Portal com acesso para profissionais e familiares, registro de plantão e avisos de chegada e saída.',
      purpose:'Organiza a rotina de atendimento domiciliar e facilita o acompanhamento pelos familiares.',
      features:['Portal do profissional','Portal do familiar','Registro de plantão','Avisos de chegada e saída']},
@@ -103,12 +117,16 @@ const site = {
      summary:'Sistema para academias e instrutores com fichas de treino, agenda semanal e evolução dos alunos.',
      purpose:'Ajuda o instrutor a organizar o treino e acompanhar a evolução de cada aluno.',
      features:['Fichas de treino','Agenda semanal','Registro da evolução dos alunos']},
-    {id:'dra-raylla-ramalho', name:'Dra. Raylla Ramalho', area:'Site odontológico', tone:'#f1e6d1', url:'', image:'', showcase:true,
+    {id:'dra-raylla-ramalho', name:'Dra. Raylla Ramalho', area:'Site odontológico', tone:'#f1e6d1', url:'https://adorable-frangollo-df5165.netlify.app/', image:'', showcase:true,
      summary:'Site em branco e dourado criado para apresentar a profissional e facilitar o contato dos pacientes.',
      purpose:'Apresenta a Dra. Raylla Ramalho e ajuda os pacientes a encontrar informações sobre o consultório e formas de contato.',
      features:['Apresentação profissional','Identidade visual em branco e dourado','Layout responsivo']}
   ]
 };
+const portfolioImages = window.portfolioImages || {};
+if (portfolioImages.background) {
+  document.body.style.setProperty('--portfolio-backdrop', 'url("' + portfolioImages.background + '")');
+}
 const greeting = 'Olá, Jefferson! Vi seu site e gostaria de conversar sobre um projeto.';
 const services = [
   ['Sites profissionais','Criação de sites para apresentar empresas e profissionais autônomos e facilitar o contato com seus clientes.'],
@@ -118,7 +136,12 @@ const services = [
 const whatsapp = message => 'https://wa.me/' + site.whatsapp + '?text=' + encodeURIComponent(message);
 const detail = project => '?projeto=' + project.id;
 const demonstration = project => '<a class="button primary" href="' + whatsapp('Olá, Jefferson! Vi seu site e gostaria de solicitar uma demonstração do sistema ' + project.name + '.') + '">Solicitar demonstração</a>';
+const visit = project => project.url || detail(project);
 function artwork(project) {
+  const illustration = portfolioImages[project.id];
+  if (!project.image && illustration) {
+    return '<figure class="art has-image" data-tilt style="--tone:' + project.tone + '"><div class="devices" data-tilt-face><img class="project-image" src="' + illustration + '" alt="Prévia ilustrativa de ' + project.name + '" loading="lazy" decoding="async"></div><figcaption>Imagem ilustrativa</figcaption></figure>';
+  }
   const screen = project.image
     ? '<img src="' + project.image + '" alt="Captura de tela de ' + project.name + '" loading="lazy" decoding="async">'
     : '<div class="screen" aria-hidden="true"><strong>' + project.name + '</strong>' + project.features.slice(0,3).map(feature => '<span>' + feature + '</span>').join('') + '</div>';
@@ -135,8 +158,13 @@ if (selected) {
   document.getElementById('project-body').innerHTML = '<article><a class="back" href="./#projetos">← Todos os projetos</a><p class="label">' + selected.area + '</p><h1>' + selected.name + '</h1><p>' + selected.purpose + '</p>' + artwork(selected) + '<h2>Principais recursos</h2><ul>' + selected.features.map(feature => '<li>' + feature + '</li>').join('') + '</ul><div class="actions">' + (selected.showcase ? '' : demonstration(selected)) + (selected.url ? '<a class="button secondary" href="' + selected.url + '">Acessar site do projeto</a>' : '') + '</div></article>';
   document.getElementById('project').hidden = false;
 } else {
-  document.getElementById('destaques').innerHTML = site.projects.map((project, i) => '<a href="' + detail(project) + '"><span>0' + (i + 1) + '</span>' + project.name + '</a>').join('');
-  document.getElementById('cards').innerHTML = site.projects.map(project => '<article class="card project-card">' + artwork(project) + '<div class="body"><p class="label">' + project.area + '</p><h3>' + project.name + '</h3><p>' + project.summary + '</p><div class="actions"><a class="button secondary" href="' + detail(project) + '">' + (project.showcase ? 'Ver projeto' : 'Ver detalhes') + '</a>' + (project.showcase ? '' : demonstration(project)) + '</div></div></article>').join('');
+  document.getElementById('destaques').innerHTML = site.projects.map((project, i) => '<a href="' + visit(project) + '"><span>0' + (i + 1) + '</span>' + project.name + '</a>').join('');
+  document.getElementById('cards').innerHTML = site.projects.map(project =>
+    '<article class="card project-card"><a class="project-preview" href="' + visit(project) + '" aria-label="Abrir ' + project.name + '">' + artwork(project) + '</a>' +
+    '<div class="body"><p class="label">' + project.area + '</p><h3><a href="' + visit(project) + '">' + project.name + '</a></h3><p>' + project.summary + '</p>' +
+    '<div class="actions"><a class="button secondary" href="' + visit(project) + '">' + (project.showcase ? 'Ver projeto' : 'Acessar projeto') + '</a>' +
+    (project.showcase ? '' : demonstration(project)) + '<a href="' + detail(project) + '">Detalhes</a></div></div></article>'
+  ).join('');
   document.getElementById('services').innerHTML = services.map(([title, description]) => '<article class="card body"><h3>' + title + '</h3><p>' + description + '</p><a class="button secondary" href="' + whatsapp('Olá, Jefferson! Vi seu site e gostaria de pedir um orçamento. Serviço de interesse: ' + title + '.') + '">Pedir orçamento</a></article>').join('');
   if (site.photo) document.getElementById('profile').innerHTML = '<img src="' + site.photo + '" alt="Foto profissional de Jefferson Ramalho" loading="lazy" decoding="async">';
 }
