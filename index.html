@@ -86,7 +86,7 @@ footer{background:#fff}
 <div class="scene" data-tilt-face>
 <div class="scene-top"><p class="label">Portfólio selecionado</p><span class="scene-mark" aria-hidden="true">JR</span></div>
 <h2 class="scene-title" id="scene-title">Conheça meu trabalho</h2>
-<p class="scene-caption">Quatro projetos para clínicas, academias e atendimento domiciliar.</p>
+<p class="scene-caption">Projetos para clínicas, academias, atendimento domiciliar e construção civil.</p>
 <div id="destaques"></div>
 </div>
 </aside></div></section>
@@ -105,7 +105,7 @@ const site = {
   whatsapp: '5583921418988',
   photo: '',
   projects: [
-    {id:'clinix-odonto', name:'Clinix Odonto', area:'Odontologia', tone:'#dceaf2', url:'https://jefframalho.github.io/clinix-odonto/', image:'',
+    {id:'clinix-odonto', name:'Clinix Odonto', area:'Odontologia', tone:'#dceaf2', url:'https://www.clinixodonto.com.br/', image:'',
      summary:'Sistema para clínicas odontológicas com agendamento online e gestão de contratos.',
      purpose:'Reúne a agenda e os contratos da clínica. O agendamento online facilita o pedido de horário pelos pacientes.',
      features:['Agendamento online','Agenda da clínica','Gestão de contratos']},
@@ -117,6 +117,10 @@ const site = {
      summary:'Sistema para academias e instrutores com fichas de treino, agenda semanal e evolução dos alunos.',
      purpose:'Ajuda o instrutor a organizar o treino e acompanhar a evolução de cada aluno.',
      features:['Fichas de treino','Agenda semanal','Registro da evolução dos alunos']},
+    {id:'gestor-de-obras', name:'Gestor de Obras', area:'Construção civil', tone:'#eee4d1', url:'https://www.sistemagestordeobras.com.br/', image:'', illustration:'assets/gestor-de-obras.svg',
+     summary:'Sistema para construtoras e profissionais da construção civil organizarem cronogramas, orçamentos, custos e materiais.',
+     purpose:'Centraliza o planejamento e o acompanhamento da obra, do orçamento à vistoria e à entrega ao cliente.',
+     features:['Cronograma e etapas da obra','Orçamentos em PDF','Controle de custos e materiais','Contratos, vistorias e termo de entrega']},
     {id:'dra-raylla-ramalho', name:'Dra. Raylla Ramalho', area:'Site odontológico', tone:'#f1e6d1', url:'https://adorable-frangollo-df5165.netlify.app/', image:'', showcase:true,
      summary:'Site em branco e dourado criado para apresentar a profissional e facilitar o contato dos pacientes.',
      purpose:'Apresenta a Dra. Raylla Ramalho e ajuda os pacientes a encontrar informações sobre o consultório e formas de contato.',
@@ -138,7 +142,7 @@ const detail = project => '?projeto=' + project.id;
 const demonstration = project => '<a class="button primary" href="' + whatsapp('Olá, Jefferson! Vi seu site e gostaria de solicitar uma demonstração do sistema ' + project.name + '.') + '">Solicitar demonstração</a>';
 const visit = project => project.url || detail(project);
 function artwork(project) {
-  const illustration = portfolioImages[project.id];
+  const illustration = project.illustration || portfolioImages[project.id];
   if (!project.image && illustration) {
     return '<figure class="art has-image" data-tilt style="--tone:' + project.tone + '"><div class="devices" data-tilt-face><img class="project-image" src="' + illustration + '" alt="Prévia ilustrativa de ' + project.name + '" loading="lazy" decoding="async"></div><figcaption>Imagem ilustrativa</figcaption></figure>';
   }
