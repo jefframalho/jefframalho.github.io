@@ -62,10 +62,37 @@ p{color:var(--muted)}
 .text-link{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);text-decoration:none;border-bottom:1px solid #d2aa6366;padding-bottom:.2rem}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate;padding:0}
-.skyline{position:absolute;inset:0;z-index:-2;transform-origin:62% 100%;will-change:transform}
+.hero{position:relative;height:260vh;padding:0}
+.hero-sticky{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.skyline{position:absolute;inset:0;z-index:-3;transform-origin:62% 100%;will-change:transform}
 .skyline svg{width:100%;height:100%;display:block}
-.hero::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#08111fcc 0%,#08111f80 32%,transparent 62%),linear-gradient(0deg,#0b1628 0%,transparent 22%)}
+/* 3D tower */
+.stage3d{position:absolute;inset:0;z-index:-2;perspective:1500px;perspective-origin:62% 15%;pointer-events:none}
+.tower{position:absolute;left:62%;bottom:-2%;width:var(--W);height:var(--H);transform-style:preserve-3d;transform-origin:50% 100%;will-change:transform}
+.face{position:absolute;top:0;height:100%;backface-visibility:hidden;filter:brightness(var(--b,1));
+  background:
+   repeating-linear-gradient(180deg,transparent 0 30px,#d6dde8d9 30px 33px,#f2c27a80 33px 34px),
+   repeating-linear-gradient(90deg,#0a142899 0 3px,transparent 3px var(--cw)),
+   linear-gradient(180deg,#86a3cc 0%,#45679a 38%,#264372 70%,#172b4c 100%)}
+.face::before{content:'';position:absolute;inset:0;background:linear-gradient(115deg,#ffffff38 0%,transparent 35%,transparent 70%,#ffffff14 85%,transparent);mix-blend-mode:screen}
+.face::after{content:'';position:absolute;top:0;bottom:0;right:0;width:2px;background:#e9d2a6b3}
+.f-front{left:0;width:var(--W);transform:translateZ(calc(var(--D) / 2))}
+.f-back{left:0;width:var(--W);transform:rotateY(180deg) translateZ(calc(var(--D) / 2))}
+.f-right{left:calc((var(--W) - var(--D)) / 2);width:var(--D);transform:rotateY(90deg) translateZ(calc(var(--W) / 2))}
+.f-left{left:calc((var(--W) - var(--D)) / 2);width:var(--D);transform:rotateY(-90deg) translateZ(calc(var(--W) / 2))}
+.f-top{left:0;top:calc(var(--D) / -2);width:var(--W);height:var(--D);background:linear-gradient(135deg,#2a4166,#132540);transform:rotateX(90deg);backface-visibility:visible}
+.f-top::before,.f-top::after{display:none}
+.win{position:absolute;height:27px;background:linear-gradient(180deg,#ffe3b0,#f4bf73);box-shadow:0 0 14px #ffc97799;opacity:0;animation:on .7s var(--d) forwards,glow 6s calc(var(--d) + .7s) ease-in-out infinite alternate}
+@keyframes on{to{opacity:.9}}
+.strip{position:absolute;top:0;bottom:0;left:62%;width:8px;background:linear-gradient(90deg,#ffdca033,#ffd38a,#ffdca033);box-shadow:0 0 22px 6px #ffc97766;opacity:0;animation:on 1.2s 2.2s forwards}
+.crown{position:absolute;left:50%;bottom:100%;width:4px;height:var(--ant);background:linear-gradient(#9fb3cf00,#9fb3cf);transform-style:preserve-3d}
+.crown i{position:absolute;top:-4px;left:-3px;width:10px;height:10px;border-radius:50%;background:#ff7a6b;box-shadow:0 0 14px #ff7a6b;animation:blink 2s steps(1) infinite}
+@keyframes blink{50%{opacity:.2}}
+.ground{position:absolute;left:62%;bottom:-6%;width:calc(var(--W) * 3.2);height:140px;transform:translateX(-50%);background:radial-gradient(ellipse,#ffc97740,transparent 65%);filter:blur(6px)}
+.hero-sticky::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#08111fcc 0%,#08111f80 32%,transparent 62%),linear-gradient(0deg,#0b1628 0%,transparent 22%);pointer-events:none}
+.hero-sticky>.wrap{position:relative}
+.hero-copy.second{position:absolute;top:0;left:0;opacity:0;pointer-events:none}
+.hero-copy.second h2{font-size:clamp(2.6rem,6vw,5rem);margin-bottom:1.2rem}
 .hero-copy{padding-top:6rem;max-width:36rem;will-change:transform,opacity}
 .hero-copy .eyebrow{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:#dfe6f0;margin-bottom:.6rem}
 .hero h1{font-size:clamp(3.1rem,8vw,6.6rem);text-transform:uppercase;margin-bottom:1.4rem;letter-spacing:.02em;text-shadow:0 4px 30px #0006}
@@ -195,9 +222,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 }
 @media(max-width:640px){
   .wrap{width:calc(100% - 2rem)}
+  .tower,.ground{left:70%}.stage3d{perspective-origin:70% 10%}
   .topbar span:last-child{display:none}
-  .hero::before{background:linear-gradient(0deg,#0b1628 0%,#08111fcc 45%,#08111f40 100%)}
-  .hero{align-items:flex-end;padding-bottom:7rem}
+  .hero-sticky::before{background:linear-gradient(0deg,#0b1628 0%,#08111fb3 38%,#08111f14 72%)}
+  .hero-sticky{align-items:flex-end;padding-bottom:7rem}
   .hero-foot .scroll-cue{display:none}
   .art{padding-inline:1.1rem}
   .float span{display:none}
@@ -206,6 +234,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal,.fade{opacity:1;transform:none}
+  .win,.strip{opacity:.85}
+  .hero{height:100svh}
   html{scroll-behavior:auto}
 }
 </style>
@@ -243,8 +273,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <main id="conteudo">
 <div id="home">
 
-<section class="hero" id="inicio">
+<section class="hero" id="inicio"><div class="hero-sticky">
   <div class="skyline" id="skyline" aria-hidden="true"></div>
+  <div class="stage3d" aria-hidden="true"><div class="ground"></div><div class="tower" id="tower"></div></div>
   <div class="side-dots" aria-hidden="true"><a href="#projetos" tabindex="-1"></a><a href="#servicos" tabindex="-1"></a><a href="#sobre" tabindex="-1"></a><a href="#contato" tabindex="-1"></a></div>
   <div class="wrap">
     <div class="hero-copy" id="hero-copy">
@@ -253,9 +284,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
       <p class="lead reveal d3">Sou Jefferson Ramalho. Desenvolvo sites profissionais e sistemas web para clínicas, academias e empresas que precisam organizar sua rotina e atender melhor seus clientes.</p>
       <div class="actions reveal d4"><a class="button" href="#projetos">Explorar projetos</a><a class="button gold" data-whatsapp href="#contato">Pedir orçamento</a></div>
     </div>
+    <div class="hero-copy second" id="hero-copy-2">
+      <p class="label">Do alicerce ao último andar</p>
+      <h2>Projetos<br><em style="font-style:normal;color:var(--gold-soft)">sólidos.</em></h2>
+      <p class="lead">Cada site e sistema é planejado andar por andar, para crescer junto com o seu negócio.</p>
+      <div class="actions"><a class="button gold" href="#projetos">Ver projetos</a></div>
+    </div>
   </div>
   <div class="hero-foot"><div class="wrap"><a class="scroll-cue" href="#projetos"><i></i>Role para ver</a></div></div>
-</section>
+</div></section>
 
 <section class="dark" id="projetos"><div class="wrap">
   <div class="section-head fade"><div><p class="label">Portfólio</p><h2>Projetos em destaque</h2></div><p>Conheça os recursos de cada projeto ou solicite uma demonstração dos sistemas.</p></div>
@@ -371,33 +408,6 @@ function buildSkyline() {
       if (Math.random() < .18) s += '<rect x="' + wx.toFixed(0) + '" y="' + wy.toFixed(0) + '" width="6" height="7" fill="#f3c987" opacity="' + rnd(.3, .8).toFixed(2) + '"/>';
     x += w + rnd(2, 14);
   }
-  // main tower
-  const tx = 930, tw = 230, sw = 95, top = 120, floorH = 34;
-  s += '<g id="tower">';
-  s += '<rect x="' + (tx + 60) + '" y="' + (top - 70) + '" width="110" height="70" fill="#14294a"/><rect x="' + (tx + 112) + '" y="' + (top - 150) + '" width="4" height="80" fill="#9fb3cf"/><circle cx="' + (tx + 114) + '" cy="' + (top - 152) + '" r="4" fill="#ff7a6b" class="lit"/>';
-  s += '<polygon points="' + (tx + tw) + ',' + top + ' ' + (tx + tw + sw) + ',' + (top + 26) + ' ' + (tx + tw + sw) + ',' + H + ' ' + (tx + tw) + ',' + H + '" fill="url(#glassSide)"/>';
-  s += '<rect x="' + tx + '" y="' + top + '" width="' + tw + '" height="' + (H - top) + '" fill="url(#glass)"/>';
-  let fi = 0;
-  for (let y = top + 8; y < H; y += floorH, fi++) {
-    const cols = 6, cw = tw / cols;
-    for (let c = 0; c < cols; c++) {
-      const lit = Math.random() < .32;
-      s += '<rect x="' + (tx + c * cw + 3).toFixed(1) + '" y="' + (y + 4) + '" width="' + (cw - 6).toFixed(1) + '" height="' + (floorH - 12) + '" fill="' + (lit ? '#ffd79a' : '#9db7da') + '" opacity="' + (lit ? .85 : rnd(.08, .25).toFixed(2)) + '"' + (lit ? ' class="lit win" style="animation-delay:' + rnd(0, 5).toFixed(1) + 's"' : '') + '/>';
-    }
-    for (let c = 0; c < 3; c++) {
-      const lit = Math.random() < .2;
-      const x1 = tx + tw + c * (sw / 3) + 3, x2 = x1 + sw / 3 - 6, k = 26 / sw;
-      const y1 = y + 4 + (x1 - tx - tw) * k * (1 - (y - top) / (H - top)), y2 = y + 4 + (x2 - tx - tw) * k * (1 - (y - top) / (H - top));
-      s += '<polygon points="' + x1.toFixed(1) + ',' + y1.toFixed(1) + ' ' + x2.toFixed(1) + ',' + y2.toFixed(1) + ' ' + x2.toFixed(1) + ',' + (y2 + floorH - 12).toFixed(1) + ' ' + x1.toFixed(1) + ',' + (y1 + floorH - 12).toFixed(1) + '" fill="' + (lit ? '#f3c987' : '#2a4268') + '" opacity="' + (lit ? .6 : .5) + '"/>';
-    }
-    // slab / balcony
-    s += '<rect x="' + (tx - 6) + '" y="' + (y + floorH - 8) + '" width="' + (tw + 12) + '" height="4" fill="#d6dde8" opacity=".85"/><rect x="' + (tx - 6) + '" y="' + (y + floorH - 4) + '" width="' + (tw + 12) + '" height="2" fill="#f2c27a" opacity=".55"/>';
-  }
-  // golden lit column
-  s += '<rect x="' + (tx + tw * .62) + '" y="' + top + '" width="14" height="' + (H - top) + '" fill="#ffc977" opacity=".55" filter="url(#glowF)"/>';
-  s += '<rect x="' + (tx + tw * .62 + 4) + '" y="' + top + '" width="6" height="' + (H - top) + '" fill="url(#goldStrip)"/>';
-  s += '<rect x="' + (tx + tw - 2) + '" y="' + top + '" width="3" height="' + (H - top) + '" fill="#e9d2a6" opacity=".7"/>';
-  s += '</g>';
   // foreground haze
   s += '<rect y="' + (H - 160) + '" width="' + W + '" height="160" fill="#0b1628" opacity=".35" filter="url(#blur)"/></svg>';
   document.getElementById('skyline').innerHTML = s;
@@ -427,21 +437,64 @@ if (selected) {
   document.getElementById('services').innerHTML = services.map(([title, description], i) => '<article class="service fade"><span class="n">0' + (i + 1) + '</span><h3>' + title + '</h3><p>' + description + '</p><a class="button" href="' + whatsapp('Olá, Jefferson! Vi seu site e gostaria de pedir um orçamento. Serviço de interesse: ' + title + '.') + '">Pedir orçamento</a></article>').join('');
   if (site.photo) document.getElementById('profile').innerHTML = '<div class="profile"><img src="' + site.photo + '" alt="Foto profissional de Jefferson Ramalho" loading="lazy" decoding="async"></div>';
 
-  /* Hero parallax: city zooms in, text drifts away as you scroll */
-  const sky = document.getElementById('skyline'), copy = document.getElementById('hero-copy');
-  if (!reduceMotion) {
-    let ticking = false;
-    addEventListener('scroll', () => {
-      if (ticking) return; ticking = true;
-      requestAnimationFrame(() => {
-        const p = Math.min(scrollY / innerHeight, 1);
-        sky.style.transform = 'scale(' + (1 + p * .18) + ') translateY(' + (p * 40) + 'px)';
-        copy.style.transform = 'translateY(' + (p * -60) + 'px)';
-        copy.style.opacity = 1 - p * 1.1;
-        ticking = false;
-      });
-    }, {passive:true});
+  /* ---------- 3D tower: intro fly-in + scroll orbit + mouse ---------- */
+  const tower = document.getElementById('tower'), hero = document.getElementById('inicio');
+  const sky = document.getElementById('skyline'), copy = document.getElementById('hero-copy'), copy2 = document.getElementById('hero-copy-2');
+  const FLOOR = 34;
+  let faces = [];
+  function buildTower() {
+    const mob = innerWidth < 640;
+    const W = mob ? 150 : Math.round(Math.min(270, innerWidth * .18)), D = Math.round(W * .74);
+    const H = Math.round((mob ? .66 : .8) * innerHeight / FLOOR) * FLOOR;
+    tower.style.cssText = '--W:' + W + 'px;--D:' + D + 'px;--H:' + H + 'px;--ant:' + Math.round(H * .14) + 'px';
+    const rows = H / FLOOR;
+    const make = (cls, width, cols, normal, strip) => {
+      const cw = width / cols;
+      let h = '';
+      for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+        if (Math.random() > .34) continue;
+        const delay = (.9 + (rows - r) * .07 + Math.random() * .25).toFixed(2);
+        h += '<i class="win" style="left:' + (c * cw + 3).toFixed(1) + 'px;top:' + (r * FLOOR + 2) + 'px;width:' + (cw - 6).toFixed(1) + 'px;--d:' + delay + 's"></i>';
+      }
+      return '<div class="face ' + cls + '" data-n="' + normal + '" style="--cw:' + cw.toFixed(1) + 'px">' + (strip ? '<span class="strip"></span>' : '') + h + '</div>';
+    };
+    tower.innerHTML = make('f-front', W, 6, 0, true) + make('f-right', D, 4, 90) + make('f-back', W, 6, 180, true) + make('f-left', D, 4, -90) +
+      '<div class="face f-top" data-n="top"></div><div class="crown"><i></i></div>';
+    faces = [...tower.querySelectorAll('.face')];
   }
+  buildTower();
+  let rw = innerWidth; addEventListener('resize', () => { if (Math.abs(innerWidth - rw) > 80) { rw = innerWidth; buildTower(); } });
+
+  const ease = t => 1 - Math.pow(1 - t, 3), clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const t0 = performance.now(), INTRO = 2600;
+  let mx = 0, my = 0, cmx = 0, cmy = 0;
+  addEventListener('pointermove', e => { if (e.pointerType === 'mouse') { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; } }, {passive:true});
+  function frame(now) {
+    const intro = reduceMotion ? 1 : ease(clamp((now - t0) / INTRO));
+    const span = hero.offsetHeight - innerHeight;
+    const p = reduceMotion ? 0 : clamp(scrollY / span);
+    if (scrollY < hero.offsetHeight + 50) {
+      cmx += (mx - cmx) * .06; cmy += (my - cmy) * .06;
+      const ry = -110 + intro * 78 + p * 160 + cmx * 14;          // orbit around the tower
+      const rx = -4 - p * 10 + cmy * 4;                           // camera rises
+      const sc = (.82 + intro * .18) * (1 + p * .38);             // camera dolly in
+      const ty = (1 - intro) * 35 + p * 14;                       // rise from the ground
+      tower.style.transform = 'translateX(-50%) translateY(' + ty + '%) scale(' + sc + ') rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+      faces.forEach(f => {
+        if (f.dataset.n === 'top') return;
+        const ang = (ry + +f.dataset.n + 35) * Math.PI / 180;     // key light from the front-left
+        f.style.setProperty('--b', (.42 + .7 * Math.max(0, Math.cos(ang))).toFixed(3));
+      });
+      sky.style.transform = 'scale(' + (1 + p * .12) + ') translateY(' + (p * 30) + 'px)';
+      const a1 = clamp(1 - p / .28), a2 = clamp((p - .38) / .18) * clamp((1 - p) / .12);
+      copy.style.opacity = a1; copy.style.transform = 'translateY(' + (-(1 - a1) * 50) + 'px)';
+      copy.style.pointerEvents = a1 < .1 ? 'none' : '';
+      copy2.style.opacity = a2; copy2.style.transform = 'translateY(' + ((1 - a2) * 40) + 'px)';
+      copy2.style.pointerEvents = a2 > .5 ? 'auto' : 'none';
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
 
   /* Section pager on the right (01 / 02 + vertical name) */
   const order = [['inicio','Início'],['projetos','Projetos'],['servicos','Serviços'],['sobre','Sobre'],['contato','Contato']];
