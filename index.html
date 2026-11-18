@@ -6,89 +6,291 @@
 <title>Jefferson Ramalho | Desenvolvimento de sites e sistemas web</title>
 <meta name="description" content="Jefferson Ramalho desenvolve sites profissionais e sistemas web para clínicas, academias e empresas. Atendimento remoto a partir de Mauriti–CE.">
 <link rel="canonical" href="https://jefframalho.github.io/">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#0b1628">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light;--navy:#142238;--muted:#46566b;--gold:#795613;--line:#e4e8ed;--soft:#f6f8fb;--cream:#f7f0e2}
-*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--navy);font:1rem/1.65 system-ui,sans-serif}a{color:inherit;text-underline-offset:.25em}a:hover{color:var(--gold)}a:focus-visible,summary:focus-visible{outline:3px solid #966a18;outline-offset:5px}img{display:block;width:100%;height:auto}
-.wrap{width:min(1100px,calc(100% - 2.5rem));margin-inline:auto}.skip{position:absolute;top:-5rem}.skip:focus{top:0;background:#fff;padding:.6rem;z-index:4}
-header{border-bottom:1px solid var(--line)}header .wrap,footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:1rem}
-.brand{display:flex;gap:.65rem;align-items:center;font-weight:750;text-decoration:none}.monogram{display:grid;place-items:center;width:2.4rem;aspect-ratio:1;background:var(--navy);color:#fff;border-radius:.6rem;font-size:.85rem}nav{display:flex;gap:.35rem 1.25rem;flex-wrap:wrap}nav a{font-size:.9rem;font-weight:650;text-decoration:none}
-section{padding-block:clamp(3.5rem,7vw,7rem)}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.08;letter-spacing:-.035em}h1{font-size:clamp(2.85rem,7vw,5.8rem);max-width:11ch;margin-bottom:1.25rem}h2{font-size:clamp(2rem,4.5vw,3.6rem);margin-bottom:1rem}h3{font-size:1.35rem;margin-bottom:.65rem}p{color:var(--muted)}.label{color:var(--gold);font-size:.75rem;letter-spacing:.14em;font-weight:800;text-transform:uppercase}
-.hero{background:radial-gradient(ellipse at right top,#f7efdf,transparent 58%),#fff}.hero .wrap,.about{display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:clamp(2rem,6vw,5rem)}.hero p:not(.label){max-width:48ch;font-size:1.12rem}.hero-aside{padding:clamp(1.2rem,4vw,2.5rem);border:1px solid #e5d8bf;border-radius:1.3rem;background:#fff;box-shadow:0 24px 50px #1422380d}.hero-aside a{display:flex;gap:.9rem;align-items:center;padding-block:1rem;border-top:1px solid var(--line);text-decoration:none;font-weight:700}.hero-aside span{color:var(--gold);font-size:.85rem}
-.actions{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center}.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.55rem 1rem;border-radius:.55rem;font-weight:700;text-decoration:none;border:1px solid var(--navy);transition:background .18s,color .18s}.primary,.float{background:var(--navy);color:#fff}.primary:hover,.float:hover{background:#304766;color:#fff}.secondary:hover{background:var(--cream);color:var(--navy)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.3rem}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:1rem;overflow:hidden;background:#fff}.body{padding:1.4rem}.soft{background:var(--soft)}.intro{max-width:62ch;margin-bottom:2rem}
-figure{margin:0}.art{position:relative;background:var(--tone,#e8edf6);padding:1.7rem 2rem .9rem;overflow:hidden}.monitor{background:#fff;border:5px solid var(--navy);border-radius:.75rem;max-width:550px;margin:auto;overflow:hidden}.monitor img{aspect-ratio:16/9;object-fit:contain}.screen{padding:1rem 1.1rem;min-height:130px}.screen strong{display:block;font-size:1rem;margin-bottom:.5rem}.screen span{display:block;background:#eff2f6;border-radius:.3rem;padding:.3rem .45rem;margin-bottom:.3rem;font-size:.78rem;width:85%}.phone{position:absolute;right:6%;bottom:2.1rem;width:18%;height:57%;max-width:87px;border:4px solid var(--navy);border-radius:.65rem;background:white;padding:8px 5px;box-shadow:0 8px 20px #14223840}.phone i{display:block;background:var(--tone,#e8edf6);height:15%;border-radius:4px;margin-bottom:5px}figcaption{font-size:.75rem;color:var(--muted);margin-top:.5rem}
-.details{padding-top:0}.details article{max-width:800px;margin:auto}.details figure{margin-block:1.3rem}.profile{border-radius:1rem;background:var(--cream);display:grid;place-items:center;min-height:17rem;overflow:hidden}.profile span{font-size:4rem;font-weight:800;color:var(--gold)}.profile img{max-height:28rem;object-fit:cover}.contact{background:var(--navy);color:white}.contact p{color:#e2e9f3}.contact .button{background:white;color:var(--navy)}footer{border-top:1px solid var(--line);padding-bottom:4rem}.float{position:fixed;bottom:1rem;right:1rem;z-index:2;border:1px solid #fff;box-shadow:0 4px 18px #14223840;border-radius:2rem}.back{display:inline-block;margin-bottom:1.5rem}.detail-view header{margin-bottom:3rem}
-@media(max-width:720px){.hero .wrap,.about,.grid,.grid.three{grid-template-columns:1fr}.art{padding-inline:1.25rem}.hero-aside{max-width:32rem}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
-/* The stage itself stays still so pointer positions remain stable. */
-.wrap{width:min(1180px,calc(100% - 3rem))}
-header .wrap{min-height:76px}
-nav a{padding-block:.45rem}
-.hero{background:radial-gradient(ellipse at 85% 25%,#f7efdf 0%,transparent 57%),#fff}
-.hero .wrap{grid-template-columns:1.05fr 1fr}
-.hero h1{max-width:12ch}
-.hero-aside{position:relative;isolation:isolate;perspective:1000px;padding:0;border:0;box-shadow:none;background:none}
-.hero-aside::before{content:'';position:absolute;inset:8% 0 -4%;z-index:-1;background:radial-gradient(ellipse,#a88a5555,transparent 69%);transform:translateY(1rem)}
-.scene{position:relative;padding:clamp(1.25rem,3vw,2rem);background:linear-gradient(145deg,#243651,#142238 68%);color:#fff;border:1px solid #435571;border-radius:1.35rem;box-shadow:0 9px 0 #0c1728,0 24px 48px #14223835}
-.scene .label,.scene a span{color:#efd198}
-.scene a{color:#fff;border-color:#8296b155;justify-content:space-between}
-.scene a:hover,.scene a:focus-visible{color:#efd198}
-.scene a::after{content:'↗';margin-left:auto;color:#efd198}
-.scene a span{font-variant-numeric:tabular-nums}
-.scene .scene-title{margin-bottom:.35rem;font-size:clamp(1.6rem,3vw,2.35rem)}
-.scene .scene-caption{margin-bottom:1.1rem;color:#d5dfed;font-size:.9rem}
-.scene-top{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem}
-.scene-top .label{margin-bottom:1.4rem}
-.scene .scene-mark{color:#efd198;font-size:.78rem;letter-spacing:.17em;font-weight:800}
-.project-card{transition:border-color .2s,box-shadow .2s}
-.project-card:hover,.project-card:focus-within{border-color:#bd9a57;box-shadow:0 15px 38px #14223812}
-.art{perspective:800px}
-.devices{position:relative;transform-style:preserve-3d}
-.devices .phone{bottom:.75rem}
-#servicos .card{border-top:3px solid #c4a165}
-#servicos .body{display:flex;flex-direction:column;align-items:flex-start}
-#servicos .body .button{margin-top:auto}
-@media(min-width:721px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  .scene,.devices{transition:transform .35s ease-out;transform-style:preserve-3d}
-  .scene{transform:rotateX(var(--rx,4deg)) rotateY(var(--ry,-8deg))}
-  .scene-top{transform:translateZ(30px)}
-  .scene .scene-title{transform:translateZ(23px)}
-  .devices{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
-  .devices .phone{transform:translateZ(35px)}
+:root{
+  color-scheme:dark;
+  --night:#0b1628;--deep:#0f1f38;--panel:#13243f;--line:#ffffff1a;
+  --text:#eef2f8;--muted:#a8b5c8;--gold:#d2aa63;--gold-soft:#e8cf9b;--cream:#f4efe6;--ink:#14223a;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
-@media(max-width:720px){.hero .wrap{grid-template-columns:1fr}.wrap{width:calc(100% - 2rem)}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--text);font:300 1.02rem/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:.3em}
+a:hover{color:var(--gold-soft)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+img{display:block;width:100%;height:auto}
+.wrap{width:min(1200px,calc(100% - 3rem));margin-inline:auto}
+.skip{position:absolute;top:-5rem;left:0}.skip:focus{top:0;background:var(--gold);color:var(--ink);padding:.6rem;z-index:20}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:.01em}
+h2{font-size:clamp(2.3rem,5vw,4rem);text-transform:uppercase;margin-bottom:1rem}
+h3{font-size:1.65rem;margin-bottom:.5rem}
+p{color:var(--muted)}
+.label{font-family:var(--sans);color:var(--gold);font-size:.72rem;letter-spacing:.32em;font-weight:500;text-transform:uppercase;margin-bottom:1.1rem}
+.label::before{content:'';display:inline-block;width:2.2rem;height:1px;background:currentColor;vertical-align:middle;margin-right:.8rem;opacity:.7}
 
+/* ---------- Header ---------- */
+.site-header{position:fixed;inset:0 0 auto;z-index:10;transition:background .35s,backdrop-filter .35s,border-color .35s;border-bottom:1px solid transparent}
+.site-header.solid,.detail-view .site-header{background:#0b1628e6;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line)}
+.topbar{display:flex;justify-content:space-between;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:#c9d3e2;padding-top:.7rem;opacity:.8}
+.topbar a{text-decoration:none}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:74px}
+.brand{text-decoration:none;line-height:1;display:flex;flex-direction:column}
+.brand strong{font-family:var(--serif);font-weight:500;font-size:1.65rem;letter-spacing:.14em;text-transform:uppercase}
+.brand small{font-size:.58rem;letter-spacing:.42em;text-transform:uppercase;color:var(--muted);margin-top:.25rem;padding-left:.15em}
+.menu{display:flex;gap:2rem}
+.menu a{font-size:.82rem;font-weight:400;letter-spacing:.06em;text-decoration:none;padding-block:.4rem;position:relative;color:#dfe6f0}
+.menu a::after{content:'';position:absolute;left:0;right:0;bottom:-.1rem;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.menu a:hover::after,.menu a.active::after{transform:scaleX(1)}
+.menu a.active{color:#fff}
+.nav-actions{display:flex;align-items:center;gap:1rem}
+.burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer;padding:10px}
+.burger span{display:block;height:1.5px;background:currentColor;margin:5px 0;transition:transform .3s,opacity .3s}
+
+/* ---------- Buttons ---------- */
+.button{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:46px;padding:.6rem 1.4rem;font:500 .72rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid #ffffff80;color:#fff;border-radius:2px;transition:background .25s,color .25s,border-color .25s}
+.button:hover{background:#ffffff14;color:#fff;border-color:#fff}
+.button.primary,.button.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.button.primary:hover,.button.gold:hover{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--ink)}
+.actions{display:flex;gap:.8rem 1.2rem;flex-wrap:wrap;align-items:center}
+.text-link{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);text-decoration:none;border-bottom:1px solid #d2aa6366;padding-bottom:.2rem}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate;padding:0}
+.skyline{position:absolute;inset:0;z-index:-2;transform-origin:62% 100%;will-change:transform}
+.skyline svg{width:100%;height:100%;display:block}
+.hero::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#08111fcc 0%,#08111f80 32%,transparent 62%),linear-gradient(0deg,#0b1628 0%,transparent 22%)}
+.hero-copy{padding-top:6rem;max-width:36rem;will-change:transform,opacity}
+.hero-copy .eyebrow{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:#dfe6f0;margin-bottom:.6rem}
+.hero h1{font-size:clamp(3.1rem,8vw,6.6rem);text-transform:uppercase;margin-bottom:1.4rem;letter-spacing:.02em;text-shadow:0 4px 30px #0006}
+.hero h1 em{font-style:normal;color:var(--gold-soft)}
+.hero-copy p.lead{color:#d3dbe7;font-size:1.08rem;max-width:30rem;margin-bottom:2rem}
+.reveal{opacity:0;transform:translateY(22px);animation:rise 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.d1{animation-delay:.25s}.d2{animation-delay:.45s}.d3{animation-delay:.65s}.d4{animation-delay:.85s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+.side-dots{position:absolute;left:clamp(1rem,2.4vw,2.2rem);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1rem}
+.side-dots a{width:7px;height:7px;border-radius:50%;background:#ffffff55;display:block}
+.side-dots a:hover{background:var(--gold)}
+.hero-foot{position:absolute;left:0;right:0;bottom:2rem}
+.hero-foot .wrap{display:flex;justify-content:space-between;align-items:end;gap:1rem}
+.scroll-cue{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:#c9d3e2;text-decoration:none;display:flex;align-items:center;gap:.8rem}
+.scroll-cue i{width:1px;height:46px;background:linear-gradient(#fff0,#fff);position:relative;overflow:hidden}
+.scroll-cue i::after{content:'';position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--gold);animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{to{top:100%}}
+
+/* Right section indicator */
+.pager{position:fixed;right:clamp(1rem,2.2vw,2rem);top:50%;transform:translateY(-50%);z-index:9;display:flex;flex-direction:column;align-items:center;gap:.9rem;mix-blend-mode:normal}
+.pager[hidden]{display:none}
+.pager .num{font-size:.7rem;letter-spacing:.1em;color:#c9d3e2;text-decoration:none;font-variant-numeric:tabular-nums}
+.pager .rail{width:1px;height:150px;background:#ffffff40;position:relative}
+.pager .rail b{position:absolute;left:-4px;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px #ffffff26;top:0;transition:top .5s cubic-bezier(.2,.7,.2,1)}
+.pager .name{writing-mode:vertical-rl;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:#c9d3e2}
+.pager .num,.pager .name,.pager .rail,.pager .rail b{transition:color .4s,background .4s,top .5s cubic-bezier(.2,.7,.2,1)}
+.pager.on-light .num,.pager.on-light .name{color:#14223a}.pager.on-light .rail{background:#14223a40}.pager.on-light .rail b{background:#14223a;box-shadow:0 0 0 4px #14223a1f}
+
+/* ---------- Sections ---------- */
+section{padding-block:clamp(5rem,9vw,8.5rem);position:relative}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
+.section-head p{max-width:34rem;margin:0}
+.dark{background:var(--deep)}
+.cream{background:var(--cream);color:var(--ink)}
+.cream p{color:#4b586b}.cream .label{color:#8a6420}
+.cream h2,.cream h3{color:var(--ink)}
+.cream .button{color:var(--ink);border-color:#14223a66}
+.cream .button:hover{background:var(--ink);color:#fff}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem}
+.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden;border-radius:4px}
+.body{padding:1.6rem 1.7rem 1.8rem}
+.project-card{transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .45s}
+.project-card:hover,.project-card:focus-within{transform:translateY(-6px);border-color:#d2aa6380;box-shadow:0 30px 60px #0007}
+.project-card .label{margin-bottom:.6rem}
+.project-card h3 a{text-decoration:none}
+.project-card .actions{margin-top:1.3rem}
+.project-card .actions .button{min-height:40px;padding-inline:1rem;font-size:.66rem}
+.project-preview{display:block}
+
+figure{margin:0}
+.art{position:relative;padding:1.8rem 2rem 1rem;overflow:hidden;background:radial-gradient(ellipse at 70% 0%,#2d4a77 0%,transparent 60%),linear-gradient(170deg,#1a2f52,#0e1c33);perspective:800px}
+.art img.project-image{border-radius:6px;box-shadow:0 20px 40px #0008;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.project-card:hover .art img.project-image{transform:scale(1.03)}
+.monitor{background:#fff;border:5px solid #0b1628;border-radius:.75rem;max-width:550px;margin:auto;overflow:hidden;color:var(--ink)}
+.screen{padding:1rem 1.1rem;min-height:130px}.screen strong{display:block;margin-bottom:.5rem}.screen span{display:block;background:#eff2f6;border-radius:.3rem;padding:.3rem .45rem;margin-bottom:.3rem;font-size:.78rem;width:85%}
+.phone{position:absolute;right:6%;bottom:.75rem;width:18%;height:57%;max-width:87px;border:4px solid #0b1628;border-radius:.65rem;background:#fff;padding:8px 5px}
+.phone i{display:block;background:#dfe6f0;height:15%;border-radius:4px;margin-bottom:5px}
+figcaption{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:#8d9bb0;margin-top:.8rem}
+.devices{position:relative;transform-style:preserve-3d}
+
+/* services */
+.service{background:#fff;border:1px solid #14223a1a;border-radius:4px;padding:2.2rem 2rem;display:flex;flex-direction:column;align-items:flex-start;position:relative;transition:transform .4s,box-shadow .4s}
+.service:hover{transform:translateY(-4px);box-shadow:0 24px 50px #14223a1f}
+.service .n{font-family:var(--serif);font-size:3rem;line-height:1;color:#c9a25e;margin-bottom:1.4rem}
+.service .button{margin-top:auto}
+
+/* about */
+.about-sec{overflow:hidden}
+.about-bg{position:absolute;inset:0;background-size:cover;background-position:center right;opacity:.22;filter:saturate(.6)}
+.about-sec::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--night) 30%,#0b1628b3 70%,#0b162866)}
+.about{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,6vw,6rem);align-items:center}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stats div{background:#0b1628d9;padding:1.6rem 1.4rem}
+.stats strong{display:block;font-family:var(--serif);font-weight:500;font-size:2.8rem;line-height:1;color:var(--gold-soft)}
+.stats span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.profile img{max-height:28rem;object-fit:cover;border-radius:4px}
+
+/* contact */
+.contact{text-align:center;background:radial-gradient(ellipse at 50% 120%,#2a4774 0%,transparent 60%),var(--night);border-top:1px solid var(--line)}
+.contact h2{max-width:16ch;margin-inline:auto}
+.contact p{max-width:36rem;margin-inline:auto;margin-bottom:2rem}
+.contact .actions{justify-content:center}
+.contact .label::before{display:none}
+
+footer{border-top:1px solid var(--line);padding-block:1.6rem 5rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#7f8ca0}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* Floating WhatsApp (like "Street level") */
+.float{position:fixed;right:1.3rem;bottom:1.3rem;z-index:11;display:flex;align-items:center;gap:.8rem;text-decoration:none;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:#fff}
+.float span{text-shadow:0 1px 8px #0009}
+.float b{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--ink);box-shadow:0 0 0 6px #d2aa6333,0 10px 24px #0006;transition:transform .3s}
+.float:hover{color:var(--gold-soft)}.float:hover b{transform:scale(1.08)}
+.float svg{width:22px;height:22px}
+
+/* detail page */
+.details{padding-top:9rem}
+.details article{max-width:820px;margin:auto}
+.details h1{font-size:clamp(2.8rem,6vw,4.6rem);text-transform:uppercase;margin-bottom:1rem}
+.details figure{margin-block:2rem}
+.details h2{font-size:2rem;margin-top:2rem}
+.details li{color:var(--muted);margin-bottom:.35rem}
+.back{display:inline-block;margin-bottom:2rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--gold-soft)}
+
+/* scroll reveal */
+.fade{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.fade.in{opacity:1;transform:none}
+
+/* skyline window twinkle */
+.lit{animation:glow 5s ease-in-out infinite alternate}
+@keyframes glow{0%{opacity:.25}100%{opacity:.95}}
+
+@media(max-width:960px){
+  .menu{position:fixed;inset:0 0 auto;top:0;flex-direction:column;gap:0;background:#0b1628f7;padding:7rem 1.5rem 2rem;transform:translateY(-100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:-1}
+  .menu a{font-family:var(--serif);font-size:2rem;text-transform:uppercase;padding-block:.6rem;border-bottom:1px solid var(--line)}
+  .menu a::after{display:none}
+  .menu-open .menu{transform:none}
+  .burger{display:block}
+  .menu-open .burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .menu-open .burger span:nth-child(2){opacity:0}
+  .menu-open .burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .nav-actions .button{display:none}
+  .pager,.side-dots{display:none}
+  .grid,.grid.three,.about{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .wrap{width:calc(100% - 2rem)}
+  .topbar span:last-child{display:none}
+  .hero::before{background:linear-gradient(0deg,#0b1628 0%,#08111fcc 45%,#08111f40 100%)}
+  .hero{align-items:flex-end;padding-bottom:7rem}
+  .hero-foot .scroll-cue{display:none}
+  .art{padding-inline:1.1rem}
+  .float span{display:none}
+  .skyline svg{position:absolute;left:50%;width:auto;height:100%;aspect-ratio:16/10;transform:translateX(-64%)}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.fade{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<header><div class="wrap"><a class="brand" href="./"><span class="monogram" aria-hidden="true">JR</span> Jefferson Ramalho</a><nav aria-label="Navegação principal"><a href="./#inicio">Início</a><a href="./#projetos">Projetos</a><a href="./#servicos">Serviços</a><a href="./#sobre">Sobre</a><a href="./#contato">Contato</a></nav></div></header>
+
+<header class="site-header" id="topo">
+  <div class="wrap">
+    <div class="topbar"><span>Desenvolvimento web</span><span>Mauriti, CE · Atendimento remoto</span></div>
+    <div class="nav-row">
+      <a class="brand" href="./"><strong>Jefferson</strong><small>Ramalho · Dev</small></a>
+      <nav class="menu" id="menu" aria-label="Navegação principal">
+        <a href="./#inicio" data-sec="inicio">Início</a>
+        <a href="./#projetos" data-sec="projetos">Projetos</a>
+        <a href="./#servicos" data-sec="servicos">Serviços</a>
+        <a href="./#sobre" data-sec="sobre">Sobre</a>
+        <a href="./#contato" data-sec="contato">Contato</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="button gold" data-whatsapp href="#contato">Pedir orçamento</a>
+        <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="pager" aria-label="Seções" id="pager">
+  <a class="num" id="pager-top" href="#inicio">01</a>
+  <div class="rail"><b id="pager-dot"></b></div>
+  <a class="num" id="pager-next" href="#projetos">02</a>
+  <span class="name" id="pager-name">Início</span>
+</nav>
+
 <main id="conteudo">
 <div id="home">
-<section class="hero" id="inicio"><div class="wrap"><div>
-<p class="label">Desenvolvimento web · Mauriti, CE</p>
-<h1>Sites e sistemas para o seu negócio</h1>
-<p>Sou Jefferson Ramalho. Desenvolvo sites profissionais e sistemas web para clínicas, academias e empresas que precisam organizar sua rotina e atender melhor seus clientes.</p>
-<div class="actions"><a class="button primary" data-whatsapp href="#contato">Pedir orçamento</a><a class="button secondary" href="#projetos">Ver meus projetos</a></div>
-</div><aside class="hero-aside" aria-labelledby="scene-title" data-tilt>
-<div class="scene" data-tilt-face>
-<div class="scene-top"><p class="label">Portfólio selecionado</p><span class="scene-mark" aria-hidden="true">JR</span></div>
-<h2 class="scene-title" id="scene-title">Conheça meu trabalho</h2>
 
-<p class="scene-caption">Projetos para clínicas, academias, atendimento domiciliar e construção civil.</p>
+<section class="hero" id="inicio">
+  <div class="skyline" id="skyline" aria-hidden="true"></div>
+  <div class="side-dots" aria-hidden="true"><a href="#projetos" tabindex="-1"></a><a href="#servicos" tabindex="-1"></a><a href="#sobre" tabindex="-1"></a><a href="#contato" tabindex="-1"></a></div>
+  <div class="wrap">
+    <div class="hero-copy" id="hero-copy">
+      <p class="eyebrow reveal d1">Sites &amp; sistemas web</p>
+      <h1 class="reveal d2">Seu negócio.<br><em>Elevado.</em></h1>
+      <p class="lead reveal d3">Sou Jefferson Ramalho. Desenvolvo sites profissionais e sistemas web para clínicas, academias e empresas que precisam organizar sua rotina e atender melhor seus clientes.</p>
+      <div class="actions reveal d4"><a class="button" href="#projetos">Explorar projetos</a><a class="button gold" data-whatsapp href="#contato">Pedir orçamento</a></div>
+    </div>
+  </div>
+  <div class="hero-foot"><div class="wrap"><a class="scroll-cue" href="#projetos"><i></i>Role para ver</a></div></div>
+</section>
 
-<div id="destaques"></div>
-</div>
-</aside></div></section>
-<section class="soft" id="projetos"><div class="wrap"><p class="label">Portfólio</p><h2>Projetos em destaque</h2><p class="intro">Conheça os recursos de cada projeto ou solicite uma demonstração dos sistemas.</p><div class="grid" id="cards"></div><p style="margin-top:1.5rem"><a href="catalogo.html#sistemas">Explorar o catálogo completo</a></p></div></section>
-<section id="servicos"><div class="wrap"><p class="label">Serviços</p><h2>Como posso ajudar</h2><div class="grid three" id="services"></div></div></section>
-<section class="soft" id="sobre"><div class="wrap about"><div><p class="label">Sobre mim</p><h2>Sou Jefferson Ramalho</h2><p>Sou desenvolvedor de sites e sistemas web em Mauriti, no Ceará, e atendo remotamente. Gosto de entender como cada negócio trabalha para criar soluções que ajudem no dia a dia.</p><p>No Clinix Odonto, trabalhei com agendamento e contratos. No Viver Bem Homecare, criei acessos para profissionais e familiares. No Evolui Fit, reuni fichas de treino e acompanhamento dos alunos em um sistema para academias e instrutores.</p></div><div class="profile" id="profile"><span aria-hidden="true">JR</span></div></div></section>
+<section class="dark" id="projetos"><div class="wrap">
+  <div class="section-head fade"><div><p class="label">Portfólio</p><h2>Projetos em destaque</h2></div><p>Conheça os recursos de cada projeto ou solicite uma demonstração dos sistemas.</p></div>
+  <div class="grid" id="cards"></div>
+  <p style="margin-top:2.5rem" class="fade"><a class="text-link" href="catalogo.html#sistemas">Explorar o catálogo completo →</a></p>
+</div></section>
+
+<section class="cream" id="servicos"><div class="wrap">
+  <div class="section-head fade"><div><p class="label">Serviços</p><h2>Como posso ajudar</h2></div><p>Do primeiro site ao sistema completo da sua empresa, com atendimento próximo e remoto.</p></div>
+  <div class="grid three" id="services"></div>
+</div></section>
+
+<section class="about-sec" id="sobre">
+  <div class="about-bg" id="about-bg"></div>
+  <div class="wrap about">
+    <div class="fade"><p class="label">Sobre mim</p><h2>Sou Jefferson Ramalho</h2><p>Sou desenvolvedor de sites e sistemas web em Mauriti, no Ceará, e atendo remotamente. Gosto de entender como cada negócio trabalha para criar soluções que ajudem no dia a dia.</p><p>No Clinix Odonto, trabalhei com agendamento e contratos. No Viver Bem Homecare, criei acessos para profissionais e familiares. No Evolui Fit, reuni fichas de treino e acompanhamento dos alunos em um sistema para academias e instrutores.</p></div>
+    <div class="fade" id="profile"><div class="stats"><div><strong id="stat-projects">5</strong><span>Projetos em destaque</span></div><div><strong>100%</strong><span>Responsivos</span></div><div><strong>Web</strong><span>Sites e sistemas</span></div><div><strong>CE</strong><span>Atendimento remoto</span></div></div></div>
+  </div>
+</section>
+
 </div>
 <section id="project" class="details" hidden><div class="wrap" id="project-body"></div></section>
-<section class="contact" id="contato"><div class="wrap"><p class="label" style="color:#f4d79b">Contato · Atendimento remoto</p><h2>Vamos conversar sobre seu projeto?</h2><p>Conte o que você precisa ou escolha um sistema para ver em demonstração.</p><div class="actions"><a class="button" data-whatsapp href="#contato">Conversar no WhatsApp</a><a href="https://www.instagram.com/jefferson.ramalhodev/">Instagram</a><a href="https://github.com/jefframalho">GitHub</a></div></div></section>
+
+<section class="contact" id="contato"><div class="wrap fade">
+  <p class="label">Contato · Atendimento remoto</p>
+  <h2>Vamos conversar sobre seu projeto?</h2>
+  <p>Conte o que você precisa ou escolha um sistema para ver em demonstração.</p>
+  <div class="actions"><a class="button gold" data-whatsapp href="#contato">Conversar no WhatsApp</a><a class="button" href="https://www.instagram.com/jefferson.ramalhodev/">Instagram</a><a class="button" href="https://github.com/jefframalho">GitHub</a></div>
+</div></section>
 </main>
+
 <footer><div class="wrap"><small>Desenvolvido por Jefferson Ramalho</small><small>Mauriti, CE · Atendimento remoto</small></div></footer>
-<a class="button float" data-whatsapp href="#contato">WhatsApp</a>
+
+<a class="float" data-whatsapp href="#contato" aria-label="Conversar no WhatsApp"><span>Fale comigo</span><b><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg></b></a>
+
 <script src="portfolio-images.js"></script>
 <script>
 const site = {
@@ -118,9 +320,9 @@ const site = {
   ]
 };
 const portfolioImages = window.portfolioImages || {};
-if (portfolioImages.background) {
-  document.body.style.setProperty('--portfolio-backdrop', 'url("' + portfolioImages.background + '")');
-}
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (portfolioImages.background) document.getElementById('about-bg').style.backgroundImage = 'url("' + portfolioImages.background + '")';
+
 const greeting = 'Olá, Jefferson! Vi seu site e gostaria de conversar sobre um projeto.';
 const services = [
   ['Sites profissionais','Criação de sites para apresentar empresas e profissionais autônomos e facilitar o contato com seus clientes.'],
@@ -134,61 +336,168 @@ const visit = project => project.url || detail(project);
 function artwork(project) {
   const illustration = project.illustration || portfolioImages[project.id];
   if (!project.image && illustration) {
-    return '<figure class="art has-image" data-tilt style="--tone:' + project.tone + '"><div class="devices" data-tilt-face><img class="project-image" src="' + illustration + '" alt="Prévia ilustrativa de ' + project.name + '" loading="lazy" decoding="async"></div><figcaption>Imagem ilustrativa</figcaption></figure>';
+    return '<figure class="art has-image" data-tilt><div class="devices" data-tilt-face><img class="project-image" src="' + illustration + '" alt="Prévia ilustrativa de ' + project.name + '" loading="lazy" decoding="async"></div><figcaption>Imagem ilustrativa</figcaption></figure>';
   }
   const screen = project.image
     ? '<img src="' + project.image + '" alt="Captura de tela de ' + project.name + '" loading="lazy" decoding="async">'
     : '<div class="screen" aria-hidden="true"><strong>' + project.name + '</strong>' + project.features.slice(0,3).map(feature => '<span>' + feature + '</span>').join('') + '</div>';
-  return '<figure class="art" data-tilt style="--tone:' + project.tone + '"><div class="devices" data-tilt-face><div class="monitor">' + screen + '</div><div class="phone" aria-hidden="true"><i></i><i></i><i></i></div></div><figcaption>' + (project.image ? 'Captura do projeto' : 'Ilustração dos recursos') + '</figcaption></figure>';
+  return '<figure class="art" data-tilt><div class="devices" data-tilt-face><div class="monitor">' + screen + '</div><div class="phone" aria-hidden="true"><i></i><i></i><i></i></div></div><figcaption>' + (project.image ? 'Captura do projeto' : 'Ilustração dos recursos') + '</figcaption></figure>';
 }
 document.querySelectorAll('[data-whatsapp]').forEach(link => { link.href = whatsapp(greeting); });
+
+/* ---------- Skyline (hero) ---------- */
+function buildSkyline() {
+  const W = 1600, H = 1000, rnd = (a, b) => a + Math.random() * (b - a);
+  let s = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg"><defs>' +
+    '<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1830"/><stop offset=".45" stop-color="#1f3d6b"/><stop offset=".78" stop-color="#5a7fb0"/><stop offset=".93" stop-color="#9fb3cf"/><stop offset="1" stop-color="#d9b98a"/></linearGradient>' +
+    '<linearGradient id="glass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7d9cc6"/><stop offset=".5" stop-color="#3d5f8f"/><stop offset="1" stop-color="#1d3459"/></linearGradient>' +
+    '<linearGradient id="glassSide" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a2d4d"/><stop offset="1" stop-color="#0d1a30"/></linearGradient>' +
+    '<linearGradient id="goldStrip" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffdca0" stop-opacity=".2"/><stop offset=".5" stop-color="#ffd38a"/><stop offset="1" stop-color="#ffdca0" stop-opacity=".2"/></linearGradient>' +
+    '<filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="28"/></filter>' +
+    '<filter id="glowF" x="-200%" y="-10%" width="500%" height="120%"><feGaussianBlur stdDeviation="10"/></filter>' +
+    '</defs><rect width="' + W + '" height="' + H + '" fill="url(#sky)"/>';
+  // stars
+  for (let i = 0; i < 70; i++) s += '<circle cx="' + rnd(0, W).toFixed(0) + '" cy="' + rnd(0, 380).toFixed(0) + '" r="' + rnd(.5, 1.4).toFixed(1) + '" fill="#fff" opacity="' + rnd(.15, .6).toFixed(2) + '"' + (i % 4 === 0 ? ' class="lit"' : '') + '/>';
+  // clouds
+  [[300,560,260,40],[620,620,320,46],[1350,520,300,38],[1500,640,260,40],[900,700,420,50],[150,700,300,40]].forEach(([x,y,rx,ry]) => {
+    s += '<ellipse cx="' + x + '" cy="' + y + '" rx="' + rx + '" ry="' + ry + '" fill="#c4d2e6" opacity=".28" filter="url(#blur)"/>';
+  });
+  // distant buildings
+  let x = -20;
+  while (x < W) {
+    const w = rnd(50, 120), h = rnd(70, 220);
+    s += '<rect x="' + x.toFixed(0) + '" y="' + (H - h).toFixed(0) + '" width="' + w.toFixed(0) + '" height="' + h.toFixed(0) + '" fill="#132744" opacity=".9"/>';
+    for (let wy = H - h + 12; wy < H - 10; wy += 16) for (let wx = x + 8; wx < x + w - 8; wx += 14)
+      if (Math.random() < .18) s += '<rect x="' + wx.toFixed(0) + '" y="' + wy.toFixed(0) + '" width="6" height="7" fill="#f3c987" opacity="' + rnd(.3, .8).toFixed(2) + '"/>';
+    x += w + rnd(2, 14);
+  }
+  // main tower
+  const tx = 930, tw = 230, sw = 95, top = 120, floorH = 34;
+  s += '<g id="tower">';
+  s += '<rect x="' + (tx + 60) + '" y="' + (top - 70) + '" width="110" height="70" fill="#14294a"/><rect x="' + (tx + 112) + '" y="' + (top - 150) + '" width="4" height="80" fill="#9fb3cf"/><circle cx="' + (tx + 114) + '" cy="' + (top - 152) + '" r="4" fill="#ff7a6b" class="lit"/>';
+  s += '<polygon points="' + (tx + tw) + ',' + top + ' ' + (tx + tw + sw) + ',' + (top + 26) + ' ' + (tx + tw + sw) + ',' + H + ' ' + (tx + tw) + ',' + H + '" fill="url(#glassSide)"/>';
+  s += '<rect x="' + tx + '" y="' + top + '" width="' + tw + '" height="' + (H - top) + '" fill="url(#glass)"/>';
+  let fi = 0;
+  for (let y = top + 8; y < H; y += floorH, fi++) {
+    const cols = 6, cw = tw / cols;
+    for (let c = 0; c < cols; c++) {
+      const lit = Math.random() < .32;
+      s += '<rect x="' + (tx + c * cw + 3).toFixed(1) + '" y="' + (y + 4) + '" width="' + (cw - 6).toFixed(1) + '" height="' + (floorH - 12) + '" fill="' + (lit ? '#ffd79a' : '#9db7da') + '" opacity="' + (lit ? .85 : rnd(.08, .25).toFixed(2)) + '"' + (lit ? ' class="lit win" style="animation-delay:' + rnd(0, 5).toFixed(1) + 's"' : '') + '/>';
+    }
+    for (let c = 0; c < 3; c++) {
+      const lit = Math.random() < .2;
+      const x1 = tx + tw + c * (sw / 3) + 3, x2 = x1 + sw / 3 - 6, k = 26 / sw;
+      const y1 = y + 4 + (x1 - tx - tw) * k * (1 - (y - top) / (H - top)), y2 = y + 4 + (x2 - tx - tw) * k * (1 - (y - top) / (H - top));
+      s += '<polygon points="' + x1.toFixed(1) + ',' + y1.toFixed(1) + ' ' + x2.toFixed(1) + ',' + y2.toFixed(1) + ' ' + x2.toFixed(1) + ',' + (y2 + floorH - 12).toFixed(1) + ' ' + x1.toFixed(1) + ',' + (y1 + floorH - 12).toFixed(1) + '" fill="' + (lit ? '#f3c987' : '#2a4268') + '" opacity="' + (lit ? .6 : .5) + '"/>';
+    }
+    // slab / balcony
+    s += '<rect x="' + (tx - 6) + '" y="' + (y + floorH - 8) + '" width="' + (tw + 12) + '" height="4" fill="#d6dde8" opacity=".85"/><rect x="' + (tx - 6) + '" y="' + (y + floorH - 4) + '" width="' + (tw + 12) + '" height="2" fill="#f2c27a" opacity=".55"/>';
+  }
+  // golden lit column
+  s += '<rect x="' + (tx + tw * .62) + '" y="' + top + '" width="14" height="' + (H - top) + '" fill="#ffc977" opacity=".55" filter="url(#glowF)"/>';
+  s += '<rect x="' + (tx + tw * .62 + 4) + '" y="' + top + '" width="6" height="' + (H - top) + '" fill="url(#goldStrip)"/>';
+  s += '<rect x="' + (tx + tw - 2) + '" y="' + top + '" width="3" height="' + (H - top) + '" fill="#e9d2a6" opacity=".7"/>';
+  s += '</g>';
+  // foreground haze
+  s += '<rect y="' + (H - 160) + '" width="' + W + '" height="160" fill="#0b1628" opacity=".35" filter="url(#blur)"/></svg>';
+  document.getElementById('skyline').innerHTML = s;
+}
+
 const selected = site.projects.find(project => project.id === new URLSearchParams(location.search).get('projeto'));
 if (selected) {
   document.body.classList.add('detail-view');
   document.getElementById('home').hidden = true;
+  document.getElementById('pager').hidden = true;
   document.title = selected.name + ' | Projetos de Jefferson Ramalho';
   document.querySelector('meta[name="description"]').content = selected.summary;
   document.querySelector('link[rel="canonical"]').href = new URL(detail(selected), 'https://jefframalho.github.io/').href;
-  document.getElementById('project-body').innerHTML = '<article><a class="back" href="./#projetos">← Todos os projetos</a><p class="label">' + selected.area + '</p><h1>' + selected.name + '</h1><p>' + selected.purpose + '</p>' + artwork(selected) + '<h2>Principais recursos</h2><ul>' + selected.features.map(feature => '<li>' + feature + '</li>').join('') + '</ul><div class="actions">' + (selected.showcase ? '' : demonstration(selected)) + (selected.url ? '<a class="button secondary" href="' + selected.url + '">Acessar site do projeto</a>' : '') + '</div></article>';
+  document.getElementById('project-body').innerHTML = '<article><a class="back" href="./#projetos">← Todos os projetos</a><p class="label">' + selected.area + '</p><h1>' + selected.name + '</h1><p>' + selected.purpose + '</p>' + artwork(selected) + '<h2>Principais recursos</h2><ul>' + selected.features.map(feature => '<li>' + feature + '</li>').join('') + '</ul><div class="actions">' + (selected.showcase ? '' : demonstration(selected)) + (selected.url ? '<a class="button" href="' + selected.url + '">Acessar site do projeto</a>' : '') + '</div></article>';
   document.getElementById('project').hidden = false;
 } else {
-
-  document.getElementById('destaques').innerHTML = site.projects.map((project, i) => '<a href="' + visit(project) + '"><span>0' + (i + 1) + '</span>' + project.name + '</a>').join('');
+  buildSkyline();
+  document.getElementById('stat-projects').textContent = site.projects.length;
 
   document.getElementById('cards').innerHTML = site.projects.map(project =>
-    '<article class="card project-card"><a class="project-preview" href="' + visit(project) + '" aria-label="Abrir ' + project.name + '">' + artwork(project) + '</a>' +
+    '<article class="card project-card fade"><a class="project-preview" href="' + visit(project) + '" aria-label="Abrir ' + project.name + '">' + artwork(project) + '</a>' +
     '<div class="body"><p class="label">' + project.area + '</p><h3><a href="' + visit(project) + '">' + project.name + '</a></h3><p>' + project.summary + '</p>' +
-    '<div class="actions"><a class="button secondary" href="' + visit(project) + '">' + (project.showcase ? 'Ver projeto' : 'Acessar projeto') + '</a>' +
-    (project.showcase ? '' : demonstration(project)) + '<a href="' + detail(project) + '">Detalhes</a></div></div></article>'
+    '<div class="actions"><a class="button" href="' + visit(project) + '">' + (project.showcase ? 'Ver projeto' : 'Acessar projeto') + '</a>' +
+    (project.showcase ? '' : demonstration(project)) + '<a class="text-link" href="' + detail(project) + '">Detalhes</a></div></div></article>'
   ).join('');
 
-  document.getElementById('services').innerHTML = services.map(([title, description]) => '<article class="card body"><h3>' + title + '</h3><p>' + description + '</p><a class="button secondary" href="' + whatsapp('Olá, Jefferson! Vi seu site e gostaria de pedir um orçamento. Serviço de interesse: ' + title + '.') + '">Pedir orçamento</a></article>').join('');
-  if (site.photo) document.getElementById('profile').innerHTML = '<img src="' + site.photo + '" alt="Foto profissional de Jefferson Ramalho" loading="lazy" decoding="async">';
+  document.getElementById('services').innerHTML = services.map(([title, description], i) => '<article class="service fade"><span class="n">0' + (i + 1) + '</span><h3>' + title + '</h3><p>' + description + '</p><a class="button" href="' + whatsapp('Olá, Jefferson! Vi seu site e gostaria de pedir um orçamento. Serviço de interesse: ' + title + '.') + '">Pedir orçamento</a></article>').join('');
+  if (site.photo) document.getElementById('profile').innerHTML = '<div class="profile"><img src="' + site.photo + '" alt="Foto profissional de Jefferson Ramalho" loading="lazy" decoding="async"></div>';
+
+  /* Hero parallax: city zooms in, text drifts away as you scroll */
+  const sky = document.getElementById('skyline'), copy = document.getElementById('hero-copy');
+  if (!reduceMotion) {
+    let ticking = false;
+    addEventListener('scroll', () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        const p = Math.min(scrollY / innerHeight, 1);
+        sky.style.transform = 'scale(' + (1 + p * .18) + ') translateY(' + (p * 40) + 'px)';
+        copy.style.transform = 'translateY(' + (p * -60) + 'px)';
+        copy.style.opacity = 1 - p * 1.1;
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+
+  /* Section pager on the right (01 / 02 + vertical name) */
+  const order = [['inicio','Início'],['projetos','Projetos'],['servicos','Serviços'],['sobre','Sobre'],['contato','Contato']];
+  const pad = n => String(n).padStart(2, '0');
+  const pTop = document.getElementById('pager-top'), pNext = document.getElementById('pager-next'), pDot = document.getElementById('pager-dot'), pName = document.getElementById('pager-name');
+  const links = document.querySelectorAll('.menu a');
+  function setActive(i) {
+    pTop.textContent = pad(i + 1); pTop.href = '#' + order[i][0];
+    const n = Math.min(i + 1, order.length - 1);
+    pNext.textContent = pad(n + 1); pNext.href = '#' + order[n][0];
+    pDot.style.top = (i / (order.length - 1) * 141) + 'px';
+    pName.textContent = order[i][1];
+    document.getElementById('pager').classList.toggle('on-light', order[i][0] === 'servicos');
+    links.forEach(a => a.classList.toggle('active', a.dataset.sec === order[i][0]));
+  }
+  const secObs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) setActive(order.findIndex(o => o[0] === e.target.id));
+  }), {rootMargin:'-45% 0px -50% 0px'});
+  order.forEach(([id]) => secObs.observe(document.getElementById(id)));
 }
 
+/* Header turns solid after the hero */
+const header = document.getElementById('topo');
+const solid = () => header.classList.toggle('solid', scrollY > 60);
+addEventListener('scroll', solid, {passive:true}); solid();
+
+/* Mobile menu */
+const burger = document.querySelector('.burger');
+burger.addEventListener('click', () => {
+  const open = document.body.classList.toggle('menu-open');
+  burger.setAttribute('aria-expanded', open);
+  burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+});
+document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => {
+  document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded', false);
+}));
+
+/* Fade-in on scroll */
+const fadeObs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); fadeObs.unobserve(e.target); }
+}), {threshold:.12});
+document.querySelectorAll('.fade').forEach(el => reduceMotion ? el.classList.add('in') : fadeObs.observe(el));
+
+/* Gentle 3D tilt on project previews */
 const motion = matchMedia('(min-width: 721px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
 document.querySelectorAll('[data-tilt]').forEach(stage => {
   const face = stage.querySelector('[data-tilt-face]');
-  let frame = 0;
-  function reset() {
-    cancelAnimationFrame(frame);
-    face.style.removeProperty('--rx');
-    face.style.removeProperty('--ry');
-  }
+  if (!face) return;
+  face.style.transition = 'transform .35s ease-out';
   stage.addEventListener('pointermove', event => {
     if (!motion.matches || event.pointerType !== 'mouse') return;
-    const bounds = stage.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    cancelAnimationFrame(frame);
-    frame = requestAnimationFrame(() => {
-      face.style.setProperty('--rx', (-y * 13) + 'deg');
-      face.style.setProperty('--ry', (x * 16) + 'deg');
-    });
+    const b = stage.getBoundingClientRect();
+    const x = (event.clientX - b.left) / b.width - .5, y = (event.clientY - b.top) / b.height - .5;
+    face.style.transform = 'rotateX(' + (-y * 10) + 'deg) rotateY(' + (x * 12) + 'deg)';
   }, {passive:true});
-  stage.addEventListener('pointerleave', reset);
-  stage.addEventListener('pointercancel', reset);
-  motion.addEventListener('change', reset);
+  stage.addEventListener('pointerleave', () => { face.style.transform = ''; });
 });
 </script>
 </body>
