@@ -222,6 +222,17 @@ nav.links a:hover{background:rgba(255,255,255,.08);color:#fff}
 .ws .ring::after{content:"";width:44px;height:44px;border-radius:50%;background:#000}
 .ws .pill{margin-top:6px;background:var(--c);color:#fff;border-radius:999px;font-size:10px;padding:5px 10px}
 
+/* site real navegando */
+.live{position:absolute;inset:0;overflow:hidden;background:#0b0f14;cursor:none}
+.live img{display:block;width:100%;height:auto;will-change:transform;user-select:none;-webkit-user-drag:none}
+.live .cur{position:absolute;left:0;top:0;width:16px;height:22px;z-index:3;pointer-events:none;transition:transform 1s cubic-bezier(.45,0,.2,1);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 22'%3E%3Cpath d='M1 1v17l4.5-4.2 3 6.7 2.6-1.2-3-6.6H14z' fill='%23fff' stroke='%23000' stroke-width='1.3' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat;filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}
+.live .rip{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:rgba(255,255,255,.25);z-index:2;pointer-events:none;animation:rip .6s ease-out forwards}
+@keyframes rip{from{transform:scale(.2);opacity:1}to{transform:scale(1.4);opacity:0}}
+.live .badge{position:absolute;right:8px;top:8px;z-index:4;font:600 9px/1 var(--sans);letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);padding:5px 8px;border-radius:999px;display:flex;align-items:center;gap:5px}
+.live .badge i{width:6px;height:6px;border-radius:50%;background:#ff4d4d;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+
 /* anotações flutuantes */
 .note{position:absolute;z-index:5;background:rgba(20,20,20,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 14px;font-size:13px;color:#ddd;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s;max-width:230px;pointer-events:none}
 .note b{display:block;color:#fff;font-size:14px;margin-bottom:2px}
@@ -434,7 +445,7 @@ footer a:hover{color:#fff}
       <a class="btn btn-light" id="rOpen" href="#" target="_blank" rel="noopener">Ver projeto ↗</a>
     </div>
   </div>
-  <p class="disc">As telas são ilustrativas, com dados fictícios. <a href="catalogo.html#sistemas" style="color:var(--gold)">Ver o catálogo completo →</a></p>
+  <p class="disc">Clinix Odonto, Advera e Viver Bem mostram os sites reais, no ar. As demais telas são ilustrativas, com dados fictícios. <a href="catalogo.html#sistemas" style="color:var(--gold)">Ver o catálogo completo →</a></p>
 </section>
 
 <!-- ============ SERVIÇOS ============ -->
@@ -496,8 +507,9 @@ footer a:hover{color:#fff}
 /* =================== DADOS DOS PROJETOS =================== */
 const WA = "5583921418988";
 const P = [
- {n:"Clinix Odonto",cat:"SaaS · Clínicas odontológicas",c:"#14b8a6",c2:"#0f766e",bg:"#f2f7f6",ini:"C",t1:"Sua clínica",t2:"organizada",sub:"Agenda, prontuário, contratos e financeiro em um só lugar.",kl:"Faturamento do mês",kv:"R$ 48.320",it:[["Consultas hoje","18"],["Confirmadas","94%"]],li:["Ana Souza · Limpeza · 09:00","Carlos Lima · Canal · 10:30","Júlia Reis · Avaliação · 14:00","Marcos Dias · Clareamento · 16:00"],nav:["Agenda","Pacientes","Odontograma","Contratos","Financeiro"],url:"https://www.clinixodonto.com.br",tags:["Firebase","Agenda online","Contratos","WhatsApp"],d:"Sistema por assinatura para várias clínicas: agenda online com auto agendamento, odontograma, contratos com assinatura do paciente, estoque, financeiro e lembretes no WhatsApp."},
- {n:"Viver Bem Home Care",cat:"Sistema de gestão · Home care",c:"#2f5d50",c2:"#b08d3c",bg:"#f6f3ec",ini:"V",t1:"Cuidado em",t2:"casa",sub:"Equipe multidisciplinar com check-in na casa do paciente.",kl:"Atendimentos na semana",kv:"126",it:[["Profissionais","32"],["Check-ins hoje","41"]],li:["Enf. Maria · Check-in 07:58","Fisio. João · Em atendimento","Téc. Paula · Check-out 12:04","Nutri. Ana · Agendado 15:00"],nav:["Painel","Pacientes","Profissionais","Contratos","Folha"],url:"https://viverbemhomecare.com.br",tags:["Login por perfil","Geolocalização","Contratos LGPD","Folha de pagamento"],d:"Plataforma de atendimento domiciliar com acessos para administração, profissionais e familiares, check-in por localização, contratação pelo app e contratos com LGPD."},
+ {n:"Clinix Odonto",cat:"SaaS · Clínicas odontológicas",c:"#14b8a6",c2:"#0f766e",bg:"#f2f7f6",ini:"C",t1:"Sua clínica",t2:"organizada",sub:"Agenda, prontuário, contratos e financeiro em um só lugar.",kl:"Faturamento do mês",kv:"R$ 48.320",it:[["Consultas hoje","18"],["Confirmadas","94%"]],li:["Ana Souza · Limpeza · 09:00","Carlos Lima · Canal · 10:30","Júlia Reis · Avaliação · 14:00","Marcos Dias · Clareamento · 16:00"],nav:["Agenda","Pacientes","Odontograma","Contratos","Financeiro"],url:"https://www.clinixodonto.com.br/",tags:["Firebase","Agenda online","Contratos","WhatsApp"],wl:"Teste grátis",wv:"14 dias",real:{desk:["assets/portfolio/clinix-desk.jpg",800,2500],mob:["assets/portfolio/clinix-mob.jpg",390,2532]},d:"Sistema por assinatura para várias clínicas: agenda online com auto agendamento, odontograma, contratos com assinatura do paciente, estoque, financeiro e lembretes no WhatsApp."},
+ {n:"Advera",cat:"SaaS · Escritórios de advocacia",c:"#1f5a4c",c2:"#0a2a24",bg:"#f3f5f2",ini:"A",t1:"O escritório",t2:"numa tela só",sub:"Prazos, processos, clientes, contratos e honorários.",kl:"Prazos da semana",kv:"12",it:[["Processos","48"],["Contratos","9"]],li:["Contestação · Hoje 17h","Audiência · Em 2 dias","Sentença publicada","Contrato assinado"],nav:["Seu dia","Prazos","Processos","Clientes","Honorários"],url:"https://advera-6607b.web.app/",tags:["Prazos com lembrete","Andamentos do CNJ","Contrato assinado","Login por advogado"],wl:"Teste grátis",wv:"7 dias",real:{desk:["assets/portfolio/advera-desk.jpg",800,2500],mob:["assets/portfolio/advera-mob.jpg",390,1688]},d:"Sistema por assinatura para escritórios de advocacia: prazos com lembrete, andamentos do CNJ conferidos de hora em hora, contratos assinados pelo cliente no celular, honorários e login próprio para cada advogado."},
+ {n:"Viver Bem Home Care",cat:"Sistema de gestão · Home care",c:"#2f5d50",c2:"#b08d3c",bg:"#f6f3ec",ini:"V",t1:"Cuidado em",t2:"casa",sub:"Equipe multidisciplinar com check-in na casa do paciente.",kl:"Atendimentos na semana",kv:"126",it:[["Profissionais","32"],["Check-ins hoje","41"]],li:["Enf. Maria · Check-in 07:58","Fisio. João · Em atendimento","Téc. Paula · Check-out 12:04","Nutri. Ana · Agendado 15:00"],nav:["Painel","Pacientes","Profissionais","Contratos","Folha"],url:"https://www.viverbemhomecare.com.br/",tags:["Login por perfil","Geolocalização","Contratos LGPD","Folha de pagamento"],wl:"Plantões",wv:"6h–24h",real:{desk:["assets/portfolio/viverbem-desk.jpg",800,2500],mob:["assets/portfolio/viverbem-mob.jpg",390,1688]},d:"Plataforma de atendimento domiciliar com acessos para administração, profissionais e familiares, check-in por localização, contratação pelo app e contratos com LGPD."},
  {n:"Evolui Fit",cat:"App · Academias e personal",c:"#f97316",c2:"#c2410c",bg:"#fbf5ef",ini:"E",t1:"Treino de",t2:"hoje",sub:"Ficha, evolução e metas do aluno na palma da mão.",kl:"Carga total na semana",kv:"12,4 t",it:[["Treinos no mês","16"],["Meta de peso","−3,2 kg"]],li:["Supino reto · 4×10","Agachamento livre · 4×12","Remada curvada · 3×12","Prancha · 3×45s"],nav:["Hoje","Fichas","Medidas","Alunos","Metas"],url:"https://jefframalho.github.io/evolui-fit/",tags:["Área do aluno","Fichas de treino","Medidas","PWA"],d:"Sistema para academias e personal trainers: fichas de treino, acompanhamento de medidas, metas e área exclusiva do aluno."},
  {n:"Cellix",cat:"SaaS · Redes de lojas de celular",c:"#7c3aed",c2:"#4c1d95",bg:"#f5f3fb",ini:"C",t1:"Vendas em",t2:"todas as lojas",sub:"PDV, estoque por IMEI e ordens de serviço.",kl:"Vendas hoje",kv:"R$ 9.870",it:[["OS abertas","23"],["Lojas","4"]],li:["iPhone 13 128GB · Vendido","Galaxy A55 · Em estoque","Troca de tela · OS #1042","Redmi Note 13 · Seminovo"],nav:["PDV","Estoque","OS","Seminovos","Relatórios"],url:"https://jefframalho.github.io/cellix/",tags:["PDV + caixa","Estoque IMEI","Ordem de serviço","Multi-lojas"],d:"Sistema por assinatura para redes de lojas de celular: vendas e caixa, estoque por IMEI, ordens de serviço, seminovos e relatórios por loja."},
  {n:"Delivery Mauriti",cat:"Plataforma · Delivery multi-lojas",c:"#ef4444",c2:"#991b1b",bg:"#fbf3f2",ini:"D",t1:"Peça em",t2:"Mauriti",sub:"Cardápio online, pedidos e painel do lojista.",kl:"Pedidos hoje",kv:"87",it:[["Lojas ativas","12"],["Tempo médio","28 min"]],li:["Pizzaria Central · Saiu p/ entrega","Açaí do Bairro · Preparando","Burger House · Novo pedido","Pastelaria Sol · Entregue"],nav:["Pedidos","Cardápio","Lojas","Clientes","Admin"],url:"catalogo.html#sistemas",tags:["React + Vite","Firebase","Link por loja","Painel admin"],d:"Delivery com várias lojas: link público por loja, cardápio online, painel do lojista e painel administrativo, por assinatura mensal sem comissão."},
@@ -522,7 +534,20 @@ function deskT(p,k){return `<div class="ds" style="--c:${p.c};--c2:${p.c2};--bg2
  <div class="tiles"><div class="card hero"><small>${p.kl}</small><b>${p.kv}</b></div>${p.it.map(x=>`<div class="card"><small>${x[0]}</small><b>${x[1]}</b></div>`).join("")}</div>
  <div class="bottom"><div class="card" style="display:flex;flex-direction:column"><small>Últimos 12 meses</small><div class="chart">${bars(k,12)}</div></div>
  <div class="card"><small>Recentes</small>${p.li.map(x=>`<div class="li"><i></i>${x}</div>`).join("")}</div></div></main></div>`}
-function watchT(p){return `<div class="ws" style="--c:${p.c}"><div class="ring"></div><small>${p.kl}</small><b>${p.kv}</b><span class="pill">${p.n}</span></div>`}
+function watchT(p){return `<div class="ws" style="--c:${p.c}"><div class="ring"></div><small>${p.wl||p.kl}</small><b>${p.wv||p.kv}</b><span class="pill">${p.n}</span></div>`}
+/* site real com rolagem e cursor */
+function liveT(p,k){const r=p.real[k];return `<div class="live" data-w="${r[1]}" data-h="${r[2]}"><img src="${r[0]}" alt="Site ${p.n}" loading="lazy" draggable="false"><span class="cur"></span><span class="badge"><i></i>AO VIVO</span></div>`}
+function runLive(root){root.querySelectorAll(".live").forEach(el=>{if(el._on)return;el._on=1;
+  const img=el.querySelector("img"),cur=el.querySelector(".cur"),nw=+el.dataset.w,nh=+el.dataset.h;let y=0,cx=40,cy=40;
+  function tick(){if(!el.isConnected)return;const cw=el.clientWidth,ch=el.clientHeight;
+    if(!cw||document.hidden||RM){setTimeout(tick,800);return}
+    const max=Math.max(0,cw*nh/nw-ch),back=y>=max-2;
+    cx=cw*(.18+Math.random()*.64);cy=ch*(.22+Math.random()*.56);cur.style.transform=`translate(${cx}px,${cy}px)`;
+    setTimeout(()=>{if(!el.isConnected)return;const r=document.createElement("span");r.className="rip";r.style.left=cx+"px";r.style.top=cy+"px";el.appendChild(r);setTimeout(()=>r.remove(),650);
+      y=back?0:Math.min(max,y+ch*(.5+Math.random()*.4));
+      img.style.transition=back?"transform 1.8s cubic-bezier(.6,0,.2,1)":"transform 1.2s cubic-bezier(.4,0,.2,1)";img.style.transform=`translateY(${-y}px)`},1050);
+    setTimeout(tick,2600+Math.random()*900)}
+  setTimeout(tick,400+Math.random()*800)})}
 function fitDesk(el,w,h){const d=el.querySelector(".ds");if(!d)return;const s=w/900;d.style.transform=`scale(${s})`;d.style.height=(h/s)+"px"}
 
 /* =================== LOADER =================== */
@@ -541,7 +566,8 @@ const ORDER=["phone","tablet","laptop","watch"];
 let cur=0,dev="phone",auto=true,pauseUntil=0;
 const device=document.getElementById("device"),dscr=document.getElementById("dscreen");
 function paint(){const p=P[cur];
-  if(dev==="phone")dscr.innerHTML=phoneT(p,cur);else if(dev==="watch")dscr.innerHTML=watchT(p);else{dscr.innerHTML=deskT(p,cur);fitDesk(dscr,DEV[dev].w,DEV[dev].h)}}
+  if(p.real&&dev!=="watch"){dscr.innerHTML=liveT(p,dev==="phone"?"mob":"desk");runLive(dscr)}
+  else if(dev==="phone")dscr.innerHTML=phoneT(p,cur);else if(dev==="watch")dscr.innerHTML=watchT(p);else{dscr.innerHTML=deskT(p,cur);fitDesk(dscr,DEV[dev].w,DEV[dev].h)}}
 function setDevice(d){if(d===dev)return;dev=d;dscr.classList.add("fade");device.className="device "+d;
   setTimeout(()=>{paint();dscr.classList.remove("fade")},560);updUI()}
 function setProject(i){cur=(i+P.length)%P.length;dscr.classList.add("fade");setTimeout(()=>{paint();dscr.classList.remove("fade")},260);updUI()}
@@ -604,8 +630,8 @@ requestAnimationFrame(frame);
 /* =================== CARROSSEL 3D =================== */
 const ring=document.getElementById("ring"),stage=document.getElementById("ringStage");
 let rot=0,trot=0,active=0,cw=380,R=520;const step=360/P.length;
-ring.innerHTML=P.map((p,i)=>`<div class="pcard" data-i="${i}"><div class="chrome"><i></i><i></i><i></i><span>${p.url.replace(/^https?:\/\//,"").replace(/^#.*/,"jefframalho.github.io")}</span></div><div class="fit">${deskT(p,i)}</div></div>`).join("");
-const cards=[...ring.children];
+ring.innerHTML=P.map((p,i)=>`<div class="pcard" data-i="${i}"><div class="chrome"><i></i><i></i><i></i><span>${p.url.replace(/^https?:\/\//,"").replace(/^#.*/,"jefframalho.github.io")}</span></div><div class="fit">${p.real?liveT(p,"desk"):deskT(p,i)}</div></div>`).join("");
+const cards=[...ring.children];runLive(ring);
 function fitCards(){cw=Math.min(400,Math.max(240,innerWidth*.62));if(innerWidth>700)cw=Math.min(400,innerWidth*.3);
   R=Math.round((cw/2)/Math.tan(Math.PI/P.length))+40;stage.style.setProperty("--cw",cw+"px");ring.style.setProperty("--cw",cw+"px");
   cards.forEach(c=>{c.style.setProperty("--cw",cw+"px");fitDesk(c.querySelector(".fit"),cw,cw*.74-30)})}
