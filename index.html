@@ -20,7 +20,7 @@
   --serif:"Instrument Serif",Georgia,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body.loading{overflow:hidden}
 a{color:inherit;text-decoration:none}
@@ -248,6 +248,13 @@ section.blk{position:relative;padding:clamp(80px,12vw,150px) clamp(18px,5vw,64px
 .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
 
 /* carrossel 3D */
+.ring-tools{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+.ring-picker{display:flex;align-items:center;flex-wrap:wrap;gap:10px;min-width:0}
+.ring-picker label{color:#cfcac2;font-size:14px;font-weight:600}
+.ring-picker select,.ring-auto{min-height:44px;padding:9px 14px;color:var(--ink);background:#1b1b1b;border:1px solid #4a463e;border-radius:10px;font-size:14px}
+.ring-picker select{max-width:100%;color-scheme:dark}
+.ring-auto:hover,.ring-auto[aria-pressed="true"]{border-color:var(--gold);color:var(--gold2)}
+.ring-auto[aria-pressed="true"]{background:#2b2418}
 .ring-stage{position:relative;height:clamp(380px,46vw,520px);perspective:1600px;cursor:grab;touch-action:pan-y;user-select:none}
 .ring-stage:active{cursor:grabbing}
 .ring{position:absolute;left:50%;top:50%;transform-style:preserve-3d;width:0;height:0}
@@ -262,7 +269,7 @@ section.blk{position:relative;padding:clamp(80px,12vw,150px) clamp(18px,5vw,64px
 .ring-info .cat{color:var(--gold);font-size:13px;margin-bottom:6px}
 .ring-info p{color:#aaa49a;max-width:620px;margin-top:10px;line-height:1.55}
 .ring-info .tags{margin-top:14px}.ring-info .tags span{background:rgba(255,255,255,.06);color:#d8d3ca;border:1px solid var(--line)}
-.ring-ctl{display:flex;gap:10px;align-items:center}
+.ring-ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .ring-ctl .rb{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;font-size:18px;transition:.2s}
 .ring-ctl .rb:hover{background:var(--ink);color:#111}
 .counter{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;margin-right:6px}
@@ -270,14 +277,25 @@ section.blk{position:relative;padding:clamp(80px,12vw,150px) clamp(18px,5vw,64px
 @media (max-width:700px){.ring-info{grid-template-columns:1fr}}
 
 /* serviços */
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;perspective:1200px}
+.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 @media (max-width:1000px){.svc{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.svc{grid-template-columns:1fr}}
-.sc{position:relative;padding:26px 22px;min-height:280px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line);transform-style:preserve-3d;transition:transform .2s ease-out,border-color .3s;display:flex;flex-direction:column}
-.sc:hover{border-color:rgba(212,168,74,.4)}
-.sc .num{font-family:var(--serif);font-style:italic;font-size:44px;color:var(--gold);line-height:1;transform:translateZ(40px)}
-.sc h3{font-size:21px;letter-spacing:-.02em;margin:auto 0 10px;transform:translateZ(30px)}
-.sc p{color:#a9a49b;font-size:14.5px;line-height:1.5;transform:translateZ(20px)}
+.sc{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:76px;padding:14px clamp(12px,2vw,22px);border:1px solid #45423d;border-radius:16px;background:#1c1c1c;text-align:left;font-size:clamp(14px,1.45vw,19px);font-weight:600;line-height:1.2;transition:background .2s,border-color .2s}
+.sc:hover,.sc[aria-selected="true"]{border-color:var(--gold)}
+.sc[aria-selected="true"]{background:#2c2418;color:var(--gold2)}
+.sc::after{content:"";width:8px;height:8px;flex:none;border:1px solid #9a958c;border-radius:50%}
+.sc[aria-selected="true"]::after{border-color:var(--gold2);background:var(--gold2)}
+.svc-panel{margin-top:12px;padding:clamp(20px,4vw,48px);border:1px solid #454037;border-radius:22px;background:radial-gradient(ellipse at 100% 0%,#312719,transparent 70%),#1a1a1a}
+.svc-panel:not([hidden]){display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:clamp(24px,4vw,52px);animation:svc-appear .24s ease-out}
+@keyframes svc-appear{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:none}}
+.svc-panel h3{font-size:clamp(24px,4vw,42px);letter-spacing:-.035em;line-height:1.05}
+.svc-panel p{max-width:540px;margin-top:12px;color:#cfcac2;font-size:16px;line-height:1.55}
+.svc-features{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;list-style:none}
+.svc-features li{padding:6px 10px;border:1px solid #5e5340;border-radius:999px;color:#e3d8c2;font-size:14px}
+.svc-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;justify-self:end}
+.svc-actions .btn{min-height:44px;max-width:100%}
+.svc :focus-visible,.svc-panel:focus-visible,.svc-panel :focus-visible,.ring-tools :focus-visible,.ring-ctl :focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+@media (max-width:650px){.svc-panel:not([hidden]){grid-template-columns:minmax(0,1fr)}.svc-actions{justify-self:start}}
+@media (max-width:420px){.svc{gap:8px}.sc{gap:6px;min-height:60px}.ring-picker{align-items:flex-start;flex-direction:column}}
 
 /* sobre */
 .about{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
@@ -300,7 +318,6 @@ footer a:hover{color:#fff}
 
 .fade-up{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
 .fade-up.in{opacity:1;transform:none}
-.sc.fade-up.in{transition:opacity .9s,transform .2s ease-out,border-color .3s}
 
 .wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.4);transition:transform .2s}
 .wa-float:hover{transform:scale(1.08)}
@@ -308,6 +325,7 @@ footer a:hover{color:#fff}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
   #intro{height:auto}.sticky{position:relative;height:100vh}
 }
 </style>
@@ -428,13 +446,20 @@ footer a:hover{color:#fff}
 <section class="blk" id="projetos">
   <div class="sec-hd fade-up">
     <div><span class="kicker">Projetos selecionados</span><h2>Projetos em <em class="g">3D</em></h2></div>
-    <p>Arraste, use as setas ou clique num card. Cada projeto foi pensado para a rotina real do cliente.</p>
+    <p>Escolha um projeto pelo nome ou arraste os cards para explorar as demonstrações.</p>
+  </div>
+  <div class="ring-tools">
+    <div class="ring-picker">
+      <label for="rPicker">Escolher projeto</label>
+      <select id="rPicker"></select>
+    </div>
+    <button type="button" class="ring-auto" id="rAuto" aria-pressed="false">Rotação automática</button>
   </div>
   <div class="ring-stage" id="ringStage"><div class="ring" id="ring"></div></div>
   <div class="ring-info fade-up">
     <div>
       <div class="cat" id="rCat"></div>
-      <h3 id="rName"></h3>
+      <h3 id="rName" aria-live="polite"></h3>
       <p id="rDesc"></p>
       <div class="tags" id="rTags"></div>
     </div>
@@ -454,11 +479,55 @@ footer a:hover{color:#fff}
     <div><span class="kicker">Como posso ajudar</span><h2>Do primeiro site<br>ao <em class="g">sistema completo</em></h2></div>
     <p>Atendimento próximo e remoto, do primeiro esboço à publicação, com suporte depois da entrega.</p>
   </div>
-  <div class="svc">
-    <div class="sc fade-up"><span class="num">01</span><h3>Sites e landing pages</h3><p>Páginas modernas e rápidas para vender mais, com WhatsApp, Google e Instagram integrados.</p></div>
-    <div class="sc fade-up"><span class="num">02</span><h3>Sistemas por assinatura</h3><p>Plataformas com login para clínicas, academias e lojas: agenda, financeiro, estoque e contratos.</p></div>
-    <div class="sc fade-up"><span class="num">03</span><h3>Apps Android e PWA</h3><p>Seu sistema no celular dos clientes, instalável e pronto para a Play Store.</p></div>
-    <div class="sc fade-up"><span class="num">04</span><h3>Automações e integrações</h3><p>Lembretes no WhatsApp, pagamentos por Pix, cartão e boleto, relatórios automáticos e software para Windows.</p></div>
+  <div class="svc" role="tablist" aria-label="Serviços">
+    <button type="button" class="sc" role="tab" id="tab-sites" aria-controls="servico-sites" aria-selected="true">Sites e landing pages</button>
+    <button type="button" class="sc" role="tab" id="tab-sistemas" aria-controls="servico-sistemas" aria-selected="false" tabindex="-1">Sistemas por assinatura</button>
+    <button type="button" class="sc" role="tab" id="tab-apps" aria-controls="servico-apps" aria-selected="false" tabindex="-1">Apps Android e PWA</button>
+    <button type="button" class="sc" role="tab" id="tab-automacoes" aria-controls="servico-automacoes" aria-selected="false" tabindex="-1">Automações e integrações</button>
+  </div>
+  <div class="svc-panel" id="servico-sites" role="tabpanel" aria-labelledby="tab-sites" tabindex="0">
+    <div>
+      <h3>Apresente seu negócio na web</h3>
+      <p>Sites institucionais e páginas de divulgação com acesso rápido ao WhatsApp e integração com Google e Instagram.</p>
+      <ul class="svc-features"><li>Layout responsivo</li><li>Contato pelo WhatsApp</li><li>SEO</li></ul>
+    </div>
+    <div class="svc-actions">
+      <a class="btn btn-ghost" href="#projetos" data-project="Ronero Prado Ramalho">Ver site do Ronero</a>
+      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento%20para%20um%20site%20ou%20landing%20page." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
+    </div>
+  </div>
+  <div class="svc-panel" id="servico-sistemas" role="tabpanel" aria-labelledby="tab-sistemas" tabindex="0" hidden>
+    <div>
+      <h3>Organize a operação em um só lugar</h3>
+      <p>Plataformas com login para clínicas, academias e lojas. Os módulos acompanham a rotina da equipe.</p>
+      <ul class="svc-features"><li>Agenda</li><li>Financeiro</li><li>Estoque e contratos</li></ul>
+    </div>
+    <div class="svc-actions">
+      <a class="btn btn-ghost" href="#projetos" data-project="Clinix Odonto">Ver Clinix Odonto</a>
+      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento%20para%20um%20sistema%20por%20assinatura." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
+    </div>
+  </div>
+  <div class="svc-panel" id="servico-apps" role="tabpanel" aria-labelledby="tab-apps" tabindex="0" hidden>
+    <div>
+      <h3>Leve seu sistema para o celular</h3>
+      <p>Aplicativos Android para distribuição pela Play Store e PWAs que o cliente pode instalar direto pelo navegador.</p>
+      <ul class="svc-features"><li>Android</li><li>Aplicativo web instalável</li><li>Área do cliente</li></ul>
+    </div>
+    <div class="svc-actions">
+      <a class="btn btn-ghost" href="#projetos" data-project="Evolui Fit">Ver Evolui Fit</a>
+      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento%20para%20um%20app%20Android%20ou%20PWA." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
+    </div>
+  </div>
+  <div class="svc-panel" id="servico-automacoes" role="tabpanel" aria-labelledby="tab-automacoes" tabindex="0" hidden>
+    <div>
+      <h3>Automatize tarefas recorrentes</h3>
+      <p>Integre lembretes no WhatsApp, cobranças por Pix, cartão e boleto, relatórios automáticos e software para Windows.</p>
+      <ul class="svc-features"><li>Lembretes</li><li>Pagamentos</li><li>Relatórios automáticos</li></ul>
+    </div>
+    <div class="svc-actions">
+      <a class="btn btn-ghost" href="#projetos" data-project="Advera">Ver lembretes no Advera</a>
+      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento%20para%20automa%C3%A7%C3%B5es%20ou%20integra%C3%A7%C3%B5es." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
+    </div>
   </div>
 </section>
 
@@ -553,7 +622,14 @@ function fitDesk(el,w,h){const d=el.querySelector(".ds");if(!d)return;const s=w/
 /* =================== LOADER =================== */
 const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 (function(){
-  const pct=document.getElementById("ldPct"),bar=document.getElementById("ldBar");let v=0;const t0=performance.now(),dur=RM?10:1700;
+  const loader=document.getElementById("loader");
+  if (document.getElementById(location.hash.slice(1)) || RM) {
+    loader.remove();
+    document.body.classList.remove("loading");
+    document.body.classList.add("ready");
+    return;
+  }
+  const pct=document.getElementById("ldPct"),bar=document.getElementById("ldBar");let v=0;const t0=performance.now(),dur=1700;
   function step(t){v=Math.min(100,Math.round(((t-t0)/dur)*100));const e=100*(1-Math.pow(1-v/100,3));pct.textContent=Math.round(e)+"%";bar.style.width=e+"%";
     if(v<100)requestAnimationFrame(step);else setTimeout(()=>{document.getElementById("loader").classList.add("done");document.body.classList.remove("loading");document.body.classList.add("ready")},250)}
   requestAnimationFrame(step);
@@ -629,6 +705,10 @@ requestAnimationFrame(frame);
 
 /* =================== CARROSSEL 3D =================== */
 const ring=document.getElementById("ring"),stage=document.getElementById("ringStage");
+const projectPicker = document.getElementById("rPicker");
+const projectName = document.getElementById("rName");
+const rotationToggle = document.getElementById("rAuto");
+projectPicker.replaceChildren(...P.map((project, index) => new Option(project.n, index)));
 let rot=0,trot=0,active=0,cw=380,R=520;const step=360/P.length;
 ring.innerHTML=P.map((p,i)=>`<div class="pcard" data-i="${i}"><div class="chrome"><i></i><i></i><i></i><span>${p.url.replace(/^https?:\/\//,"").replace(/^#.*/,"jefframalho.github.io")}</span></div><div class="fit">${p.real?liveT(p,"desk"):deskT(p,i)}</div></div>`).join("");
 const cards=[...ring.children];runLive(ring);
@@ -637,24 +717,40 @@ function fitCards(){cw=Math.min(400,Math.max(240,innerWidth*.62));if(innerWidth>
   cards.forEach(c=>{c.style.setProperty("--cw",cw+"px");fitDesk(c.querySelector(".fit"),cw,cw*.74-30)})}
 fitCards();
 function setActive(i){active=(i%P.length+P.length)%P.length;const p=P[active];
-  document.getElementById("rCat").textContent=p.cat;document.getElementById("rName").textContent=p.n;document.getElementById("rDesc").textContent=p.d;
+  projectPicker.value = active;
+  document.getElementById("rCat").textContent=p.cat;projectName.textContent=p.n;document.getElementById("rDesc").textContent=p.d;
   document.getElementById("rTags").innerHTML=p.tags.map(t=>`<span>${t}</span>`).join("");
   document.getElementById("rCount").textContent=`${String(active+1).padStart(2,"0")} / ${String(P.length).padStart(2,"0")}`;
   const o=document.getElementById("rOpen");o.href=p.url;o.target=p.url.startsWith("http")?"_blank":"_self"}
 function goTo(i){const diff=((i-active)%P.length+P.length+P.length/2)%P.length-P.length/2;trot-=diff*step;setActive(i)}
-document.getElementById("rPrev").onclick=()=>goTo(active-1);
-document.getElementById("rNext").onclick=()=>goTo(active+1);
-let drag=false,sx=0,srot=0,moved=0,lastInteract=0;
-stage.addEventListener("pointerdown",e=>{drag=true;sx=e.clientX;srot=trot;moved=0;stage.setPointerCapture(e.pointerId)});
-stage.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-sx;moved=Math.abs(dx);trot=srot+dx*.25});
-stage.addEventListener("pointerup",e=>{if(!drag)return;drag=false;lastInteract=Date.now();
+let rotationTimer;
+function setRotation(enabled) {
+  clearInterval(rotationTimer);
+  rotationTimer = enabled ? setInterval(() => {
+    if (!document.hidden) goTo(active + 1);
+  }, 4200) : undefined;
+  rotationToggle.setAttribute("aria-pressed", enabled);
+  projectName.setAttribute("aria-live", enabled ? "off" : "polite");
+}
+function selectProject(index) {
+  setRotation(false);
+  goTo(index);
+}
+rotationToggle.addEventListener("click", () => setRotation(rotationTimer === undefined));
+projectPicker.addEventListener("focus", () => setRotation(false));
+projectPicker.addEventListener("change", () => selectProject(Number(projectPicker.value)));
+document.getElementById("rPrev").onclick=()=>selectProject(active-1);
+document.getElementById("rNext").onclick=()=>selectProject(active+1);
+let dragPointer=null,sx=0,srot=0,moved=0;
+stage.addEventListener("pointerdown",e=>{if(dragPointer!==null||e.button!==0)return;
+  setRotation(false);dragPointer=e.pointerId;sx=e.clientX;srot=trot;moved=0;stage.setPointerCapture(e.pointerId)});
+stage.addEventListener("pointermove",e=>{if(dragPointer!==e.pointerId)return;const dx=e.clientX-sx;moved=Math.abs(dx);trot=srot+dx*.25});
+stage.addEventListener("pointerup",e=>{if(dragPointer!==e.pointerId)return;dragPointer=null;
   if(moved<6){const c=document.elementFromPoint(e.clientX,e.clientY)?.closest(".pcard");if(c){goTo(+c.dataset.i);return}}
   const idx=Math.round(-trot/step);trot=-idx*step;setActive(idx)});
+stage.addEventListener("lostpointercapture",e=>{if(dragPointer===e.pointerId){dragPointer=null;trot=srot}});
 setActive(0);
-setInterval(()=>{if(Date.now()-lastInteract>6000&&!drag&&!RM&&!document.hidden){goTo(active+1)}},4200);
-document.getElementById("rNext").addEventListener("click",()=>lastInteract=Date.now());
-document.getElementById("rPrev").addEventListener("click",()=>lastInteract=Date.now());
-function ringFrame(){rot+=(trot-rot)*.08;
+function ringFrame(){rot=RM?trot:rot+(trot-rot)*.08;
   ring.style.transform=`translateZ(${-R}px) rotateX(-6deg) rotateY(${rot}deg)`;
   cards.forEach((c,i)=>{const a=i*step;c.style.transform=`rotateY(${a}deg) translateZ(${R}px)`;
     const rel=((a+rot)%360+540)%360-180;c.classList.toggle("dim",Math.abs(rel)>step*.6)});
@@ -664,9 +760,34 @@ requestAnimationFrame(ringFrame);
 /* =================== EFEITOS DAS SEÇÕES =================== */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll(".fade-up").forEach((el,i)=>{el.style.transitionDelay=(i%4)*.08+"s";io.observe(el)});
-document.querySelectorAll(".sc").forEach(c=>{
-  c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${x*14}deg) rotateX(${-y*14}deg)`});
-  c.addEventListener("pointerleave",()=>c.style.transform="")});
+
+/* =================== SERVIÇOS =================== */
+const serviceTabs = [...document.querySelectorAll(".svc [role='tab']")];
+function selectService(selectedTab) {
+  serviceTabs.forEach(tab => {
+    const isSelected = tab === selectedTab;
+    tab.setAttribute("aria-selected", isSelected);
+    tab.tabIndex = isSelected ? 0 : -1;
+    document.getElementById(tab.getAttribute("aria-controls")).hidden = !isSelected;
+  });
+}
+serviceTabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => selectService(tab));
+  tab.addEventListener("keydown", event => {
+    const destinations = {ArrowLeft: index - 1, ArrowRight: index + 1, Home: 0, End: serviceTabs.length - 1};
+    if (!Object.hasOwn(destinations, event.key)) return;
+    event.preventDefault();
+    const nextTab = serviceTabs[(destinations[event.key] + serviceTabs.length) % serviceTabs.length];
+    selectService(nextTab);
+    nextTab.focus();
+  });
+});
+document.querySelectorAll(".svc-panel [data-project]").forEach(link => {
+  link.addEventListener("click", () => {
+    const index = P.findIndex(project => project.n === link.dataset.project);
+    if (index >= 0) selectProject(index);
+  });
+});
 </script>
 </body>
 </html>
