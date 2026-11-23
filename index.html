@@ -5,94 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jefferson Ramalho | Sites, sistemas e apps sob medida</title>
 <meta name="description" content="Jefferson Ramalho, desenvolvedor em Mauriti, CE. Sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Atendimento remoto.">
-<meta name="theme-color" content="#0b0b0c">
+<meta name="theme-color" content="#0a0a0a">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://jefframalho.github.io/">
 <meta property="og:title" content="Jefferson Ramalho · Desenvolvedor">
 <meta property="og:description" content="Sites, sistemas e apps sob medida para o seu negócio.">
 <style>
   :root{
-    --bg:#0b0b0c; --panel:#141416; --line:#26262a; --text:#f2f2f2; --muted:#9a9aa2;
-    --blue:#4aa8ff; --blue-dk:#1f6fbf;
+    --bg:#0a0a0a; --panel:#131211; --line:#2a2622; --text:#ece7df; --muted:#8e877d;
+    --gold:#d7b58c; --gold-2:#f0dcc0;
+    --serif:Georgia,"Times New Roman",Times,serif;
   }
   *,*::before,*::after{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
   img{display:block;max-width:100%;height:auto}
   a{color:inherit}
-  h1,h2,h3{margin:0 0 .5em;line-height:1.1;font-weight:800;letter-spacing:.01em}
-  p{margin:0 0 1em}
-  .wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+  h1,h2,h3{margin:0;font-weight:300;line-height:1.1;letter-spacing:-.01em}
+  p{margin:0}
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
   .skip{position:absolute;left:-999px}
-  .skip:focus{left:12px;top:12px;background:#fff;color:#000;padding:8px 12px;border-radius:8px}
-  :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+  .skip:focus{left:12px;top:12px;background:#fff;color:#000;padding:8px 12px;border-radius:8px;z-index:9}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .serif{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--gold)}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 
   /* navegação */
-  header{padding-top:18px}
-  .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-  .logo{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:14px;text-decoration:none}
-  .phone{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
-  nav ul{list-style:none;margin:16px 0 0 -12px;padding:0;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  nav a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;text-decoration:none;font-size:14px;color:#cfcfd4;white-space:nowrap;border-radius:6px}
-  nav a:hover{color:#fff}
-  nav a.on{color:var(--blue)}
+  header{padding-top:22px}
+  .bar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px 12px;border:1px solid var(--line);border-radius:22px;padding:10px 10px 10px 20px;background:rgba(19,18,17,.7)}
+  .bar nav{grid-column:1/-1;order:3}
+  .bar nav ul{justify-content:center}
+  .bar .cta{order:2}
+  @media (min-width:760px){.bar{display:flex;justify-content:space-between;border-radius:999px;padding:8px 8px 8px 20px}.bar nav{order:0}}
+  .logo{font-size:13px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;font-weight:600}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav a{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap;border-radius:999px}
+  nav a:hover,nav a.on{color:var(--text)}
+  .cta{display:inline-flex;align-items:center;min-height:38px;padding:0 18px;border-radius:999px;background:var(--gold);color:#120e09;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap}
+  .cta:hover{background:var(--gold-2)}
 
   /* hero */
-  .hero{padding-top:64px;padding-bottom:72px;min-height:62vh;display:flex;flex-direction:column;justify-content:center}
-  .hero .kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
-  .hero h1{font-size:clamp(2.6rem,9vw,5.6rem);text-transform:uppercase;line-height:.95;letter-spacing:.02em;margin:0}
-  .hero h1 span{display:block}
-  .hero .role{font-size:clamp(.95rem,2.4vw,1.15rem);letter-spacing:.45em;text-transform:uppercase;color:var(--blue);margin:18px 0 0}
-  .hero .lead{max-width:56ch;color:var(--muted);margin-top:22px;font-size:clamp(1rem,2.4vw,1.1rem)}
-  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-  .pill{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;border:1px solid #4a4a52;text-decoration:none;font-size:14px;font-weight:600;color:var(--text);background:transparent}
-  .pill:hover{border-color:var(--blue);color:var(--blue)}
-  .pill.solid{background:var(--blue);border-color:var(--blue);color:#06121f}
-  .pill.solid:hover{background:#7bc0ff;border-color:#7bc0ff;color:#06121f}
+  .hero{text-align:center;padding-top:56px;padding-bottom:64px}
+  .hero .photo{width:min(300px,70vw);margin:0 auto 28px}
+  .hero .photo img{width:100%;height:auto}
+  .hero h1{font-size:clamp(2.4rem,7vw,4.6rem)}
+  .hero h1 .serif{display:block;font-size:.9em;margin-top:.1em}
+  .hero .sub{max-width:52ch;margin:22px auto 0;color:var(--muted);font-size:clamp(.95rem,2.2vw,1.05rem)}
+  .hero .stack{margin-top:34px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .ghost{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;border:1px solid #4a4238;color:var(--text);text-decoration:none;font-size:14px}
+  .ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+  /* citações */
+  .quote{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0;text-align:center}
+  .quote blockquote{margin:0 auto;max-width:34ch}
+  .quote p{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3.6vw,1.9rem);line-height:1.35;color:var(--gold-2)}
+  .quote cite{display:block;margin-top:14px;font-style:normal;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
   /* seções */
-  section{padding:72px 0;border-top:1px solid var(--line)}
-  .title{font-size:clamp(1.6rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.12em;margin-bottom:28px}
-  .title::after{content:"";display:block;width:36px;height:3px;background:var(--blue);margin-top:12px;border-radius:2px}
+  section{padding:88px 0}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+  .head h2{font-size:clamp(1.8rem,4.5vw,2.6rem)}
 
   /* sobre */
-  .about{display:grid;gap:32px;align-items:center}
-  .about .photo{width:100%;max-width:380px;justify-self:center}
-  .about .photo img{width:100%;height:auto}
-  .about .text p{color:#d6d6dc;max-width:58ch}
-  .about .meta{margin-top:20px;font-size:14px;color:var(--muted);display:grid;gap:4px}
-  .about .meta a{color:var(--blue);text-decoration:none}
-  @media (min-width:800px){
-    .about{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-    .about .photo{justify-self:end}
-  }
+  .about{display:grid;gap:36px;align-items:center}
+  .about h2{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-top:14px}
+  .about p{color:#d3cdc4;max-width:60ch;font-size:17px}
+  .about p + p{margin-top:16px;color:var(--muted)}
+  .about .meta{margin-top:22px;font-size:14px;color:var(--muted)}
+  .about .meta a{color:var(--gold);text-decoration:none}
+  @media (min-width:800px){.about{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+
+  /* serviços */
+  .services{display:grid;gap:14px}
+  .svc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column;gap:10px;text-decoration:none;transition:border-color .2s}
+  .svc:hover{border-color:#4a4238}
+  .svc .n{font-size:12px;color:var(--gold)}
+  .svc h3{font-size:22px;font-weight:400}
+  .svc p{color:var(--muted);font-size:15px}
+  .svc .go{margin-top:auto;padding-top:12px;font-size:13px;color:var(--text)}
+  @media (min-width:800px){.services{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
   /* projetos */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:16px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-  .shot{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;border-bottom:1px solid var(--line);filter:brightness(.92)}
-  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
-  .card h3{font-size:18px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px}
-  .cat{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:0 0 10px}
-  .card p{font-size:15px;color:#c2c2c9;margin:0 0 14px}
-  .card .go{margin-top:auto;font-weight:600;font-size:14px;color:var(--text);text-decoration:none}
-  .card .go:hover{color:var(--blue)}
-  .note{font-size:13px;color:var(--muted);margin-top:18px}
-
-  /* três colunas: competências, serviços, tecnologias */
-  .cols{display:grid;gap:36px}
-  .cols h3{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
-  .cols ul{list-style:none;margin:0;padding:0}
-  .cols li{padding:10px 0;border-bottom:1px solid var(--line);color:#d6d6dc}
-  .cols li small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
-  .cols a{color:var(--blue);text-decoration:none;font-size:14px}
-  @media (min-width:800px){.cols{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+  .work{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+  .work .shot{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;filter:brightness(.9)}
+  .work .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .work h3{font-size:20px;font-weight:400}
+  .work .cat{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .work p{font-size:14px;color:var(--muted)}
+  .work .go{margin-top:auto;padding-top:10px;font-size:13px;color:var(--text);text-decoration:none}
+  .work .go:hover{color:var(--gold)}
 
   /* contato */
-  .contact p{color:var(--muted);max-width:52ch}
-  .contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .contact{text-align:center}
+  .contact h2{font-size:clamp(2rem,6vw,3.4rem)}
+  .contact h2 .serif{display:block;margin-top:.05em}
+  .contact p{color:var(--muted);max-width:50ch;margin:20px auto 0}
+  .contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .contact-links .cta{min-height:46px;padding:0 24px;font-size:14px}
 
-  footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:13px;color:var(--muted)}
+  footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:13px;color:var(--muted);text-align:center}
 </style>
 </head>
 <body>
@@ -100,180 +113,195 @@
 <a href="#projetos" class="skip">Pular para os projetos</a>
 
 <header class="wrap">
-  <div class="top">
+  <div class="bar">
     <a href="#inicio" class="logo">Jefferson Ramalho</a>
-    <a class="phone" href="https://wa.me/5583921418988">(83) 9 2141-8988</a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener">Orçamento</a>
   </div>
-  <nav aria-label="Principal">
-    <ul>
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
 </header>
 
 <main>
 
 <div id="inicio" class="wrap hero">
-  <p class="kicker">Mauriti, CE · Atendimento remoto</p>
-  <h1><span>Jefferson</span><span>Ramalho</span></h1>
-  <p class="role">Desenvolvedor</p>
-  <p class="lead">Faço sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Você me conta como funciona o seu dia a dia e eu monto a ferramenta em cima disso.</p>
+  <div class="photo"><img src="assets/foto.png" width="738" height="987" alt="Foto de Jefferson Ramalho"></div>
+  <p class="eyebrow">Mauriti, CE · Atendimento remoto</p>
+  <h1>Sites e sistemas<span class="serif">sob medida</span></h1>
+  <p class="sub">Faço sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Você me conta como funciona o seu dia a dia e eu monto a ferramenta em cima disso.</p>
   <div class="hero-actions">
-    <a class="pill solid" href="#projetos">Projetos</a>
-    <a class="pill" href="#contato">Pedir orçamento</a>
+    <a class="cta" href="#projetos">Ver projetos</a>
+    <a class="ghost" href="#contato">Pedir orçamento</a>
   </div>
+  <p class="stack"><span>Firebase</span><span>·</span><span>React</span><span>·</span><span>PWA</span><span>·</span><span>Android</span><span>·</span><span>Windows</span></p>
+</div>
+
+<div class="quote">
+  <blockquote class="wrap">
+    <p>“Conhece-te a ti mesmo.”</p>
+    <cite>Sócrates</cite>
+  </blockquote>
 </div>
 
 <section id="sobre" class="wrap">
-  <h2 class="title">Sobre</h2>
   <div class="about">
-    <div class="photo"><img src="assets/foto.png" width="738" height="987" loading="lazy" alt="Foto de Jefferson Ramalho"></div>
-    <div class="text">
+    <div>
+      <p class="eyebrow">Sobre</p>
+      <h2>Um desenvolvedor que <span class="serif">escuta</span> antes de codar.</h2>
+    </div>
+    <div>
       <p>Sou o Jefferson, desenvolvedor em Mauriti, CE. Trabalho com sistemas que resolvem problemas do dia a dia: agenda e contratos no Clinix Odonto, acesso para profissionais e famílias no Viver Bem e fichas de treino no Evolui Fit.</p>
       <p>Como atendo remotamente, o cliente de qualquer cidade consegue trabalhar comigo do começo ao fim.</p>
-      <div class="meta">
-        <span>Aceitando novos projetos</span>
-        <a href="mailto:jeffersonramalhopb@gmail.com">jeffersonramalhopb@gmail.com</a>
-      </div>
+      <p class="meta">Aceitando novos projetos · <a href="mailto:jeffersonramalhopb@gmail.com">jeffersonramalhopb@gmail.com</a></p>
     </div>
   </div>
 </section>
 
+<div class="quote">
+  <blockquote class="wrap">
+    <p>“Nenhum homem pode banhar-se duas vezes no mesmo rio.”</p>
+    <cite>Heráclito</cite>
+  </blockquote>
+</div>
+
+<section id="servicos" class="wrap">
+  <div class="head">
+    <h2>Serviços</h2>
+    <span class="eyebrow">Do primeiro site ao sistema completo</span>
+  </div>
+  <div class="services">
+    <a class="svc" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site%20ou%20landing%20page." target="_blank" rel="noopener">
+      <span class="n">01</span>
+      <h3>Sites e <span class="serif">landing pages</span></h3>
+      <p>Site institucional ou página de divulgação, com WhatsApp e ligação com Google e Instagram.</p>
+      <span class="go">Pedir orçamento →</span>
+    </a>
+    <a class="svc" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20sistema%20por%20assinatura." target="_blank" rel="noopener">
+      <span class="n">02</span>
+      <h3>Sistemas por <span class="serif">assinatura</span></h3>
+      <p>Login para clínicas, academias, lojas e escritórios, com agenda, financeiro e estoque.</p>
+      <span class="go">Pedir orçamento →</span>
+    </a>
+    <a class="svc" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20app%20Android%20ou%20PWA." target="_blank" rel="noopener">
+      <span class="n">03</span>
+      <h3>Apps e <span class="serif">automações</span></h3>
+      <p>App Android ou PWA que o cliente instala pelo navegador, além de lembretes no WhatsApp, cobranças e relatórios automáticos.</p>
+      <span class="go">Pedir orçamento →</span>
+    </a>
+  </div>
+</section>
+
 <section id="projetos" class="wrap">
-  <h2 class="title">Projetos</h2>
+  <div class="head">
+    <h2>Projetos <span class="serif">selecionados</span></h2>
+    <span class="eyebrow">Os links estão no ar</span>
+  </div>
   <div class="grid">
 
-    <article class="card">
+    <article class="work">
       <img class="shot" src="assets/portfolio/clinix-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Clinix Odonto">
-      <div class="card-body">
+      <div class="body">
+        <span class="cat">Sistema por assinatura · Odonto</span>
         <h3>Clinix Odonto</h3>
-        <p class="cat">Sistema por assinatura · Clínicas odontológicas</p>
-        <p>Agenda online, prontuário, odontograma, contratos assinados pelo paciente e lembretes no WhatsApp. Cada clínica tem o seu login.</p>
+        <p>Agenda online, prontuário, odontograma, contratos assinados pelo paciente e lembretes no WhatsApp.</p>
         <a class="go" href="https://www.clinixodonto.com.br/" target="_blank" rel="noopener">Abrir o site ↗</a>
       </div>
     </article>
 
-    <article class="card">
+    <article class="work">
       <img class="shot" src="assets/portfolio/advera-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Advera">
-      <div class="card-body">
+      <div class="body">
+        <span class="cat">Sistema por assinatura · Advocacia</span>
         <h3>Advera</h3>
-        <p class="cat">Sistema por assinatura · Escritórios de advocacia</p>
-        <p>Prazos com lembrete, andamentos processuais, contratos assinados pelo cliente no celular e controle de honorários. Login separado para cada advogado.</p>
+        <p>Prazos com lembrete, andamentos processuais, contratos assinados pelo cliente e controle de honorários.</p>
         <a class="go" href="https://advera-6607b.web.app/" target="_blank" rel="noopener">Abrir o site ↗</a>
       </div>
     </article>
 
-    <article class="card">
+    <article class="work">
       <img class="shot" src="assets/portfolio/viverbem-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Viver Bem Home Care">
-      <div class="card-body">
+      <div class="body">
+        <span class="cat">Gestão · Atendimento domiciliar</span>
         <h3>Viver Bem Home Care</h3>
-        <p class="cat">Sistema de gestão · Atendimento domiciliar</p>
-        <p>Acesso separado para administração, profissionais e familiares, check-in por localização, contratos com LGPD e folha de pagamento.</p>
+        <p>Acessos separados para administração, profissionais e familiares, check-in por localização e contratos com LGPD.</p>
         <a class="go" href="https://www.viverbemhomecare.com.br/" target="_blank" rel="noopener">Abrir o site ↗</a>
       </div>
     </article>
 
-    <article class="card">
-      <div class="card-body">
+    <article class="work">
+      <div class="body">
+        <span class="cat">Site institucional · Advocacia</span>
         <h3>Ronero Prado Ramalho</h3>
-        <p class="cat">Site institucional · Advocacia</p>
-        <p>Redesenho do site de um escritório de advocacia, com áreas de atuação, artigos e contato direto pelo WhatsApp.</p>
+        <p>Redesenho do site de um escritório, com áreas de atuação, artigos e contato direto pelo WhatsApp.</p>
         <a class="go" href="https://ronero-ramalho.lovable.app" target="_blank" rel="noopener">Abrir o site ↗</a>
       </div>
     </article>
 
-    <article class="card">
-      <div class="card-body">
+    <article class="work">
+      <div class="body">
+        <span class="cat">App · Academias</span>
         <h3>Evolui Fit</h3>
-        <p class="cat">App · Academias e personal trainers</p>
         <p>Fichas de treino, medidas e metas. O aluno acompanha a própria evolução e o personal ajusta a ficha pelo sistema.</p>
         <a class="go" href="https://jefframalho.github.io/evolui-fit/" target="_blank" rel="noopener">Abrir o app ↗</a>
       </div>
     </article>
 
-    <article class="card">
-      <div class="card-body">
+    <article class="work">
+      <div class="body">
+        <span class="cat">Sistema por assinatura · Lojas de celular</span>
         <h3>Cellix</h3>
-        <p class="cat">Sistema por assinatura · Lojas de celular</p>
         <p>Caixa, estoque por IMEI, ordens de serviço, seminovos e relatórios separados por loja.</p>
         <a class="go" href="https://jefframalho.github.io/cellix/" target="_blank" rel="noopener">Abrir o sistema ↗</a>
       </div>
     </article>
 
-    <article class="card">
-      <div class="card-body">
+    <article class="work">
+      <div class="body">
+        <span class="cat">Plataforma · Delivery</span>
         <h3>Delivery Mauriti</h3>
-        <p class="cat">Plataforma · Delivery com várias lojas</p>
         <p>Cada loja tem um link público com cardápio e pedidos, além de painel para o lojista e painel administrativo.</p>
         <a class="go" href="catalogo.html#sistemas">Ver no catálogo ↗</a>
       </div>
     </article>
 
-    <article class="card">
-      <div class="card-body">
+    <article class="work">
+      <div class="body">
+        <span class="cat">Fanpage · Odontologia estética</span>
         <h3>Dra. Raylla Ramalho</h3>
-        <p class="cat">Fanpage · Odontologia estética</p>
         <p>Página com tratamentos, resultados com fotos reais, dicas e agendamento direto pelo WhatsApp.</p>
       </div>
     </article>
 
   </div>
-  <p class="note">Os projetos com link estão no ar.</p>
 </section>
 
-<section id="servicos" class="wrap">
-  <h2 class="title">Serviços</h2>
-  <div class="cols">
-    <div>
-      <h3>O que faço</h3>
-      <ul>
-        <li>Sites e landing pages<small>Site institucional ou página de divulgação, com WhatsApp e ligação com Google e Instagram.</small></li>
-        <li>Sistemas por assinatura<small>Login para clínicas, academias, lojas e escritórios, com agenda, financeiro e estoque.</small></li>
-        <li>Apps Android e PWA<small>App para a Play Store ou PWA que o cliente instala pelo navegador.</small></li>
-        <li>Automações<small>Lembretes no WhatsApp, cobranças por Pix, cartão ou boleto e relatórios automáticos.</small></li>
-      </ul>
-    </div>
-    <div>
-      <h3>Tecnologias</h3>
-      <ul>
-        <li>Firebase</li>
-        <li>React e Vite</li>
-        <li>PWA</li>
-        <li>Android</li>
-        <li>Programas para Windows</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Pedir orçamento</h3>
-      <ul>
-        <li><a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site%20ou%20landing%20page." target="_blank" rel="noopener">Site ou landing page →</a></li>
-        <li><a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20sistema%20por%20assinatura." target="_blank" rel="noopener">Sistema por assinatura →</a></li>
-        <li><a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20app%20Android%20ou%20PWA." target="_blank" rel="noopener">App Android ou PWA →</a></li>
-        <li><a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20automa%C3%A7%C3%B5es." target="_blank" rel="noopener">Automações →</a></li>
-      </ul>
-    </div>
-  </div>
-</section>
+<div class="quote">
+  <blockquote class="wrap">
+    <p>“Penso, logo existo.”</p>
+    <cite>René Descartes</cite>
+  </blockquote>
+</div>
 
 <section id="contato" class="wrap contact">
-  <h2 class="title">Contato</h2>
+  <h2>Vamos tirar seu projeto <span class="serif">do papel?</span></h2>
   <p>Diga o que você precisa e como o seu dia a dia funciona. Eu respondo com uma proposta.</p>
   <div class="contact-links">
-    <a class="pill solid" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp (83) 9 2141-8988</a>
-    <a class="pill" href="mailto:jeffersonramalhopb@gmail.com">E-mail</a>
-    <a class="pill" href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener">Instagram</a>
-    <a class="pill" href="https://github.com/jefframalho" target="_blank" rel="noopener">GitHub</a>
+    <a class="cta" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp (83) 9 2141-8988</a>
+    <a class="ghost" href="mailto:jeffersonramalhopb@gmail.com">E-mail</a>
+    <a class="ghost" href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener">Instagram</a>
+    <a class="ghost" href="https://github.com/jefframalho" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>
 
 </main>
 
-<footer class="wrap">
-  <p>© <span id="yr">2026</span> Jefferson Ramalho · Mauriti, CE · Atendimento remoto</p>
+<footer>
+  <p>© <span id="yr">2026</span> Jefferson Ramalho · Mauriti, CE</p>
 </footer>
 
 <script>
@@ -285,7 +313,7 @@
       if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
-  document.querySelectorAll("main > section, main > div[id]").forEach(s => io.observe(s));
+  document.querySelectorAll("section[id]").forEach(s => io.observe(s));
 </script>
 </body>
 </html>
