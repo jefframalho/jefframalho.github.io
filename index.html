@@ -5,81 +5,94 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jefferson Ramalho | Sites, sistemas e apps sob medida</title>
 <meta name="description" content="Jefferson Ramalho, desenvolvedor em Mauriti, CE. Sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Atendimento remoto.">
-<meta name="theme-color" content="#fafaf8">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://jefframalho.github.io/">
 <meta property="og:title" content="Jefferson Ramalho · Desenvolvedor">
 <meta property="og:description" content="Sites, sistemas e apps sob medida para o seu negócio.">
 <style>
   :root{
-    --bg:#fafaf8; --text:#161616; --muted:#5f5f5a; --line:#e4e2dc; --card:#ffffff;
-    --accent:#1f5a4c; --accent-ink:#ffffff;
+    --bg:#0b0b0c; --panel:#141416; --line:#26262a; --text:#f2f2f2; --muted:#9a9aa2;
+    --blue:#4aa8ff; --blue-dk:#1f6fbf;
   }
   *,*::before,*::after{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
   img{display:block;max-width:100%;height:auto}
   a{color:inherit}
-  h1,h2,h3{line-height:1.15;margin:0 0 .5em;font-weight:700;letter-spacing:-.01em}
+  h1,h2,h3{margin:0 0 .5em;line-height:1.1;font-weight:800;letter-spacing:.01em}
   p{margin:0 0 1em}
-  .wrap{max-width:960px;margin:0 auto;padding-inline:20px}
-  section{padding:56px 0;border-top:1px solid var(--line)}
-  .label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+  .wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+  .skip{position:absolute;left:-999px}
+  .skip:focus{left:12px;top:12px;background:#fff;color:#000;padding:8px 12px;border-radius:8px}
+  :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 
-  /* botões */
-  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:10px;border:1px solid var(--text);font-weight:600;font-size:15px;text-decoration:none;background:transparent;color:var(--text);max-width:100%}
-  .btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-  .btn:hover{opacity:.85}
-  .btn:focus-visible,a:focus-visible{outline:3px solid #9fc7bb;outline-offset:2px}
+  /* navegação */
+  header{padding-top:18px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .logo{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:14px;text-decoration:none}
+  .phone{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
+  nav ul{list-style:none;margin:16px 0 0 -12px;padding:0;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;text-decoration:none;font-size:14px;color:#cfcfd4;white-space:nowrap;border-radius:6px}
+  nav a:hover{color:#fff}
+  nav a.on{color:var(--blue)}
 
-  /* cabeçalho */
-  header{padding:18px 0 0}
-  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-  .logo{font-weight:700;font-size:18px;text-decoration:none}
-  nav ul{list-style:none;margin:14px 0 0 -12px;padding:0;display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  nav a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:8px;text-decoration:none;color:var(--muted);white-space:nowrap}
-  nav a:hover{color:var(--text);background:#efeee9}
+  /* hero */
+  .hero{padding-top:64px;padding-bottom:72px;min-height:62vh;display:flex;flex-direction:column;justify-content:center}
+  .hero .kicker{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+  .hero h1{font-size:clamp(2.6rem,9vw,5.6rem);text-transform:uppercase;line-height:.95;letter-spacing:.02em;margin:0}
+  .hero h1 span{display:block}
+  .hero .role{font-size:clamp(.95rem,2.4vw,1.15rem);letter-spacing:.45em;text-transform:uppercase;color:var(--blue);margin:18px 0 0}
+  .hero .lead{max-width:56ch;color:var(--muted);margin-top:22px;font-size:clamp(1rem,2.4vw,1.1rem)}
+  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+  .pill{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;border:1px solid #4a4a52;text-decoration:none;font-size:14px;font-weight:600;color:var(--text);background:transparent}
+  .pill:hover{border-color:var(--blue);color:var(--blue)}
+  .pill.solid{background:var(--blue);border-color:var(--blue);color:#06121f}
+  .pill.solid:hover{background:#7bc0ff;border-color:#7bc0ff;color:#06121f}
 
-  /* início */
-  .hero{padding-top:48px;padding-bottom:56px}
-  .hero h1{font-size:clamp(2rem,6.5vw,3.4rem);max-width:18ch;margin-bottom:.4em}
-  .hero .lead{font-size:clamp(1.05rem,2.6vw,1.2rem);color:var(--muted);max-width:52ch}
-  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-  .status{margin-top:20px;font-size:14px;color:var(--muted)}
+  /* seções */
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  .title{font-size:clamp(1.6rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.12em;margin-bottom:28px}
+  .title::after{content:"";display:block;width:36px;height:3px;background:var(--blue);margin-top:12px;border-radius:2px}
 
-  /* projetos */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:16px;margin-top:24px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-  .shot{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;background:#eeede8;border-bottom:1px solid var(--line)}
-  .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
-  .card h3{font-size:18px;margin:0 0 2px}
-  .cat{font-size:13px;color:var(--muted);margin:0 0 8px}
-  .card p{font-size:15px;margin:0 0 14px}
-  .card .go{margin-top:auto;font-weight:600;font-size:15px;color:var(--accent)}
-  .note{font-size:14px;color:var(--muted);margin-top:18px}
-
-  /* serviços */
-  .services{list-style:none;margin:20px 0 0;padding:0}
-  .services li{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 16px;padding:18px 0;border-top:1px solid var(--line)}
-  .services li:last-child{border-bottom:1px solid var(--line)}
-  .services strong{font-size:17px}
-  .services span{color:var(--muted)}
-  .services a{font-weight:600;color:var(--accent);margin-top:6px;justify-self:start;min-height:40px;display:inline-flex;align-items:center}
-  @media (min-width:700px){
-    .services li{grid-template-columns:minmax(0,1fr) auto;align-items:center}
-    .services a{margin-top:0}
+  /* sobre */
+  .about{display:grid;gap:32px;align-items:center}
+  .about .photo{width:100%;max-width:380px;justify-self:center}
+  .about .photo img{width:100%;height:auto}
+  .about .text p{color:#d6d6dc;max-width:58ch}
+  .about .meta{margin-top:20px;font-size:14px;color:var(--muted);display:grid;gap:4px}
+  .about .meta a{color:var(--blue);text-decoration:none}
+  @media (min-width:800px){
+    .about{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+    .about .photo{justify-self:end}
   }
 
-  /* sobre e contato */
-  .about{max-width:62ch;font-size:17px}
-  .contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-  .contact-links .btn{flex:1 1 200px}
-  @media (min-width:700px){.contact-links .btn{flex:0 0 auto}}
+  /* projetos */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+  .shot{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;border-bottom:1px solid var(--line);filter:brightness(.92)}
+  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-size:18px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px}
+  .cat{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:0 0 10px}
+  .card p{font-size:15px;color:#c2c2c9;margin:0 0 14px}
+  .card .go{margin-top:auto;font-weight:600;font-size:14px;color:var(--text);text-decoration:none}
+  .card .go:hover{color:var(--blue)}
+  .note{font-size:13px;color:var(--muted);margin-top:18px}
 
-  footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:14px;color:var(--muted)}
-  .skip{position:absolute;left:-999px}
-  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;border-radius:8px}
-  .services span{display:block}
+  /* três colunas: competências, serviços, tecnologias */
+  .cols{display:grid;gap:36px}
+  .cols h3{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
+  .cols ul{list-style:none;margin:0;padding:0}
+  .cols li{padding:10px 0;border-bottom:1px solid var(--line);color:#d6d6dc}
+  .cols li small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+  .cols a{color:var(--blue);text-decoration:none;font-size:14px}
+  @media (min-width:800px){.cols{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}}
+
+  /* contato */
+  .contact p{color:var(--muted);max-width:52ch}
+  .contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+
+  footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:13px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -89,13 +102,14 @@
 <header class="wrap">
   <div class="top">
     <a href="#inicio" class="logo">Jefferson Ramalho</a>
-    <a class="btn btn-primary" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    <a class="phone" href="https://wa.me/5583921418988">(83) 9 2141-8988</a>
   </div>
   <nav aria-label="Principal">
     <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
       <li><a href="#projetos">Projetos</a></li>
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#sobre">Sobre</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
@@ -104,19 +118,33 @@
 <main>
 
 <div id="inicio" class="wrap hero">
-  <p class="label">Desenvolvedor em Mauriti, CE</p>
-  <h1>Sites e sistemas para quem vende, atende e agenda.</h1>
+  <p class="kicker">Mauriti, CE · Atendimento remoto</p>
+  <h1><span>Jefferson</span><span>Ramalho</span></h1>
+  <p class="role">Desenvolvedor</p>
   <p class="lead">Faço sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Você me conta como funciona o seu dia a dia e eu monto a ferramenta em cima disso.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-    <a class="btn" href="#contato">Pedir orçamento</a>
+    <a class="pill solid" href="#projetos">Projetos</a>
+    <a class="pill" href="#contato">Pedir orçamento</a>
   </div>
-  <p class="status">Aceitando novos projetos. Atendimento remoto para todo o Brasil.</p>
 </div>
 
+<section id="sobre" class="wrap">
+  <h2 class="title">Sobre</h2>
+  <div class="about">
+    <div class="photo"><img src="assets/foto.png" width="738" height="987" loading="lazy" alt="Foto de Jefferson Ramalho"></div>
+    <div class="text">
+      <p>Sou o Jefferson, desenvolvedor em Mauriti, CE. Trabalho com sistemas que resolvem problemas do dia a dia: agenda e contratos no Clinix Odonto, acesso para profissionais e famílias no Viver Bem e fichas de treino no Evolui Fit.</p>
+      <p>Como atendo remotamente, o cliente de qualquer cidade consegue trabalhar comigo do começo ao fim.</p>
+      <div class="meta">
+        <span>Aceitando novos projetos</span>
+        <a href="mailto:jeffersonramalhopb@gmail.com">jeffersonramalhopb@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="projetos" class="wrap">
-  <p class="label">Projetos</p>
-  <h2>O que já foi ao ar</h2>
+  <h2 class="title">Projetos</h2>
   <div class="grid">
 
     <article class="card">
@@ -198,55 +226,47 @@
 </section>
 
 <section id="servicos" class="wrap">
-  <p class="label">Serviços</p>
-  <h2>Do primeiro site ao sistema completo</h2>
-  <ul class="services">
-    <li>
-      <div>
-        <strong>Sites e landing pages</strong>
-        <span>Site institucional ou página de divulgação, com botão de WhatsApp e ligação com Google e Instagram.</span>
-      </div>
-      <a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site%20ou%20landing%20page." target="_blank" rel="noopener">Pedir orçamento →</a>
-    </li>
-    <li>
-      <div>
-        <strong>Sistemas por assinatura</strong>
-        <span>Sistema com login para clínicas, academias, lojas e escritórios, com agenda, financeiro e estoque conforme a rotina do negócio.</span>
-      </div>
-      <a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20sistema%20por%20assinatura." target="_blank" rel="noopener">Pedir orçamento →</a>
-    </li>
-    <li>
-      <div>
-        <strong>Apps Android e PWA</strong>
-        <span>App para a Play Store ou PWA que o cliente instala direto pelo navegador, sem baixar nada.</span>
-      </div>
-      <a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20app%20Android%20ou%20PWA." target="_blank" rel="noopener">Pedir orçamento →</a>
-    </li>
-    <li>
-      <div>
-        <strong>Automações e integrações</strong>
-        <span>Lembretes no WhatsApp, cobranças por Pix, cartão ou boleto, relatórios automáticos e programas para Windows.</span>
-      </div>
-      <a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20automa%C3%A7%C3%B5es." target="_blank" rel="noopener">Pedir orçamento →</a>
-    </li>
-  </ul>
+  <h2 class="title">Serviços</h2>
+  <div class="cols">
+    <div>
+      <h3>O que faço</h3>
+      <ul>
+        <li>Sites e landing pages<small>Site institucional ou página de divulgação, com WhatsApp e ligação com Google e Instagram.</small></li>
+        <li>Sistemas por assinatura<small>Login para clínicas, academias, lojas e escritórios, com agenda, financeiro e estoque.</small></li>
+        <li>Apps Android e PWA<small>App para a Play Store ou PWA que o cliente instala pelo navegador.</small></li>
+        <li>Automações<small>Lembretes no WhatsApp, cobranças por Pix, cartão ou boleto e relatórios automáticos.</small></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tecnologias</h3>
+      <ul>
+        <li>Firebase</li>
+        <li>React e Vite</li>
+        <li>PWA</li>
+        <li>Android</li>
+        <li>Programas para Windows</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Pedir orçamento</h3>
+      <ul>
+        <li><a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site%20ou%20landing%20page." target="_blank" rel="noopener">Site ou landing page →</a></li>
+        <li><a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20sistema%20por%20assinatura." target="_blank" rel="noopener">Sistema por assinatura →</a></li>
+        <li><a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20app%20Android%20ou%20PWA." target="_blank" rel="noopener">App Android ou PWA →</a></li>
+        <li><a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20automa%C3%A7%C3%B5es." target="_blank" rel="noopener">Automações →</a></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section id="sobre" class="wrap">
-  <p class="label">Sobre</p>
-  <h2>Quem faz</h2>
-  <p class="about">Sou o Jefferson, desenvolvedor em Mauriti, CE. Trabalho com sistemas que resolvem problemas do dia a dia: agenda e contratos no Clinix Odonto, acesso para profissionais e famílias no Viver Bem e fichas de treino no Evolui Fit. Como atendo remotamente, o cliente de qualquer cidade consegue trabalhar comigo do começo ao fim.</p>
-</section>
-
-<section id="contato" class="wrap">
-  <p class="label">Contato</p>
-  <h2>Me conta a sua ideia</h2>
-  <p class="about">Diga o que você precisa e como o seu dia a dia funciona. Eu respondo com uma proposta.</p>
+<section id="contato" class="wrap contact">
+  <h2 class="title">Contato</h2>
+  <p>Diga o que você precisa e como o seu dia a dia funciona. Eu respondo com uma proposta.</p>
   <div class="contact-links">
-    <a class="btn btn-primary" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp (83) 9 2141-8988</a>
-    <a class="btn" href="mailto:jeffersonramalhopb@gmail.com">E-mail</a>
-    <a class="btn" href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener">Instagram</a>
-    <a class="btn" href="https://github.com/jefframalho" target="_blank" rel="noopener">GitHub</a>
+    <a class="pill solid" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp (83) 9 2141-8988</a>
+    <a class="pill" href="mailto:jeffersonramalhopb@gmail.com">E-mail</a>
+    <a class="pill" href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener">Instagram</a>
+    <a class="pill" href="https://github.com/jefframalho" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>
 
@@ -258,6 +278,14 @@
 
 <script>
   document.getElementById("yr").textContent = new Date().getFullYear();
+  // destaca o item do menu conforme a seção visível
+  const links = [...document.querySelectorAll("nav a")];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  document.querySelectorAll("main > section, main > div[id]").forEach(s => io.observe(s));
 </script>
 </body>
 </html>
