@@ -4,790 +4,260 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jefferson Ramalho | Sites, sistemas e apps sob medida</title>
-<meta name="description" content="Portfólio de Jefferson Ramalho: desenvolvimento de sites, sistemas por assinatura e apps para clínicas, academias, lojas e empresas. Mauriti, CE · atendimento remoto.">
-<meta name="theme-color" content="#121212">
+<meta name="description" content="Jefferson Ramalho, desenvolvedor em Mauriti, CE. Sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Atendimento remoto.">
+<meta name="theme-color" content="#fafaf8">
+<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://jefframalho.github.io/">
 <meta property="og:title" content="Jefferson Ramalho · Desenvolvedor">
 <meta property="og:description" content="Sites, sistemas e apps sob medida para o seu negócio.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#121212; --ink:#f4f1ea; --muted:#9a968f; --line:rgba(255,255,255,.08);
-  --gold:#d4a84a; --gold2:#f1d48a; --cream:#f3f0e9; --panel:#fbfaf6; --dark:#232323;
-  --sans:"Inter Tight",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  --serif:"Instrument Serif",Georgia,serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body.loading{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-em.g{font-family:var(--serif);font-style:italic;font-weight:400;background:linear-gradient(100deg,var(--gold),var(--gold2) 60%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:999;background:#fff;color:#000;padding:8px 12px;border-radius:8px}
+  :root{
+    --bg:#fafaf8; --text:#161616; --muted:#5f5f5a; --line:#e4e2dc; --card:#ffffff;
+    --accent:#1f5a4c; --accent-ink:#ffffff;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit}
+  h1,h2,h3{line-height:1.15;margin:0 0 .5em;font-weight:700;letter-spacing:-.01em}
+  p{margin:0 0 1em}
+  .wrap{max-width:960px;margin:0 auto;padding-inline:20px}
+  section{padding:56px 0;border-top:1px solid var(--line)}
+  .label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
 
-/* textura de concreto */
-.texture{position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-   radial-gradient(1200px 700px at 50% 30%,rgba(255,255,255,.07),transparent 70%),
-   repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 2px,transparent 2px 180px),
-   linear-gradient(#1a1a1a,#0e0e0e);}
-.texture::after{content:"";position:absolute;inset:0;opacity:.32;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  /* botões */
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:10px;border:1px solid var(--text);font-weight:600;font-size:15px;text-decoration:none;background:transparent;color:var(--text);max-width:100%}
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .btn:hover{opacity:.85}
+  .btn:focus-visible,a:focus-visible{outline:3px solid #9fc7bb;outline-offset:2px}
 
-/* ===== LOADER ===== */
-#loader{position:fixed;inset:0;z-index:100;background:#0c0c0c;display:grid;place-items:center;transition:transform 1s cubic-bezier(.77,0,.18,1)}
-#loader.done{transform:translateY(-100%)}
-.ld-inner{width:min(520px,84vw)}
-.ld-name{font-size:clamp(34px,7vw,64px);font-weight:600;letter-spacing:-.04em;line-height:1;overflow:hidden}
-.ld-name span{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
-.ld-name span:nth-child(2){animation-delay:.12s}
-@keyframes up{to{transform:none}}
-.ld-row{display:flex;justify-content:space-between;margin-top:22px;color:var(--muted);font-size:13px;letter-spacing:.04em}
-.ld-bar{height:2px;background:#222;margin-top:10px;overflow:hidden;border-radius:2px}
-.ld-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+  /* cabeçalho */
+  header{padding:18px 0 0}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .logo{font-weight:700;font-size:18px;text-decoration:none}
+  nav ul{list-style:none;margin:14px 0 0 -12px;padding:0;display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:8px;text-decoration:none;color:var(--muted);white-space:nowrap}
+  nav a:hover{color:var(--text);background:#efeee9}
 
-/* ===== NAV ===== */
-header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(16px,4vw,44px);transition:background .3s,backdrop-filter .3s}
-header.solid{background:rgba(14,14,14,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.logo{font-weight:700;font-size:18px;letter-spacing:-.02em}
-.logo sup{font-size:10px;color:var(--gold)}
-nav.links{display:flex;gap:6px;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:5px;border-radius:999px}
-nav.links a{font-size:13.5px;padding:8px 14px;border-radius:999px;color:#cfcac2;transition:.2s}
-nav.links a:hover{background:rgba(255,255,255,.08);color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;transition:transform .2s,background .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-light{background:var(--ink);color:#111}
-.btn-light:hover{box-shadow:0 10px 30px rgba(241,212,138,.25)}
-.btn-ghost{border:1px solid rgba(255,255,255,.18);color:var(--ink)}
-.btn-ghost:hover{background:rgba(255,255,255,.06)}
-@media (max-width:860px){nav.links{display:none}.hdr-cta{padding:10px 14px;font-size:13px}}
+  /* início */
+  .hero{padding-top:48px;padding-bottom:56px}
+  .hero h1{font-size:clamp(2rem,6.5vw,3.4rem);max-width:18ch;margin-bottom:.4em}
+  .hero .lead{font-size:clamp(1.05rem,2.6vw,1.2rem);color:var(--muted);max-width:52ch}
+  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .status{margin-top:20px;font-size:14px;color:var(--muted)}
 
-/* ===== INTRO 3D ===== */
-#intro{position:relative;height:420vh}
-.sticky{position:sticky;top:0;height:100vh;overflow:hidden;perspective:2200px;perspective-origin:50% 40%}
-.hero-copy{position:absolute;left:0;right:0;top:clamp(92px,14vh,150px);text-align:center;padding:0 20px;z-index:3;will-change:transform,opacity}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#bdb8af;border:1px solid var(--line);padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.03)}
-.dot{width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.15)}
-.hero-copy h1{font-size:clamp(40px,7.4vw,104px);line-height:.95;letter-spacing:-.045em;font-weight:600;margin:22px auto 18px;max-width:14ch}
-.hero-copy p{color:#b4afa6;font-size:clamp(15px,1.4vw,18px);max-width:560px;margin:0 auto;line-height:1.55}
-.hero-btns{display:flex;gap:10px;justify-content:center;margin-top:26px;flex-wrap:wrap}
-.reveal-l{display:inline-block;opacity:0;transform:translateY(30px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}
-.ready .reveal-l{opacity:1;transform:none}
-.scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:4;transition:opacity .4s;text-shadow:0 2px 12px #000}
-.scroll-hint i{width:1px;height:34px;background:linear-gradient(var(--gold),transparent);animation:drip 1.8s infinite}
-@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+  /* projetos */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:16px;margin-top:24px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+  .shot{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;background:#eeede8;border-bottom:1px solid var(--line)}
+  .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-size:18px;margin:0 0 2px}
+  .cat{font-size:13px;color:var(--muted);margin:0 0 8px}
+  .card p{font-size:15px;margin:0 0 14px}
+  .card .go{margin-top:auto;font-weight:600;font-size:15px;color:var(--accent)}
+  .note{font-size:14px;color:var(--muted);margin-top:18px}
 
-.floor{position:absolute;left:-20%;right:-20%;bottom:-30vh;height:60vh;background:radial-gradient(50% 50% at 50% 30%,rgba(0,0,0,.65),transparent 70%);pointer-events:none}
+  /* serviços */
+  .services{list-style:none;margin:20px 0 0;padding:0}
+  .services li{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 16px;padding:18px 0;border-top:1px solid var(--line)}
+  .services li:last-child{border-bottom:1px solid var(--line)}
+  .services strong{font-size:17px}
+  .services span{color:var(--muted)}
+  .services a{font-weight:600;color:var(--accent);margin-top:6px;justify-self:start;min-height:40px;display:inline-flex;align-items:center}
+  @media (min-width:700px){
+    .services li{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+    .services a{margin-top:0}
+  }
 
-.monitor{position:absolute;left:50%;top:50%;width:1316px;transform-style:preserve-3d;will-change:transform;z-index:2}
-.bezel{position:relative;padding:18px;border-radius:26px;background:linear-gradient(160deg,#f2f2f3,#cfcfd2 45%,#b9b9bd);box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(0,0,0,.15),0 60px 120px -30px rgba(0,0,0,.85),0 30px 60px -20px rgba(0,0,0,.6);transform-style:preserve-3d}
-.bezel::before{content:"";position:absolute;inset:6px;border-radius:21px;background:#0b0b0b;transform:translateZ(-1px)}
-.bezel::after{content:"";position:absolute;inset:0;border-radius:26px;background:linear-gradient(180deg,#5a5a5e,#2a2a2c);transform:translateZ(-36px);box-shadow:0 0 0 1px #1c1c1e}
-.monitor .neck{width:250px;height:170px;margin:-4px auto 0;background:linear-gradient(90deg,#2b2b2d,#5c5c60 45%,#3a3a3c 60%,#232325);transform:translateZ(-60px);border-radius:0 0 6px 6px}
-.monitor .foot{width:460px;height:18px;margin:0 auto;border-radius:6px 6px 12px 12px;background:linear-gradient(#6a6a6e,#2a2a2c);transform:translateZ(-60px)}
-.glare{position:absolute;inset:18px;border-radius:12px;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 30%,transparent 70%,rgba(255,255,255,.06));mix-blend-mode:screen;z-index:20}
+  /* sobre e contato */
+  .about{max-width:62ch;font-size:17px}
+  .contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .contact-links .btn{flex:1 1 200px}
+  @media (min-width:700px){.contact-links .btn{flex:0 0 auto}}
 
-/* ===== UI dentro do monitor (estilo app) ===== */
-.screen{position:relative;width:1280px;height:780px;border-radius:12px;overflow:hidden;background:var(--cream);color:#1a1a1a;display:flex;flex-direction:column;font-family:var(--sans)}
-.ui-top{height:56px;display:flex;align-items:center;gap:12px;padding:0 20px;flex:none}
-.ui-logo{font-weight:700;font-size:19px;letter-spacing:-.02em}.ui-logo sup{font-size:9px}
-.ui-pill{display:flex;align-items:center;gap:6px;font-size:13px;background:#fff;border:1px solid #e6e1d6;padding:6px 12px;border-radius:999px}
-.ui-plus{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:18px;color:#555}
-.ui-top .sp{flex:1}
-.ui-comm{font-size:13px;color:#555;margin-right:6px}
-.ui-me{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #e6e1d6;border-radius:999px;padding:4px 4px 4px 12px;font-size:12px}
-.ui-me b{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;font-size:10px;color:#1a1a1a}
-.ui-main{flex:1;display:flex;gap:12px;padding:0 14px;min-height:0}
-.stage{position:relative;flex:1;background:#262626;border-radius:18px;overflow:hidden;display:grid;place-items:center}
-.stage::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 45%,rgba(255,255,255,.07),transparent 70%)}
-.st-btn{position:absolute;top:14px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.07);display:grid;place-items:center;color:#aaa;font-size:13px;z-index:3}
-.st-btn.l{left:14px}.st-btn.r{right:14px}
-.st-label{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-size:12px;color:#8d8d8d;letter-spacing:.03em;z-index:3;white-space:nowrap}
-
-/* device morph */
-.device{position:relative;z-index:2;background:#0d0d0e;transition:width .8s cubic-bezier(.7,0,.2,1),height .8s cubic-bezier(.7,0,.2,1),border-radius .8s cubic-bezier(.7,0,.2,1),padding .8s cubic-bezier(.7,0,.2,1),transform .8s cubic-bezier(.7,0,.2,1);box-shadow:0 0 0 2px #3b3b3e,0 0 0 3px #111,0 40px 70px -20px rgba(0,0,0,.8)}
-.dscreen{position:relative;width:100%;height:100%;overflow:hidden;background:#fff;transition:border-radius .8s cubic-bezier(.7,0,.2,1),opacity .3s}
-.dscreen.fade{opacity:0}
-.device.phone{width:240px;height:490px;border-radius:44px;padding:11px}
-.device.phone .dscreen{border-radius:34px}
-.device.tablet{width:560px;height:410px;border-radius:30px;padding:16px}
-.device.tablet .dscreen{border-radius:14px}
-.device.laptop{width:640px;height:400px;border-radius:18px 18px 4px 4px;padding:14px 14px 18px;transform:translateY(-16px)}
-.device.laptop .dscreen{border-radius:6px}
-.device.watch{width:200px;height:240px;border-radius:58px;padding:14px}
-.device.watch .dscreen{border-radius:46px;background:#000}
-.device::before,.device::after{content:"";position:absolute;left:50%;transform:translateX(-50%);opacity:0;transition:opacity .4s;pointer-events:none}
-.device.laptop::after{opacity:1;width:760px;height:18px;bottom:-18px;border-radius:0 0 18px 18px;background:linear-gradient(#cfcfd2,#8e8e92);box-shadow:0 18px 30px -8px rgba(0,0,0,.7)}
-.device.laptop::before{opacity:1;width:120px;height:6px;bottom:-12px;z-index:2;border-radius:0 0 8px 8px;background:#a6a6aa}
-.device.watch::before{opacity:1;width:130px;height:120px;top:-104px;z-index:-1;border-radius:30px 30px 8px 8px;background:linear-gradient(90deg,#141414,#2c2c2e,#141414)}
-.device.watch::after{opacity:1;width:130px;height:120px;bottom:-104px;z-index:-1;border-radius:8px 8px 30px 30px;background:linear-gradient(90deg,#141414,#2c2c2e,#141414)}
-.island{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:76px;height:22px;border-radius:20px;background:#000;z-index:5;transition:opacity .3s}
-.device:not(.phone) .island{opacity:0}
-
-/* seletor de dispositivo (canto inferior esquerdo) */
-.dev-panel{position:absolute;left:16px;bottom:62px;width:210px;background:rgba(20,20,20,.92);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:8px;color:#ddd;z-index:4;font-size:13px}
-.dev-panel .hd{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 10px;color:#8b8b8b;font-size:12px}
-.dev-opt{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px;border-radius:10px;color:#cfcfcf;transition:background .2s}
-.dev-opt:hover{background:rgba(255,255,255,.06)}
-.dev-opt.on{background:rgba(255,255,255,.1);color:#fff}
-.dev-opt svg{width:16px;height:16px;opacity:.8}
-.dev-sub{display:none;padding:0 10px 10px;font-size:12px;color:#9a9a9a}
-.dev-opt.on + .dev-sub{display:flex;align-items:center;justify-content:space-between}
-.swatches{display:flex;gap:6px}.swatches i{width:12px;height:12px;border-radius:50%;border:2px solid #444}
-.dev-tg{position:absolute;left:16px;bottom:14px;display:flex;gap:8px;z-index:4}
-.dev-tg span{background:#fff;color:#111;border-radius:999px;padding:8px 14px;font-size:12px;font-weight:600;display:flex;gap:6px;align-items:center}
-.dev-tg span.dk{background:#333;color:#ddd}
-
-/* painel direito */
-.side{width:330px;flex:none;background:var(--panel);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:12px;min-height:0;border:1px solid #ebe6da}
-.side-hd{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#777}
-.side-hd b{color:#1a1a1a;font-weight:600;font-size:13px;display:block}
-.side-hd .arrows{display:flex;gap:4px}
-.side-hd .arrows button{width:26px;height:26px;border-radius:50%;background:#efebe2;font-size:12px}
-.composer{position:relative;height:170px;border-radius:14px;overflow:hidden;padding:14px;color:#fff;background:linear-gradient(135deg,var(--pc,#555),var(--pc2,#222));transition:background .6s}
-.composer::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 80% at 80% 20%,rgba(255,255,255,.25),transparent 60%)}
-.composer small{font-size:11px;opacity:.85;position:relative;z-index:1}
-.composer h5{font-size:19px;font-weight:600;letter-spacing:-.02em;margin-top:2px;position:relative;z-index:1;max-width:60%}
-.stack{position:absolute;right:16px;bottom:16px;width:110px;height:110px;z-index:1}
-.stack i{position:absolute;width:74px;height:90px;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.35);border:2px solid rgba(255,255,255,.7);transition:background .6s,transform .6s}
-.stack i:nth-child(1){right:30px;top:6px;transform:rotate(-14deg)}
-.stack i:nth-child(2){right:14px;top:12px;transform:rotate(-2deg)}
-.stack i:nth-child(3){right:-2px;top:20px;transform:rotate(12deg)}
-.composer .plus{position:absolute;right:10px;top:50%;width:28px;height:28px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;z-index:2;transform:translateY(-50%)}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{font-size:11.5px;padding:5px 9px;border-radius:999px;background:#efebe2;color:#3b3b3b}
-.plist-t{font-size:11.5px;color:#888}
-.plist{display:flex;flex-direction:column;overflow:auto;min-height:0;flex:1;margin:-4px -6px 0}
-.plist button{display:flex;align-items:center;justify-content:space-between;text-align:left;padding:8px 8px;border-radius:9px;font-size:14px;color:#222;transition:background .2s}
-.plist button:hover{background:#f1ede4}
-.plist button.on{background:#ece7dc;font-weight:600}
-.plist .dots{display:flex;gap:3px}.plist .dots i{width:7px;height:7px;border-radius:50%}
-.open-btn{display:flex;justify-content:center;align-items:center;gap:8px;background:#151515;color:#fff;border-radius:999px;padding:12px;font-size:13.5px;font-weight:600}
-.ui-bot{height:64px;flex:none;display:flex;align-items:center;gap:10px;padding:0 20px}
-.ui-bot .ic{display:flex;gap:14px;color:#777}.ui-bot .ic svg{width:18px;height:18px}
-.ask{flex:1;max-width:560px;margin:0 auto;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6e1d6;border-radius:999px;padding:6px 8px 6px 8px}
-.ask .orb{width:28px;height:28px;border-radius:50%;background:conic-gradient(from 0deg,var(--gold),#fff,var(--gold2),var(--gold));animation:spin 6s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ask input{flex:1;border:0;outline:0;font:inherit;font-size:14px;background:transparent;color:#222}
-.ask button{width:30px;height:30px;border-radius:50%;background:#151515;color:#fff;display:grid;place-items:center}
-.ui-help{display:flex;gap:6px}.ui-help span{border:1px solid #e0dacd;border-radius:999px;padding:7px 12px;font-size:12px;background:#fff}
-
-/* ===== telas de projeto ===== */
-.ps{position:absolute;inset:0;background:var(--bg2);color:#1b1b1b;padding:44px 16px 14px;display:flex;flex-direction:column;gap:10px;font-size:11px}
-.ps .sb{position:absolute;top:14px;left:22px;right:22px;display:flex;justify-content:space-between;font-size:11px;font-weight:600}
-.ps .top{display:flex;justify-content:space-between;align-items:center;color:#777;font-size:10.5px}
-.ini{width:28px;height:28px;border-radius:9px;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:700;font-size:12px}
-.ps h4{font-size:24px;line-height:1.02;letter-spacing:-.03em;font-weight:600}
-.ps h4 em,.ds h4 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--c)}
-.ps .sub{color:#777;font-size:11px;line-height:1.4}
-.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
-.card small{color:#888;font-size:10px;display:block}
-.card b{font-size:15px;letter-spacing:-.02em}
-.card.hero{background:linear-gradient(135deg,var(--c),var(--c2));color:#fff}
-.card.hero small{color:rgba(255,255,255,.8)}.card.hero b{font-size:22px}
-.spark{display:flex;align-items:flex-end;gap:3px;height:34px;margin-top:6px}
-.spark i{flex:1;background:rgba(255,255,255,.55);border-radius:3px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.li{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:10.5px}
-.li i{width:6px;height:6px;border-radius:50%;background:var(--c);flex:none}
-.ps .nav{margin-top:auto;display:flex;justify-content:space-around;background:#fff;border-radius:14px;padding:10px}
-.ps .nav i{width:16px;height:4px;border-radius:2px;background:#ddd}.ps .nav i.on{background:var(--c)}
-
-.ds{position:absolute;left:0;top:0;width:900px;transform-origin:0 0;background:var(--bg2);color:#1b1b1b;display:flex;font-size:13px}
-.ds aside{width:190px;background:#fff;padding:20px 16px;display:flex;flex-direction:column;gap:6px;border-right:1px solid rgba(0,0,0,.06)}
-.ds aside .brand{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:14px;font-size:14px}
-.ds aside span{padding:9px 10px;border-radius:9px;color:#666;font-size:12.5px}
-.ds aside span.on{background:var(--c);color:#fff}
-.ds main{flex:1;padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
-.ds .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.ds h4{font-size:30px;letter-spacing:-.035em;line-height:1;font-weight:600}
-.ds .hd p{color:#777;margin-top:6px;font-size:12.5px}
-.ds .cta{background:#151515;color:#fff;border-radius:999px;padding:9px 14px;font-size:12px;white-space:nowrap}
-.ds .tiles{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px}
-.ds .card{padding:14px;border-radius:16px}.ds .card b{font-size:22px}.ds .card small{font-size:11.5px;margin-bottom:4px}
-.ds .card.hero b{font-size:28px}
-.ds .bottom{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;flex:1;min-height:0}
-.chart{display:flex;align-items:flex-end;gap:8px;height:100%;min-height:90px;padding-top:10px}
-.chart i{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(var(--c),var(--c2));opacity:.85}
-.chart i:nth-child(odd){opacity:.45}
-.ds .li{font-size:12px;padding:9px 0}
-
-.ws{position:absolute;inset:0;background:#000;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;font-family:var(--sans)}
-.ws small{font-size:10px;color:#9a9a9a}
-.ws b{font-size:30px;letter-spacing:-.03em;font-weight:600}
-.ws .ring{width:58px;height:58px;border-radius:50%;background:conic-gradient(var(--c) 0 72%,#222 0);display:grid;place-items:center;margin-bottom:6px}
-.ws .ring::after{content:"";width:44px;height:44px;border-radius:50%;background:#000}
-.ws .pill{margin-top:6px;background:var(--c);color:#fff;border-radius:999px;font-size:10px;padding:5px 10px}
-
-/* site real navegando */
-.live{position:absolute;inset:0;overflow:hidden;background:#0b0f14;cursor:none}
-.live img{display:block;width:100%;height:auto;will-change:transform;user-select:none;-webkit-user-drag:none}
-.live .cur{position:absolute;left:0;top:0;width:16px;height:22px;z-index:3;pointer-events:none;transition:transform 1s cubic-bezier(.45,0,.2,1);
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 22'%3E%3Cpath d='M1 1v17l4.5-4.2 3 6.7 2.6-1.2-3-6.6H14z' fill='%23fff' stroke='%23000' stroke-width='1.3' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat;filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}
-.live .rip{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:rgba(255,255,255,.25);z-index:2;pointer-events:none;animation:rip .6s ease-out forwards}
-@keyframes rip{from{transform:scale(.2);opacity:1}to{transform:scale(1.4);opacity:0}}
-.live .badge{position:absolute;right:8px;top:8px;z-index:4;font:600 9px/1 var(--sans);letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);padding:5px 8px;border-radius:999px;display:flex;align-items:center;gap:5px}
-.live .badge i{width:6px;height:6px;border-radius:50%;background:#ff4d4d;animation:blink 1.2s infinite}
-@keyframes blink{50%{opacity:.25}}
-
-/* anotações flutuantes */
-.note{position:absolute;z-index:5;background:rgba(20,20,20,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 14px;font-size:13px;color:#ddd;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s;max-width:230px;pointer-events:none}
-.note b{display:block;color:#fff;font-size:14px;margin-bottom:2px}
-.note.show{opacity:1;transform:none}
-.n1{left:5vw;top:30vh}.n2{right:5vw;top:24vh}.n3{right:7vw;bottom:16vh}
-@media (max-width:860px){.note{display:none}}
-
-/* ===== SEÇÕES ===== */
-section.blk{position:relative;padding:clamp(80px,12vw,150px) clamp(18px,5vw,64px)}
-.sec-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(30px,5vw,60px)}
-.sec-hd h2{font-size:clamp(36px,6vw,80px);letter-spacing:-.045em;line-height:.95;font-weight:600}
-.sec-hd p{color:#aaa49a;max-width:420px;line-height:1.55}
-.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
-
-/* carrossel 3D */
-.ring-tools{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px}
-.ring-picker{display:flex;align-items:center;flex-wrap:wrap;gap:10px;min-width:0}
-.ring-picker label{color:#cfcac2;font-size:14px;font-weight:600}
-.ring-picker select,.ring-auto{min-height:44px;padding:9px 14px;color:var(--ink);background:#1b1b1b;border:1px solid #4a463e;border-radius:10px;font-size:14px}
-.ring-picker select{max-width:100%;color-scheme:dark}
-.ring-auto:hover,.ring-auto[aria-pressed="true"]{border-color:var(--gold);color:var(--gold2)}
-.ring-auto[aria-pressed="true"]{background:#2b2418}
-.ring-stage{position:relative;height:clamp(380px,46vw,520px);perspective:1600px;cursor:grab;touch-action:pan-y;user-select:none}
-.ring-stage:active{cursor:grabbing}
-.ring{position:absolute;left:50%;top:50%;transform-style:preserve-3d;width:0;height:0}
-.pcard{position:absolute;width:var(--cw);height:calc(var(--cw)*.74);left:calc(var(--cw)/-2);top:calc(var(--cw)*-.37);border-radius:18px;background:#1c1c1c;border:1px solid rgba(255,255,255,.08);overflow:hidden;backface-visibility:hidden;transition:filter .4s,opacity .4s;box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
-.pcard .chrome{height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#202020;border-bottom:1px solid rgba(255,255,255,.06)}
-.pcard .chrome i{width:9px;height:9px;border-radius:50%;background:#444}
-.pcard .chrome span{margin-left:10px;font-size:11px;color:#888;background:#2a2a2a;border-radius:6px;padding:3px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%}
-.pcard .fit{position:relative;height:calc(100% - 30px);overflow:hidden}
-.pcard.dim{filter:brightness(.45) saturate(.6)}
-.ring-info{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;margin-top:30px;border-top:1px solid var(--line);padding-top:26px}
-.ring-info h3{font-size:clamp(26px,3.4vw,42px);letter-spacing:-.035em;font-weight:600}
-.ring-info .cat{color:var(--gold);font-size:13px;margin-bottom:6px}
-.ring-info p{color:#aaa49a;max-width:620px;margin-top:10px;line-height:1.55}
-.ring-info .tags{margin-top:14px}.ring-info .tags span{background:rgba(255,255,255,.06);color:#d8d3ca;border:1px solid var(--line)}
-.ring-ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.ring-ctl .rb{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;font-size:18px;transition:.2s}
-.ring-ctl .rb:hover{background:var(--ink);color:#111}
-.counter{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;margin-right:6px}
-.disc{color:#6f6b64;font-size:12px;margin-top:18px}
-@media (max-width:700px){.ring-info{grid-template-columns:1fr}}
-
-/* serviços */
-.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-@media (max-width:1000px){.svc{grid-template-columns:repeat(2,1fr)}}
-.sc{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:76px;padding:14px clamp(12px,2vw,22px);border:1px solid #45423d;border-radius:16px;background:#1c1c1c;text-align:left;font-size:clamp(14px,1.45vw,19px);font-weight:600;line-height:1.2;transition:background .2s,border-color .2s}
-.sc:hover,.sc[aria-selected="true"]{border-color:var(--gold)}
-.sc[aria-selected="true"]{background:#2c2418;color:var(--gold2)}
-.sc::after{content:"";width:8px;height:8px;flex:none;border:1px solid #9a958c;border-radius:50%}
-.sc[aria-selected="true"]::after{border-color:var(--gold2);background:var(--gold2)}
-.svc-panel{margin-top:12px;padding:clamp(20px,4vw,48px);border:1px solid #454037;border-radius:22px;background:radial-gradient(ellipse at 100% 0%,#312719,transparent 70%),#1a1a1a}
-.svc-panel:not([hidden]){display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:clamp(24px,4vw,52px);animation:svc-appear .24s ease-out}
-@keyframes svc-appear{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:none}}
-.svc-panel h3{font-size:clamp(24px,4vw,42px);letter-spacing:-.035em;line-height:1.05}
-.svc-panel p{max-width:540px;margin-top:12px;color:#cfcac2;font-size:16px;line-height:1.55}
-.svc-features{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;list-style:none}
-.svc-features li{padding:6px 10px;border:1px solid #5e5340;border-radius:999px;color:#e3d8c2;font-size:14px}
-.svc-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;justify-self:end}
-.svc-actions .btn{min-height:44px;max-width:100%}
-.svc :focus-visible,.svc-panel:focus-visible,.svc-panel :focus-visible,.ring-tools :focus-visible,.ring-ctl :focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
-@media (max-width:650px){.svc-panel:not([hidden]){grid-template-columns:minmax(0,1fr)}.svc-actions{justify-self:start}}
-@media (max-width:420px){.svc{gap:8px}.sc{gap:6px;min-height:60px}.ring-picker{align-items:flex-start;flex-direction:column}}
-
-/* sobre */
-.about{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
-@media (max-width:900px){.about{grid-template-columns:1fr}}
-.about .big{font-size:clamp(26px,3.2vw,42px);line-height:1.15;letter-spacing:-.03em;font-weight:500}
-.about .big span{color:#77736c}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
-.stats div{background:#141414;padding:26px 22px}
-.stats b{display:block;font-size:clamp(34px,4vw,52px);letter-spacing:-.04em;font-weight:600}
-.stats span{color:#9a958c;font-size:14px}
-
-/* contato */
-.cta-blk{text-align:center;border-radius:32px;margin:0 clamp(12px,3vw,40px);padding:clamp(70px,10vw,130px) 20px;background:radial-gradient(60% 80% at 50% 0%,rgba(212,168,74,.22),transparent 70%),linear-gradient(180deg,#1b1b1b,#121212);border:1px solid var(--line)}
-.cta-blk h2{font-size:clamp(40px,7vw,96px);letter-spacing:-.05em;line-height:.95;font-weight:600}
-.cta-blk p{color:#aaa49a;margin:18px auto 30px;max-width:520px;line-height:1.55}
-.socials{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.socials svg{width:18px;height:18px}
-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:40px clamp(18px,5vw,64px);color:#7b776f;font-size:13.5px}
-footer a:hover{color:#fff}
-
-.fade-up{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
-.fade-up.in{opacity:1;transform:none}
-
-.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.4);transition:transform .2s}
-.wa-float:hover{transform:scale(1.08)}
-.wa-float svg{width:28px;height:28px;fill:#fff}
-
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
-  #intro{height:auto}.sticky{position:relative;height:100vh}
-}
+  footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:14px;color:var(--muted)}
+  .skip{position:absolute;left:-999px}
+  .skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;border-radius:8px}
+  .services span{display:block}
 </style>
 </head>
-<body class="loading">
-<a class="skip" href="#projetos">Ir para o conteúdo</a>
-<div class="texture" aria-hidden="true"></div>
+<body>
 
-<div id="loader" aria-hidden="true">
-  <div class="ld-inner">
-    <div class="ld-name"><span>Jefferson</span> <span><em class="g">Ramalho</em></span></div>
-    <div class="ld-row"><span>Portfólio · Desenvolvedor</span><span id="ldPct">0%</span></div>
-    <div class="ld-bar"><i id="ldBar"></i></div>
+<a href="#projetos" class="skip">Pular para os projetos</a>
+
+<header class="wrap">
+  <div class="top">
+    <a href="#inicio" class="logo">Jefferson Ramalho</a>
+    <a class="btn btn-primary" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener">Chamar no WhatsApp</a>
   </div>
-</div>
-
-<header id="hdr">
-  <a href="#intro" class="logo">Jefferson<sup>®</sup></a>
-  <nav class="links" aria-label="Principal">
-    <a href="#intro">Início</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+  <nav aria-label="Principal">
+    <ul>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
   </nav>
-  <a class="btn btn-light hdr-cta" href="#contato">Pedir orçamento</a>
 </header>
 
 <main>
-<!-- ============ INTRO 3D ============ -->
-<section id="intro">
-  <div class="sticky" id="sticky">
-    <div class="hero-copy" id="heroCopy">
-      <span class="eyebrow reveal-l"><span class="dot"></span>Disponível para novos projetos</span>
-      <h1><span class="reveal-l" style="transition-delay:.1s">Sites e sistemas</span> <span class="reveal-l" style="transition-delay:.2s">que <em class="g">elevam</em></span> <span class="reveal-l" style="transition-delay:.3s">seu negócio.</span></h1>
-      <p class="reveal-l" style="transition-delay:.45s">Eu desenvolvo sites, sistemas por assinatura e apps sob medida para clínicas, academias, lojas e empresas. Atendo de Mauriti, CE, para todo o Brasil.</p>
-      <div class="hero-btns reveal-l" style="transition-delay:.6s">
-        <a class="btn btn-light" href="#projetos">Ver projetos ↓</a>
-        <a class="btn btn-ghost" href="#contato">Pedir orçamento</a>
+
+<div id="inicio" class="wrap hero">
+  <p class="label">Desenvolvedor em Mauriti, CE</p>
+  <h1>Sites e sistemas para quem vende, atende e agenda.</h1>
+  <p class="lead">Faço sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Você me conta como funciona o seu dia a dia e eu monto a ferramenta em cima disso.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+    <a class="btn" href="#contato">Pedir orçamento</a>
+  </div>
+  <p class="status">Aceitando novos projetos. Atendimento remoto para todo o Brasil.</p>
+</div>
+
+<section id="projetos" class="wrap">
+  <p class="label">Projetos</p>
+  <h2>O que já foi ao ar</h2>
+  <div class="grid">
+
+    <article class="card">
+      <img class="shot" src="assets/portfolio/clinix-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Clinix Odonto">
+      <div class="card-body">
+        <h3>Clinix Odonto</h3>
+        <p class="cat">Sistema por assinatura · Clínicas odontológicas</p>
+        <p>Agenda online, prontuário, odontograma, contratos assinados pelo paciente e lembretes no WhatsApp. Cada clínica tem o seu login.</p>
+        <a class="go" href="https://www.clinixodonto.com.br/" target="_blank" rel="noopener">Abrir o site ↗</a>
       </div>
-    </div>
+    </article>
 
-    <div class="note n1" id="n1"><b>Responsivo de verdade</b>Celular, tablet, computador e até relógio.</div>
-    <div class="note n2" id="n2"><b>Feito sob medida</b>Cada sistema nasce da rotina do seu negócio.</div>
-    <div class="note n3" id="n3"><b>Tecnologia moderna</b>Firebase · React · PWA · Android · Windows</div>
-
-    <div class="monitor" id="monitor">
-      <div class="bezel">
-        <div class="screen" id="screen">
-          <div class="ui-top">
-            <span class="ui-logo">Jefferson<sup>®</sup></span>
-            <span class="ui-pill">Portfólio <span style="opacity:.5">▾</span></span>
-            <span class="ui-plus">+</span>
-            <span class="sp"></span>
-            <span class="ui-comm">Mauriti, CE</span>
-            <span class="ui-me"><span class="dot"></span>Online <b>JR</b></span>
-          </div>
-          <div class="ui-main">
-            <div class="stage">
-              <button class="st-btn l" id="prevP" aria-label="Projeto anterior">‹</button>
-              <span class="st-label" id="stLabel">Visualizando em celular</span>
-              <button class="st-btn r" id="nextP" aria-label="Próximo projeto">›</button>
-              <div class="device phone" id="device"><span class="island"></span><div class="dscreen" id="dscreen"></div></div>
-
-              <div class="dev-panel" id="devPanel">
-                <div class="hd"><span>Ver em</span><span>⌄</span></div>
-                <button class="dev-opt" data-d="phone">Celular <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/></svg></button>
-                <div class="dev-sub"><span>6.1" · 6.7"</span><span class="swatches"><i style="background:#9aa0a6"></i><i style="background:#445"></i><i style="background:#fff"></i></span></div>
-                <button class="dev-opt" data-d="tablet">Tablet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/></svg></button>
-                <div class="dev-sub"><span>11" · paisagem</span></div>
-                <button class="dev-opt" data-d="laptop">Computador <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="11" rx="1"/><path d="M2 19h20"/></svg></button>
-                <div class="dev-sub"><span>Site e sistema web</span></div>
-                <button class="dev-opt" data-d="watch">Relógio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="12" height="12" rx="4"/><path d="M9 6V2h6v4M9 18v4h6v-4"/></svg></button>
-                <div class="dev-sub"><span>Resumo rápido</span></div>
-              </div>
-              <div class="dev-tg"><span id="autoTg">▶ Auto</span><span class="dk" id="devName">Celular</span></div>
-            </div>
-
-            <div class="side">
-              <div class="side-hd"><div><span id="pIdx">1 / 8</span><b>Projetos</b></div><div class="arrows"><button id="sPrev" aria-label="Anterior">‹</button><button id="sNext" aria-label="Próximo">›</button></div></div>
-              <div class="composer" id="composer">
-                <small id="cCat">Categoria</small>
-                <h5 id="cName">Projeto</h5>
-                <div class="stack"><i></i><i></i><i></i></div>
-                <span class="plus">↗</span>
-              </div>
-              <div class="tags" id="cTags"></div>
-              <span class="plist-t">Escolha um projeto</span>
-              <div class="plist" id="plist"></div>
-              <a class="open-btn" id="openBtn" href="#" target="_blank" rel="noopener">Abrir projeto ↗</a>
-            </div>
-          </div>
-          <div class="ui-bot">
-            <div class="ic">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h6l2 2h10v10H3z"/></svg>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/></svg>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V10M12 10c0-4 3-6 7-6 0 4-3 6-7 6zM12 14c0-3-2-5-6-5 0 3 2 5 6 5z"/></svg>
-            </div>
-            <form class="ask" id="askForm">
-              <span class="orb"></span>
-              <input id="askIn" type="text" aria-label="Descreva seu projeto" placeholder="">
-              <button type="submit" aria-label="Enviar pelo WhatsApp">↑</button>
-            </form>
-            <div class="ui-help"><span>Ajuda</span><span>WhatsApp ↗</span></div>
-          </div>
-          <div class="glare"></div>
-        </div>
+    <article class="card">
+      <img class="shot" src="assets/portfolio/advera-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Advera">
+      <div class="card-body">
+        <h3>Advera</h3>
+        <p class="cat">Sistema por assinatura · Escritórios de advocacia</p>
+        <p>Prazos com lembrete, andamentos processuais, contratos assinados pelo cliente no celular e controle de honorários. Login separado para cada advogado.</p>
+        <a class="go" href="https://advera-6607b.web.app/" target="_blank" rel="noopener">Abrir o site ↗</a>
       </div>
-      <div class="neck"></div>
-      <div class="foot"></div>
-    </div>
-    <div class="floor"></div>
-    <div class="scroll-hint" id="hint"><span>Role para explorar</span><i></i></div>
+    </article>
+
+    <article class="card">
+      <img class="shot" src="assets/portfolio/viverbem-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Viver Bem Home Care">
+      <div class="card-body">
+        <h3>Viver Bem Home Care</h3>
+        <p class="cat">Sistema de gestão · Atendimento domiciliar</p>
+        <p>Acesso separado para administração, profissionais e familiares, check-in por localização, contratos com LGPD e folha de pagamento.</p>
+        <a class="go" href="https://www.viverbemhomecare.com.br/" target="_blank" rel="noopener">Abrir o site ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-body">
+        <h3>Ronero Prado Ramalho</h3>
+        <p class="cat">Site institucional · Advocacia</p>
+        <p>Redesenho do site de um escritório de advocacia, com áreas de atuação, artigos e contato direto pelo WhatsApp.</p>
+        <a class="go" href="https://ronero-ramalho.lovable.app" target="_blank" rel="noopener">Abrir o site ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-body">
+        <h3>Evolui Fit</h3>
+        <p class="cat">App · Academias e personal trainers</p>
+        <p>Fichas de treino, medidas e metas. O aluno acompanha a própria evolução e o personal ajusta a ficha pelo sistema.</p>
+        <a class="go" href="https://jefframalho.github.io/evolui-fit/" target="_blank" rel="noopener">Abrir o app ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-body">
+        <h3>Cellix</h3>
+        <p class="cat">Sistema por assinatura · Lojas de celular</p>
+        <p>Caixa, estoque por IMEI, ordens de serviço, seminovos e relatórios separados por loja.</p>
+        <a class="go" href="https://jefframalho.github.io/cellix/" target="_blank" rel="noopener">Abrir o sistema ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-body">
+        <h3>Delivery Mauriti</h3>
+        <p class="cat">Plataforma · Delivery com várias lojas</p>
+        <p>Cada loja tem um link público com cardápio e pedidos, além de painel para o lojista e painel administrativo.</p>
+        <a class="go" href="catalogo.html#sistemas">Ver no catálogo ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-body">
+        <h3>Dra. Raylla Ramalho</h3>
+        <p class="cat">Fanpage · Odontologia estética</p>
+        <p>Página com tratamentos, resultados com fotos reais, dicas e agendamento direto pelo WhatsApp.</p>
+      </div>
+    </article>
+
+  </div>
+  <p class="note">Os projetos com link estão no ar.</p>
+</section>
+
+<section id="servicos" class="wrap">
+  <p class="label">Serviços</p>
+  <h2>Do primeiro site ao sistema completo</h2>
+  <ul class="services">
+    <li>
+      <div>
+        <strong>Sites e landing pages</strong>
+        <span>Site institucional ou página de divulgação, com botão de WhatsApp e ligação com Google e Instagram.</span>
+      </div>
+      <a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site%20ou%20landing%20page." target="_blank" rel="noopener">Pedir orçamento →</a>
+    </li>
+    <li>
+      <div>
+        <strong>Sistemas por assinatura</strong>
+        <span>Sistema com login para clínicas, academias, lojas e escritórios, com agenda, financeiro e estoque conforme a rotina do negócio.</span>
+      </div>
+      <a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20sistema%20por%20assinatura." target="_blank" rel="noopener">Pedir orçamento →</a>
+    </li>
+    <li>
+      <div>
+        <strong>Apps Android e PWA</strong>
+        <span>App para a Play Store ou PWA que o cliente instala direto pelo navegador, sem baixar nada.</span>
+      </div>
+      <a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20app%20Android%20ou%20PWA." target="_blank" rel="noopener">Pedir orçamento →</a>
+    </li>
+    <li>
+      <div>
+        <strong>Automações e integrações</strong>
+        <span>Lembretes no WhatsApp, cobranças por Pix, cartão ou boleto, relatórios automáticos e programas para Windows.</span>
+      </div>
+      <a href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20automa%C3%A7%C3%B5es." target="_blank" rel="noopener">Pedir orçamento →</a>
+    </li>
+  </ul>
+</section>
+
+<section id="sobre" class="wrap">
+  <p class="label">Sobre</p>
+  <h2>Quem faz</h2>
+  <p class="about">Sou o Jefferson, desenvolvedor em Mauriti, CE. Trabalho com sistemas que resolvem problemas do dia a dia: agenda e contratos no Clinix Odonto, acesso para profissionais e famílias no Viver Bem e fichas de treino no Evolui Fit. Como atendo remotamente, o cliente de qualquer cidade consegue trabalhar comigo do começo ao fim.</p>
+</section>
+
+<section id="contato" class="wrap">
+  <p class="label">Contato</p>
+  <h2>Me conta a sua ideia</h2>
+  <p class="about">Diga o que você precisa e como o seu dia a dia funciona. Eu respondo com uma proposta.</p>
+  <div class="contact-links">
+    <a class="btn btn-primary" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp (83) 9 2141-8988</a>
+    <a class="btn" href="mailto:jeffersonramalhopb@gmail.com">E-mail</a>
+    <a class="btn" href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener">Instagram</a>
+    <a class="btn" href="https://github.com/jefframalho" target="_blank" rel="noopener">GitHub</a>
   </div>
 </section>
 
-<!-- ============ PROJETOS 3D ============ -->
-<section class="blk" id="projetos">
-  <div class="sec-hd fade-up">
-    <div><span class="kicker">Projetos selecionados</span><h2>Projetos em <em class="g">3D</em></h2></div>
-    <p>Escolha um projeto pelo nome ou arraste os cards para explorar as demonstrações.</p>
-  </div>
-  <div class="ring-tools">
-    <div class="ring-picker">
-      <label for="rPicker">Escolher projeto</label>
-      <select id="rPicker"></select>
-    </div>
-    <button type="button" class="ring-auto" id="rAuto" aria-pressed="false">Rotação automática</button>
-  </div>
-  <div class="ring-stage" id="ringStage"><div class="ring" id="ring"></div></div>
-  <div class="ring-info fade-up">
-    <div>
-      <div class="cat" id="rCat"></div>
-      <h3 id="rName" aria-live="polite"></h3>
-      <p id="rDesc"></p>
-      <div class="tags" id="rTags"></div>
-    </div>
-    <div class="ring-ctl">
-      <span class="counter" id="rCount">01 / 08</span>
-      <button class="rb" id="rPrev" aria-label="Anterior">←</button>
-      <button class="rb" id="rNext" aria-label="Próximo">→</button>
-      <a class="btn btn-light" id="rOpen" href="#" target="_blank" rel="noopener">Ver projeto ↗</a>
-    </div>
-  </div>
-  <p class="disc">Clinix Odonto, Advera e Viver Bem mostram os sites reais, no ar. As demais telas são ilustrativas, com dados fictícios. <a href="catalogo.html#sistemas" style="color:var(--gold)">Ver o catálogo completo →</a></p>
-</section>
-
-<!-- ============ SERVIÇOS ============ -->
-<section class="blk" id="servicos">
-  <div class="sec-hd fade-up">
-    <div><span class="kicker">Como posso ajudar</span><h2>Do primeiro site<br>ao <em class="g">sistema completo</em></h2></div>
-    <p>Atendimento próximo e remoto, do primeiro esboço à publicação, com suporte depois da entrega.</p>
-  </div>
-  <div class="svc" role="tablist" aria-label="Serviços">
-    <button type="button" class="sc" role="tab" id="tab-sites" aria-controls="servico-sites" aria-selected="true">Sites e landing pages</button>
-    <button type="button" class="sc" role="tab" id="tab-sistemas" aria-controls="servico-sistemas" aria-selected="false" tabindex="-1">Sistemas por assinatura</button>
-    <button type="button" class="sc" role="tab" id="tab-apps" aria-controls="servico-apps" aria-selected="false" tabindex="-1">Apps Android e PWA</button>
-    <button type="button" class="sc" role="tab" id="tab-automacoes" aria-controls="servico-automacoes" aria-selected="false" tabindex="-1">Automações e integrações</button>
-  </div>
-  <div class="svc-panel" id="servico-sites" role="tabpanel" aria-labelledby="tab-sites" tabindex="0">
-    <div>
-      <h3>Apresente seu negócio na web</h3>
-      <p>Sites institucionais e páginas de divulgação com acesso rápido ao WhatsApp e integração com Google e Instagram.</p>
-      <ul class="svc-features"><li>Layout responsivo</li><li>Contato pelo WhatsApp</li><li>SEO</li></ul>
-    </div>
-    <div class="svc-actions">
-      <a class="btn btn-ghost" href="#projetos" data-project="Ronero Prado Ramalho">Ver site do Ronero</a>
-      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento%20para%20um%20site%20ou%20landing%20page." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
-    </div>
-  </div>
-  <div class="svc-panel" id="servico-sistemas" role="tabpanel" aria-labelledby="tab-sistemas" tabindex="0" hidden>
-    <div>
-      <h3>Organize a operação em um só lugar</h3>
-      <p>Plataformas com login para clínicas, academias e lojas. Os módulos acompanham a rotina da equipe.</p>
-      <ul class="svc-features"><li>Agenda</li><li>Financeiro</li><li>Estoque e contratos</li></ul>
-    </div>
-    <div class="svc-actions">
-      <a class="btn btn-ghost" href="#projetos" data-project="Clinix Odonto">Ver Clinix Odonto</a>
-      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento%20para%20um%20sistema%20por%20assinatura." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
-    </div>
-  </div>
-  <div class="svc-panel" id="servico-apps" role="tabpanel" aria-labelledby="tab-apps" tabindex="0" hidden>
-    <div>
-      <h3>Leve seu sistema para o celular</h3>
-      <p>Aplicativos Android para distribuição pela Play Store e PWAs que o cliente pode instalar direto pelo navegador.</p>
-      <ul class="svc-features"><li>Android</li><li>Aplicativo web instalável</li><li>Área do cliente</li></ul>
-    </div>
-    <div class="svc-actions">
-      <a class="btn btn-ghost" href="#projetos" data-project="Evolui Fit">Ver Evolui Fit</a>
-      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento%20para%20um%20app%20Android%20ou%20PWA." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
-    </div>
-  </div>
-  <div class="svc-panel" id="servico-automacoes" role="tabpanel" aria-labelledby="tab-automacoes" tabindex="0" hidden>
-    <div>
-      <h3>Automatize tarefas recorrentes</h3>
-      <p>Integre lembretes no WhatsApp, cobranças por Pix, cartão e boleto, relatórios automáticos e software para Windows.</p>
-      <ul class="svc-features"><li>Lembretes</li><li>Pagamentos</li><li>Relatórios automáticos</li></ul>
-    </div>
-    <div class="svc-actions">
-      <a class="btn btn-ghost" href="#projetos" data-project="Advera">Ver lembretes no Advera</a>
-      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento%20para%20automa%C3%A7%C3%B5es%20ou%20integra%C3%A7%C3%B5es." target="_blank" rel="noopener">Pedir orçamento pelo WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SOBRE ============ -->
-<section class="blk" id="sobre">
-  <div class="about">
-    <div class="fade-up">
-      <span class="kicker">Sobre mim</span>
-      <p class="big">Sou o Jefferson, desenvolvedor em Mauriti, CE. <span>Crio sistemas que resolvem problemas reais, como agendamento e contratos no Clinix Odonto, acessos para profissionais e famílias no Viver Bem e fichas de treino no Evolui Fit.</span></p>
-    </div>
-    <div class="stats fade-up">
-      <div><b>8+</b><span>projetos em destaque</span></div>
-      <div><b>100%</b><span>responsivos</span></div>
-      <div><b>Web</b><span>Android e Windows</span></div>
-      <div><b>CE</b><span>atendimento remoto</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTATO ============ -->
-<section id="contato" style="padding-bottom:40px">
-  <div class="cta-blk fade-up">
-    <span class="kicker">Contato</span>
-    <h2>Vamos tirar seu<br>projeto do <em class="g">papel?</em></h2>
-    <p>Conte o que você precisa. Eu respondo rápido com uma proposta sob medida.</p>
-    <div class="socials">
-      <a class="btn btn-light" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
-        WhatsApp</a>
-      <a class="btn btn-ghost" href="mailto:jeffersonramalhopb@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>E-mail</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
-      <a class="btn btn-ghost" href="https://github.com/jefframalho" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.400 9.400 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.900-2.300 4.700-4.600 5 .4.3.7.9.7 1.900v2.800c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>GitHub</a>
-    </div>
-  </div>
-</section>
 </main>
 
-<footer>
-  <span>© <span id="yr"></span> Jefferson Ramalho · Desenvolvedor</span>
-  <span>Mauriti, CE · Atendimento remoto · <a href="#contato">Fale comigo</a></span>
+<footer class="wrap">
+  <p>© <span id="yr">2026</span> Jefferson Ramalho · Mauriti, CE · Atendimento remoto</p>
 </footer>
 
-<a class="wa-float" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg></a>
-
 <script>
-/* =================== DADOS DOS PROJETOS =================== */
-const WA = "5583921418988";
-const P = [
- {n:"Clinix Odonto",cat:"SaaS · Clínicas odontológicas",c:"#14b8a6",c2:"#0f766e",bg:"#f2f7f6",ini:"C",t1:"Sua clínica",t2:"organizada",sub:"Agenda, prontuário, contratos e financeiro em um só lugar.",kl:"Faturamento do mês",kv:"R$ 48.320",it:[["Consultas hoje","18"],["Confirmadas","94%"]],li:["Ana Souza · Limpeza · 09:00","Carlos Lima · Canal · 10:30","Júlia Reis · Avaliação · 14:00","Marcos Dias · Clareamento · 16:00"],nav:["Agenda","Pacientes","Odontograma","Contratos","Financeiro"],url:"https://www.clinixodonto.com.br/",tags:["Firebase","Agenda online","Contratos","WhatsApp"],wl:"Teste grátis",wv:"14 dias",real:{desk:["assets/portfolio/clinix-desk.jpg",800,2500],mob:["assets/portfolio/clinix-mob.jpg",390,2532]},d:"Sistema por assinatura para várias clínicas: agenda online com auto agendamento, odontograma, contratos com assinatura do paciente, estoque, financeiro e lembretes no WhatsApp."},
- {n:"Advera",cat:"SaaS · Escritórios de advocacia",c:"#1f5a4c",c2:"#0a2a24",bg:"#f3f5f2",ini:"A",t1:"O escritório",t2:"numa tela só",sub:"Prazos, processos, clientes, contratos e honorários.",kl:"Prazos da semana",kv:"12",it:[["Processos","48"],["Contratos","9"]],li:["Contestação · Hoje 17h","Audiência · Em 2 dias","Sentença publicada","Contrato assinado"],nav:["Seu dia","Prazos","Processos","Clientes","Honorários"],url:"https://advera-6607b.web.app/",tags:["Prazos com lembrete","Andamentos do CNJ","Contrato assinado","Login por advogado"],wl:"Teste grátis",wv:"7 dias",real:{desk:["assets/portfolio/advera-desk.jpg",800,2500],mob:["assets/portfolio/advera-mob.jpg",390,1688]},d:"Sistema por assinatura para escritórios de advocacia: prazos com lembrete, andamentos do CNJ conferidos de hora em hora, contratos assinados pelo cliente no celular, honorários e login próprio para cada advogado."},
- {n:"Viver Bem Home Care",cat:"Sistema de gestão · Home care",c:"#2f5d50",c2:"#b08d3c",bg:"#f6f3ec",ini:"V",t1:"Cuidado em",t2:"casa",sub:"Equipe multidisciplinar com check-in na casa do paciente.",kl:"Atendimentos na semana",kv:"126",it:[["Profissionais","32"],["Check-ins hoje","41"]],li:["Enf. Maria · Check-in 07:58","Fisio. João · Em atendimento","Téc. Paula · Check-out 12:04","Nutri. Ana · Agendado 15:00"],nav:["Painel","Pacientes","Profissionais","Contratos","Folha"],url:"https://www.viverbemhomecare.com.br/",tags:["Login por perfil","Geolocalização","Contratos LGPD","Folha de pagamento"],wl:"Plantões",wv:"6h–24h",real:{desk:["assets/portfolio/viverbem-desk.jpg",800,2500],mob:["assets/portfolio/viverbem-mob.jpg",390,1688]},d:"Plataforma de atendimento domiciliar com acessos para administração, profissionais e familiares, check-in por localização, contratação pelo app e contratos com LGPD."},
- {n:"Evolui Fit",cat:"App · Academias e personal",c:"#f97316",c2:"#c2410c",bg:"#fbf5ef",ini:"E",t1:"Treino de",t2:"hoje",sub:"Ficha, evolução e metas do aluno na palma da mão.",kl:"Carga total na semana",kv:"12,4 t",it:[["Treinos no mês","16"],["Meta de peso","−3,2 kg"]],li:["Supino reto · 4×10","Agachamento livre · 4×12","Remada curvada · 3×12","Prancha · 3×45s"],nav:["Hoje","Fichas","Medidas","Alunos","Metas"],url:"https://jefframalho.github.io/evolui-fit/",tags:["Área do aluno","Fichas de treino","Medidas","PWA"],d:"Sistema para academias e personal trainers: fichas de treino, acompanhamento de medidas, metas e área exclusiva do aluno."},
- {n:"Cellix",cat:"SaaS · Redes de lojas de celular",c:"#7c3aed",c2:"#4c1d95",bg:"#f5f3fb",ini:"C",t1:"Vendas em",t2:"todas as lojas",sub:"PDV, estoque por IMEI e ordens de serviço.",kl:"Vendas hoje",kv:"R$ 9.870",it:[["OS abertas","23"],["Lojas","4"]],li:["iPhone 13 128GB · Vendido","Galaxy A55 · Em estoque","Troca de tela · OS #1042","Redmi Note 13 · Seminovo"],nav:["PDV","Estoque","OS","Seminovos","Relatórios"],url:"https://jefframalho.github.io/cellix/",tags:["PDV + caixa","Estoque IMEI","Ordem de serviço","Multi-lojas"],d:"Sistema por assinatura para redes de lojas de celular: vendas e caixa, estoque por IMEI, ordens de serviço, seminovos e relatórios por loja."},
- {n:"Delivery Mauriti",cat:"Plataforma · Delivery multi-lojas",c:"#ef4444",c2:"#991b1b",bg:"#fbf3f2",ini:"D",t1:"Peça em",t2:"Mauriti",sub:"Cardápio online, pedidos e painel do lojista.",kl:"Pedidos hoje",kv:"87",it:[["Lojas ativas","12"],["Tempo médio","28 min"]],li:["Pizzaria Central · Saiu p/ entrega","Açaí do Bairro · Preparando","Burger House · Novo pedido","Pastelaria Sol · Entregue"],nav:["Pedidos","Cardápio","Lojas","Clientes","Admin"],url:"catalogo.html#sistemas",tags:["React + Vite","Firebase","Link por loja","Painel admin"],d:"Delivery com várias lojas: link público por loja, cardápio online, painel do lojista e painel administrativo, por assinatura mensal sem comissão."},
- {n:"Ronero Prado Ramalho",cat:"Site institucional · Advocacia",c:"#1e3a5f",c2:"#0f1f35",bg:"#f4f2ec",ini:"R",t1:"Advocacia com",t2:"excelência",sub:"Site premium com identidade azul e dourado.",kl:"Atendimento",kv:"Online",it:[["Áreas","Cível · Família"],["Contato","WhatsApp"]],li:["Direito Civil","Direito de Família","Direito do Consumidor","Direito Previdenciário"],nav:["Início","Áreas","Sobre","Artigos","Contato"],url:"https://ronero-ramalho.lovable.app",tags:["Redesign","SEO","Responsivo","WhatsApp"],d:"Redesign premium de site para advocacia, com identidade azul-marinho e dourado, áreas de atuação e contato direto."},
- {n:"Dra. Raylla Ramalho",cat:"Fanpage · Odontologia estética",c:"#b97a5c",c2:"#7a4a35",bg:"#faf5f1",ini:"R",t1:"Seu sorriso",t2:"em dia",sub:"Landing page com resultados e agendamento.",kl:"Agende sua avaliação",kv:"WhatsApp",it:[["Procedimentos","8"],["Posts","7"]],li:["Preenchimento labial","Clareamento dental","Lentes de contato","Limpeza e prevenção"],nav:["Início","Tratamentos","Resultados","Dicas","Agendar"],url:"#contato",tags:["Landing page","Antes e depois","Conteúdo educativo","Agendamento"],d:"Fanpage moderna para clínica odontológica, com fotos reais, resultados de procedimentos, posts educativos e agendamento direto."},
- {n:"AEM Store",cat:"E-commerce · Moda fitness e perfumaria",c:"#db2777",c2:"#831843",bg:"#fbf3f6",ini:"A",t1:"Moda fitness &",t2:"perfumaria",sub:"Catálogo online com pedido pelo WhatsApp.",kl:"Conjunto fitness",kv:"R$ 99,90",it:[["Categorias","2"],["Pedido","WhatsApp"]],li:["Conjunto Ma Chérie","Macaquinho fitness","Camiseta dry fit","Perfume Botica 214"],nav:["Loja","Fitness","Perfumaria","Carrinho","Pedidos"],url:"#contato",tags:["E-commerce","Catálogo","Carrinho","WhatsApp"],d:"Fanpage e loja virtual de moda fitness e perfumaria, com catálogo, carrinho e pedido finalizado no WhatsApp."}
-];
-
-/* =================== TEMPLATES DAS TELAS =================== */
-const bars = (k,n)=>Array.from({length:n},(_,i)=>`<i style="height:${30+((i*37+k*13)%70)}%"></i>`).join("");
-function phoneT(p,k){return `<div class="ps" style="--c:${p.c};--c2:${p.c2};--bg2:${p.bg}">
- <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
- <div class="top"><span>${p.cat.split("·")[1]||p.cat}</span><span class="ini">${p.ini}</span></div>
- <h4>${p.t1} <em>${p.t2}</em></h4><p class="sub">${p.sub}</p>
- <div class="card hero"><small>${p.kl}</small><b>${p.kv}</b><div class="spark">${bars(k,12)}</div></div>
- <div class="row2">${p.it.map(x=>`<div class="card"><small>${x[0]}</small><b>${x[1]}</b></div>`).join("")}</div>
- <div class="card">${p.li.slice(0,3).map(x=>`<div class="li"><i></i>${x}</div>`).join("")}</div>
- <div class="nav"><i class="on"></i><i></i><i></i><i></i></div></div>`}
-function deskT(p,k){return `<div class="ds" style="--c:${p.c};--c2:${p.c2};--bg2:${p.bg}">
- <aside><div class="brand"><span class="ini">${p.ini}</span>${p.n}</div>${p.nav.map((x,i)=>`<span class="${i?"":"on"}">${x}</span>`).join("")}</aside>
- <main><div class="hd"><div><h4>${p.t1} <em>${p.t2}</em></h4><p>${p.sub}</p></div><span class="cta">+ Novo</span></div>
- <div class="tiles"><div class="card hero"><small>${p.kl}</small><b>${p.kv}</b></div>${p.it.map(x=>`<div class="card"><small>${x[0]}</small><b>${x[1]}</b></div>`).join("")}</div>
- <div class="bottom"><div class="card" style="display:flex;flex-direction:column"><small>Últimos 12 meses</small><div class="chart">${bars(k,12)}</div></div>
- <div class="card"><small>Recentes</small>${p.li.map(x=>`<div class="li"><i></i>${x}</div>`).join("")}</div></div></main></div>`}
-function watchT(p){return `<div class="ws" style="--c:${p.c}"><div class="ring"></div><small>${p.wl||p.kl}</small><b>${p.wv||p.kv}</b><span class="pill">${p.n}</span></div>`}
-/* site real com rolagem e cursor */
-function liveT(p,k){const r=p.real[k];return `<div class="live" data-w="${r[1]}" data-h="${r[2]}"><img src="${r[0]}" alt="Site ${p.n}" loading="lazy" draggable="false"><span class="cur"></span><span class="badge"><i></i>AO VIVO</span></div>`}
-function runLive(root){root.querySelectorAll(".live").forEach(el=>{if(el._on)return;el._on=1;
-  const img=el.querySelector("img"),cur=el.querySelector(".cur"),nw=+el.dataset.w,nh=+el.dataset.h;let y=0,cx=40,cy=40;
-  function tick(){if(!el.isConnected)return;const cw=el.clientWidth,ch=el.clientHeight;
-    if(!cw||document.hidden||RM){setTimeout(tick,800);return}
-    const max=Math.max(0,cw*nh/nw-ch),back=y>=max-2;
-    cx=cw*(.18+Math.random()*.64);cy=ch*(.22+Math.random()*.56);cur.style.transform=`translate(${cx}px,${cy}px)`;
-    setTimeout(()=>{if(!el.isConnected)return;const r=document.createElement("span");r.className="rip";r.style.left=cx+"px";r.style.top=cy+"px";el.appendChild(r);setTimeout(()=>r.remove(),650);
-      y=back?0:Math.min(max,y+ch*(.5+Math.random()*.4));
-      img.style.transition=back?"transform 1.8s cubic-bezier(.6,0,.2,1)":"transform 1.2s cubic-bezier(.4,0,.2,1)";img.style.transform=`translateY(${-y}px)`},1050);
-    setTimeout(tick,2600+Math.random()*900)}
-  setTimeout(tick,400+Math.random()*800)})}
-function fitDesk(el,w,h){const d=el.querySelector(".ds");if(!d)return;const s=w/900;d.style.transform=`scale(${s})`;d.style.height=(h/s)+"px"}
-
-/* =================== LOADER =================== */
-const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
-(function(){
-  const loader=document.getElementById("loader");
-  if (document.getElementById(location.hash.slice(1)) || RM) {
-    loader.remove();
-    document.body.classList.remove("loading");
-    document.body.classList.add("ready");
-    return;
-  }
-  const pct=document.getElementById("ldPct"),bar=document.getElementById("ldBar");let v=0;const t0=performance.now(),dur=1700;
-  function step(t){v=Math.min(100,Math.round(((t-t0)/dur)*100));const e=100*(1-Math.pow(1-v/100,3));pct.textContent=Math.round(e)+"%";bar.style.width=e+"%";
-    if(v<100)requestAnimationFrame(step);else setTimeout(()=>{document.getElementById("loader").classList.add("done");document.body.classList.remove("loading");document.body.classList.add("ready")},250)}
-  requestAnimationFrame(step);
-})();
-document.getElementById("yr").textContent=new Date().getFullYear();
-
-/* =================== MONITOR / DEVICE =================== */
-const DEV={phone:{w:218,h:468,l:"celular",N:"Celular"},tablet:{w:528,h:378,l:"tablet",N:"Tablet"},laptop:{w:612,h:368,l:"computador",N:"Computador"},watch:{w:172,h:212,l:"relógio",N:"Relógio"}};
-const ORDER=["phone","tablet","laptop","watch"];
-let cur=0,dev="phone",auto=true,pauseUntil=0;
-const device=document.getElementById("device"),dscr=document.getElementById("dscreen");
-function paint(){const p=P[cur];
-  if(p.real&&dev!=="watch"){dscr.innerHTML=liveT(p,dev==="phone"?"mob":"desk");runLive(dscr)}
-  else if(dev==="phone")dscr.innerHTML=phoneT(p,cur);else if(dev==="watch")dscr.innerHTML=watchT(p);else{dscr.innerHTML=deskT(p,cur);fitDesk(dscr,DEV[dev].w,DEV[dev].h)}}
-function setDevice(d){if(d===dev)return;dev=d;dscr.classList.add("fade");device.className="device "+d;
-  setTimeout(()=>{paint();dscr.classList.remove("fade")},560);updUI()}
-function setProject(i){cur=(i+P.length)%P.length;dscr.classList.add("fade");setTimeout(()=>{paint();dscr.classList.remove("fade")},260);updUI()}
-function updUI(){const p=P[cur];
-  document.getElementById("pIdx").textContent=`${cur+1} / ${P.length}`;
-  document.getElementById("cCat").textContent=p.cat;document.getElementById("cName").textContent=p.n;
-  const comp=document.getElementById("composer");comp.style.setProperty("--pc",p.c);comp.style.setProperty("--pc2",p.c2);
-  comp.querySelectorAll(".stack i").forEach((el,j)=>{const q=P[(cur+j+1)%P.length];el.style.background=`linear-gradient(160deg,${q.bg},${q.c})`});
-  document.getElementById("cTags").innerHTML=p.tags.map(t=>`<span>${t}</span>`).join("");
-  document.querySelectorAll("#plist button").forEach((b,j)=>b.classList.toggle("on",j===cur));
-  const ob=document.getElementById("openBtn");ob.href=p.url;ob.target=p.url.startsWith("http")?"_blank":"_self";
-  document.querySelectorAll(".dev-opt").forEach(b=>b.classList.toggle("on",b.dataset.d===dev));
-  document.getElementById("stLabel").textContent=`${p.n} · visualizando em ${DEV[dev].l}`;
-  document.getElementById("devName").textContent=DEV[dev].N;
-}
-document.getElementById("plist").innerHTML=P.map((p,i)=>`<button data-i="${i}"><span>${p.n}</span><span class="dots"><i style="background:${p.c}"></i><i style="background:${p.c2}"></i></span></button>`).join("");
-function hold(){pauseUntil=Date.now()+14000}
-document.getElementById("plist").addEventListener("click",e=>{const b=e.target.closest("button");if(b){hold();setProject(+b.dataset.i)}});
-document.querySelectorAll(".dev-opt").forEach(b=>b.addEventListener("click",()=>{hold();setDevice(b.dataset.d)}));
-["prevP","sPrev"].forEach(id=>document.getElementById(id).onclick=()=>{hold();setProject(cur-1)});
-["nextP","sNext"].forEach(id=>document.getElementById(id).onclick=()=>{hold();setProject(cur+1)});
-document.getElementById("autoTg").onclick=function(){auto=!auto;this.textContent=auto?"▶ Auto":"❚❚ Pausado"};
-paint();updUI();
-setInterval(()=>{if(!auto||Date.now()<pauseUntil||document.hidden)return;
-  const i=ORDER.indexOf(dev);if(i===ORDER.length-1){dev="";setDevice("phone");setTimeout(()=>setProject(cur+1),700)}else setDevice(ORDER[i+1])},3200);
-
-/* campo "pergunte" -> WhatsApp */
-const sugg=["Quero um sistema para minha clínica…","Preciso de um site para minha loja…","Quero um app de agendamento…","Quero vender mais pelo WhatsApp…"];
-const askIn=document.getElementById("askIn");let si=0,ci=0,del=false;
-(function type(){if(document.activeElement===askIn||askIn.value){setTimeout(type,800);return}
-  const s=sugg[si];askIn.placeholder=s.slice(0,ci);
-  if(!del){ci++;if(ci>s.length){del=true;setTimeout(type,1600);return}}else{ci--;if(ci<0){del=false;ci=0;si=(si+1)%sugg.length}}
-  setTimeout(type,del?28:55)})();
-document.getElementById("askForm").addEventListener("submit",e=>{e.preventDefault();const t=askIn.value.trim()||askIn.placeholder.replace("…","");
-  window.open(`https://wa.me/${WA}?text=${encodeURIComponent("Olá Jefferson! "+t)}`,"_blank")});
-
-/* =================== ANIMAÇÃO DE SCROLL 3D =================== */
-const mon=document.getElementById("monitor"),intro=document.getElementById("intro"),hero=document.getElementById("heroCopy"),hint=document.getElementById("hint"),hdr=document.getElementById("hdr");
-const KF=[{p:0,y:58,rx:32,ry:0,rz:0,s:.8},{p:.2,y:3,rx:0,ry:0,rz:0,s:1},{p:.45,y:3,rx:5,ry:-18,rz:0,s:.97},{p:.7,y:2,rx:4,ry:16,rz:0,s:.96},{p:.88,y:0,rx:0,ry:0,rz:0,s:1.04},{p:1,y:-6,rx:10,ry:0,rz:0,s:.8}];
-const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-function lerpKF(p){for(let i=0;i<KF.length-1;i++){const a=KF[i],b=KF[i+1];if(p<=b.p){const t=ease((p-a.p)/(b.p-a.p));const o={};for(const k of["y","rx","ry","rz","s"])o[k]=a[k]+(b[k]-a[k])*t;return o}}return KF[KF.length-1]}
-let fit=1,mx=0,my=0,tmx=0,tmy=0,prog=0;
-function calcFit(){const vw=innerWidth,vh=innerHeight;const mob=vw<700;fit=Math.min((vw*(mob?1.12:.9))/1316,(vh*.8)/990);}
-calcFit();addEventListener("resize",()=>{calcFit();fitCards()});
-addEventListener("pointermove",e=>{tmx=(e.clientX/innerWidth-.5);tmy=(e.clientY/innerHeight-.5)});
-function frame(){
-  const r=intro.getBoundingClientRect();const total=intro.offsetHeight-innerHeight;prog=Math.min(1,Math.max(0,-r.top/total));
-  mx+=(tmx-mx)*.06;my+=(tmy-my)*.06;
-  const k=RM?KF[1]:lerpKF(prog);
-  mon.style.transform=`translate(-50%,-50%) translateY(${k.y}vh) scale(${fit*k.s}) rotateX(${k.rx-my*4}deg) rotateY(${k.ry+mx*6}deg) rotateZ(${k.rz}deg)`;
-  const ho=Math.max(0,1-prog/.12);hero.style.opacity=ho;hero.style.transform=`translateY(${-prog*600}px)`;hero.style.pointerEvents=ho<.2?"none":"auto";
-  hint.style.opacity=prog>.05?0:1;
-  document.getElementById("n1").classList.toggle("show",prog>.3&&prog<.6);
-  document.getElementById("n2").classList.toggle("show",prog>.52&&prog<.82);
-  document.getElementById("n3").classList.toggle("show",prog>.62&&prog<.9);
-  hdr.classList.toggle("solid",scrollY>40);
-  requestAnimationFrame(frame)}
-requestAnimationFrame(frame);
-
-/* =================== CARROSSEL 3D =================== */
-const ring=document.getElementById("ring"),stage=document.getElementById("ringStage");
-const projectPicker = document.getElementById("rPicker");
-const projectName = document.getElementById("rName");
-const rotationToggle = document.getElementById("rAuto");
-projectPicker.replaceChildren(...P.map((project, index) => new Option(project.n, index)));
-let rot=0,trot=0,active=0,cw=380,R=520;const step=360/P.length;
-ring.innerHTML=P.map((p,i)=>`<div class="pcard" data-i="${i}"><div class="chrome"><i></i><i></i><i></i><span>${p.url.replace(/^https?:\/\//,"").replace(/^#.*/,"jefframalho.github.io")}</span></div><div class="fit">${p.real?liveT(p,"desk"):deskT(p,i)}</div></div>`).join("");
-const cards=[...ring.children];runLive(ring);
-function fitCards(){cw=Math.min(400,Math.max(240,innerWidth*.62));if(innerWidth>700)cw=Math.min(400,innerWidth*.3);
-  R=Math.round((cw/2)/Math.tan(Math.PI/P.length))+40;stage.style.setProperty("--cw",cw+"px");ring.style.setProperty("--cw",cw+"px");
-  cards.forEach(c=>{c.style.setProperty("--cw",cw+"px");fitDesk(c.querySelector(".fit"),cw,cw*.74-30)})}
-fitCards();
-function setActive(i){active=(i%P.length+P.length)%P.length;const p=P[active];
-  projectPicker.value = active;
-  document.getElementById("rCat").textContent=p.cat;projectName.textContent=p.n;document.getElementById("rDesc").textContent=p.d;
-  document.getElementById("rTags").innerHTML=p.tags.map(t=>`<span>${t}</span>`).join("");
-  document.getElementById("rCount").textContent=`${String(active+1).padStart(2,"0")} / ${String(P.length).padStart(2,"0")}`;
-  const o=document.getElementById("rOpen");o.href=p.url;o.target=p.url.startsWith("http")?"_blank":"_self"}
-function goTo(i){const diff=((i-active)%P.length+P.length+P.length/2)%P.length-P.length/2;trot-=diff*step;setActive(i)}
-let rotationTimer;
-function setRotation(enabled) {
-  clearInterval(rotationTimer);
-  rotationTimer = enabled ? setInterval(() => {
-    if (!document.hidden) goTo(active + 1);
-  }, 4200) : undefined;
-  rotationToggle.setAttribute("aria-pressed", enabled);
-  projectName.setAttribute("aria-live", enabled ? "off" : "polite");
-}
-function selectProject(index) {
-  setRotation(false);
-  goTo(index);
-}
-rotationToggle.addEventListener("click", () => setRotation(rotationTimer === undefined));
-projectPicker.addEventListener("focus", () => setRotation(false));
-projectPicker.addEventListener("change", () => selectProject(Number(projectPicker.value)));
-document.getElementById("rPrev").onclick=()=>selectProject(active-1);
-document.getElementById("rNext").onclick=()=>selectProject(active+1);
-let dragPointer=null,sx=0,srot=0,moved=0;
-stage.addEventListener("pointerdown",e=>{if(dragPointer!==null||e.button!==0)return;
-  setRotation(false);dragPointer=e.pointerId;sx=e.clientX;srot=trot;moved=0;stage.setPointerCapture(e.pointerId)});
-stage.addEventListener("pointermove",e=>{if(dragPointer!==e.pointerId)return;const dx=e.clientX-sx;moved=Math.abs(dx);trot=srot+dx*.25});
-stage.addEventListener("pointerup",e=>{if(dragPointer!==e.pointerId)return;dragPointer=null;
-  if(moved<6){const c=document.elementFromPoint(e.clientX,e.clientY)?.closest(".pcard");if(c){goTo(+c.dataset.i);return}}
-  const idx=Math.round(-trot/step);trot=-idx*step;setActive(idx)});
-stage.addEventListener("lostpointercapture",e=>{if(dragPointer===e.pointerId){dragPointer=null;trot=srot}});
-setActive(0);
-function ringFrame(){rot=RM?trot:rot+(trot-rot)*.08;
-  ring.style.transform=`translateZ(${-R}px) rotateX(-6deg) rotateY(${rot}deg)`;
-  cards.forEach((c,i)=>{const a=i*step;c.style.transform=`rotateY(${a}deg) translateZ(${R}px)`;
-    const rel=((a+rot)%360+540)%360-180;c.classList.toggle("dim",Math.abs(rel)>step*.6)});
-  requestAnimationFrame(ringFrame)}
-requestAnimationFrame(ringFrame);
-
-/* =================== EFEITOS DAS SEÇÕES =================== */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
-document.querySelectorAll(".fade-up").forEach((el,i)=>{el.style.transitionDelay=(i%4)*.08+"s";io.observe(el)});
-
-/* =================== SERVIÇOS =================== */
-const serviceTabs = [...document.querySelectorAll(".svc [role='tab']")];
-function selectService(selectedTab) {
-  serviceTabs.forEach(tab => {
-    const isSelected = tab === selectedTab;
-    tab.setAttribute("aria-selected", isSelected);
-    tab.tabIndex = isSelected ? 0 : -1;
-    document.getElementById(tab.getAttribute("aria-controls")).hidden = !isSelected;
-  });
-}
-serviceTabs.forEach((tab, index) => {
-  tab.addEventListener("click", () => selectService(tab));
-  tab.addEventListener("keydown", event => {
-    const destinations = {ArrowLeft: index - 1, ArrowRight: index + 1, Home: 0, End: serviceTabs.length - 1};
-    if (!Object.hasOwn(destinations, event.key)) return;
-    event.preventDefault();
-    const nextTab = serviceTabs[(destinations[event.key] + serviceTabs.length) % serviceTabs.length];
-    selectService(nextTab);
-    nextTab.focus();
-  });
-});
-document.querySelectorAll(".svc-panel [data-project]").forEach(link => {
-  link.addEventListener("click", () => {
-    const index = P.findIndex(project => project.n === link.dataset.project);
-    if (index >= 0) selectProject(index);
-  });
-});
+  document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
