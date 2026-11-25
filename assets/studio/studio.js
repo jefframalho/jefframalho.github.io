@@ -208,12 +208,14 @@ const dialog = document.getElementById('preview-dialog');
 const dialogPreview = document.getElementById('dialog-preview');
 const projectNav = Array.from(document.querySelectorAll('[data-scene-project]'));
 const lightButtons = Array.from(document.querySelectorAll('[data-light]'));
+const deviceButtons = Array.from(screen.querySelectorAll('[data-device]'));
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
 const compact = matchMedia('(max-width: 760px)');
 const motionState = { progress: 0, hoverX: 0, hoverY: 0, dragX: 0, dragY: 0, pointer: null, dragging: false };
 const lightOptions = { violet: '#a075ff', blue: '#56a5f7' };
 let selectedLight = 'auto';
+let selectedDevice = 'desktop';
 let activeIndex = -1;
 let framePending = false;
 
@@ -233,6 +235,15 @@ const projects = Array.from(document.querySelectorAll('[data-project]'), card =>
 function setLighting() {
   scene.style.setProperty('--ambient', lightOptions[selectedLight] || projects[activeIndex].light);
   lightButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.light === selectedLight)));
+}
+function selectDevice(device) {
+  if (selectedDevice === device) return;
+  selectedDevice = device;
+  featuredPreview.classList.toggle('device-phone', device === 'phone');
+  deviceButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.device === device)));
+  if (!reducedMotion.matches) {
+    featuredPreview.animate([{ opacity: .55 }, { opacity: 1 }], { duration: 260, easing: 'ease-out' });
+  }
 }
 function selectProject(index) {
   if (activeIndex === index) return;
@@ -290,6 +301,7 @@ function paintFrame() {
   scene.style.setProperty('--ry', (swing * size + motionState.hoverY + motionState.dragY) + 'deg');
   scene.style.setProperty('--lift', (-Math.abs(wave) * 15 * size) + 'px');
   scene.style.setProperty('--depth', (Math.abs(wave) * 15 * size) + 'px');
+  scene.style.setProperty('--zoom', String(1 + Math.abs(wave) * .045 * size));
   scene.style.setProperty('--bg-shift', (reducedMotion.matches ? 0 : (progress - .5) * 26) + 'px');
   toolbar.style.setProperty('--story-progress', String(.25 + progress * .75));
 }
@@ -299,12 +311,13 @@ function requestFrame() {
   requestAnimationFrame(paintFrame);
 }
 
-function showDemo(index, paneIndex = 0) {
+function showDemo(index, paneIndex = 0, device = 'desktop') {
   if (typeof dialog.showModal !== 'function') return false;
   const project = projects[index];
   document.getElementById('dialog-title').textContent = project.name;
   document.getElementById('dialog-summary').textContent = project.summary;
   document.getElementById('dialog-link').href = project.url;
+  dialogPreview.classList.toggle('device-phone', device === 'phone');
   renderDemo(dialogPreview, project, true, paneIndex);
   dialog.showModal();
   dialog.scrollTop = 0;
@@ -318,10 +331,14 @@ projectNav.forEach((link, index) => link.addEventListener('click', event => {
 }));
 document.getElementById('previous-project').addEventListener('click', () => jumpToProject(activeIndex - 1));
 document.getElementById('next-project').addEventListener('click', () => jumpToProject(activeIndex + 1));
-document.getElementById('expand-preview').addEventListener('click', () => showDemo(activeIndex, Number(featuredPreview.dataset.pane)));
+function openFeaturedDemo() {
+  return showDemo(activeIndex, Number(featuredPreview.dataset.pane), selectedDevice);
+}
+
+document.getElementById('expand-preview').addEventListener('click', openFeaturedDemo);
 featuredLink.addEventListener('click', event => {
   if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-  if (showDemo(activeIndex, Number(featuredPreview.dataset.pane))) event.preventDefault();
+  if (openFeaturedDemo()) event.preventDefault();
 });
 dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => {
@@ -333,6 +350,7 @@ lightButtons.forEach(button => button.addEventListener('click', () => {
   selectedLight = button.dataset.light;
   setLighting();
 }));
+deviceButtons.forEach(button => button.addEventListener('click', () => selectDevice(button.dataset.device)));
 
 projects.forEach((project, index) => {
   renderDemo(project.card.querySelector('.card-preview'), project, false);
@@ -401,5 +419,6 @@ addEventListener('resize', requestFrame, { passive: true });
 reducedMotion.addEventListener('change', requestFrame);
 story.classList.add('is-ready');
 toolbar.hidden = false;
+screen.querySelector('.device-controls').hidden = false;
 selectProject(0);
 paintFrame();
