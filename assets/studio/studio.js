@@ -245,13 +245,17 @@ const video = document.getElementById('monitor-video');
 const layer = document.getElementById('screen-layer');
 const featuredPreview = document.getElementById('featured-preview');
 const stage = document.getElementById('stage');
+const compactView = matchMedia('(max-width: 760px)');
 let activeIndex = -1;
 
 // Área da tela do monitor no vídeo (1440x1080), medida em dois momentos.
 // Ordem: topo-esq, topo-dir, base-dir, base-esq.
 const KEY = [
+  { t: 4,  q: [[470,283],[970,283],[970,562],[470,562]] },
+  { t: 6,  q: [[142,154],[1300,154],[1300,807],[142,807]] },
   { t: 9,  q: [[37,113],[1404,113],[1404,884],[37,884]] },
   { t: 12, q: [[-20,88],[1460,88],[1460,918],[-20,918]] },
+  { t: 14, q: [[-40,88],[1480,88],[1480,935],[-40,935]] },
   { t: 20, q: [[137,103],[1262,242],[1276,912],[120,826]] }
 ];
 const LW = 1280, LH = 720;
@@ -318,8 +322,8 @@ fit();
 function paint() {
   const t = video.currentTime;
   const inside = t >= KEY[0].t && t <= KEY[KEY.length - 1].t;
-  layer.classList.toggle('on', inside);
-  if (inside) layer.style.transform = matrix3d(homography(SRC, quadAt(t)));
+  layer.classList.toggle('on', inside && !compactView.matches);
+  if (inside && !compactView.matches) layer.style.transform = matrix3d(homography(SRC, quadAt(t)));
   if (!reducedMotion.matches) requestAnimationFrame(paint);
 }
 
