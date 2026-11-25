@@ -424,12 +424,12 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Tela de carregamento: some quando a página termina de carregar (máximo de 2,5s)
+  // Tela de carregamento: some 1,8s depois que a página carrega (máximo de 4s)
   const loader = document.getElementById('loader');
   const hideLoader = () => loader.classList.add('hide');
-  if (document.readyState === 'complete') setTimeout(hideLoader, reduce ? 0 : 500);
-  else window.addEventListener('load', () => setTimeout(hideLoader, reduce ? 0 : 500));
-  setTimeout(hideLoader, 2500);
+  if (document.readyState === 'complete') setTimeout(hideLoader, reduce ? 0 : 1800);
+  else window.addEventListener('load', () => setTimeout(hideLoader, reduce ? 0 : 1800));
+  setTimeout(hideLoader, 4000);
 
   // Revelar ao rolar
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
