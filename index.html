@@ -207,9 +207,37 @@
       .hero .kicker, .hero h1 span, .hero .role-wrap, .hero .btns, .social, .hero .photo, .timeline li::before, .btn.solid { animation: none !important; }
       .reveal .tags span { opacity: 1; transform: none; }
     }
+
+    /* Tela de carregamento */
+    #loader {
+      position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; align-content: center; gap: 22px;
+      background: var(--bg); transition: opacity .6s ease, visibility .6s ease;
+    }
+    #loader.hide { opacity: 0; visibility: hidden; }
+    #loader .mark {
+      width: 76px; height: 76px; border-radius: 18px; border: 1px solid #4fa8ff55; display: grid; place-items: center;
+      font-weight: 800; font-size: 1.5rem; letter-spacing: -.02em; color: var(--accent); position: relative;
+      animation: markIn .8s cubic-bezier(.2,.7,.2,1) both;
+    }
+    #loader .mark::before {
+      content: ""; position: absolute; inset: -1px; border-radius: 18px; border: 2px solid transparent; border-top-color: var(--accent);
+      animation: spin 1.1s linear infinite;
+    }
+    #loader .bar { width: 160px; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
+    #loader .bar span { display: block; height: 100%; width: 40%; background: var(--accent); animation: slide 1.3s ease-in-out infinite; }
+    @keyframes markIn { from { opacity: 0; transform: scale(.7) rotate(-8deg); } to { opacity: 1; transform: none; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(260%); } }
+    @media (prefers-reduced-motion: reduce) {
+      #loader .mark, #loader .mark::before, #loader .bar span { animation: none; }
+    }
   </style>
 </head>
 <body>
+<div id="loader" aria-hidden="true">
+  <div class="mark">JR</div>
+  <div class="bar"><span></span></div>
+</div>
 
 <header class="top">
   <div class="wrap">
@@ -395,6 +423,13 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Tela de carregamento: some quando a página termina de carregar (máximo de 2,5s)
+  const loader = document.getElementById('loader');
+  const hideLoader = () => loader.classList.add('hide');
+  if (document.readyState === 'complete') setTimeout(hideLoader, reduce ? 0 : 500);
+  else window.addEventListener('load', () => setTimeout(hideLoader, reduce ? 0 : 500));
+  setTimeout(hideLoader, 2500);
 
   // Revelar ao rolar
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
