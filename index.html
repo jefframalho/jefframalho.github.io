@@ -214,6 +214,10 @@
       background: var(--bg); transition: opacity .6s ease, visibility .6s ease;
     }
     #loader.hide { opacity: 0; visibility: hidden; }
+    #loader video { width: 100%; height: 100%; object-fit: cover; background: #000; display: block; }
+    #loader video:not([data-ok]) { display: none; }
+    #loader .fallback { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 22px; }
+    #loader video[data-ok] ~ .fallback { display: none; }
     #loader .mark {
       width: 76px; height: 76px; border-radius: 18px; border: 1px solid #4fa8ff55; display: grid; place-items: center;
       font-weight: 800; font-size: 1.5rem; letter-spacing: -.02em; color: var(--accent); position: relative;
@@ -235,8 +239,11 @@
 </head>
 <body>
 <div id="loader" aria-hidden="true">
-  <div class="mark">JR</div>
-  <div class="bar"><span></span></div>
+  <video id="intro" src="assets/intro/abertura-jr.mp4" muted playsinline preload="auto"></video>
+  <div class="fallback">
+    <div class="mark">JR</div>
+    <div class="bar"><span></span></div>
+  </div>
 </div>
 
 <header class="top">
@@ -424,12 +431,18 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Tela de carregamento: some 1,8s depois que a página carrega (máximo de 4s)
+  // Abertura em vídeo: toca uma vez e revela o site ao terminar (reserva: marca JR)
   const loader = document.getElementById('loader');
+  const intro = document.getElementById('intro');
   const hideLoader = () => loader.classList.add('hide');
-  if (document.readyState === 'complete') setTimeout(hideLoader, reduce ? 0 : 1800);
-  else window.addEventListener('load', () => setTimeout(hideLoader, reduce ? 0 : 1800));
-  setTimeout(hideLoader, 4000);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hideLoader();
+  } else {
+    intro.addEventListener('loadeddata', () => { intro.dataset.ok = '1'; intro.play().catch(hideLoader); }, { once: true });
+    intro.addEventListener('ended', hideLoader, { once: true });
+    intro.addEventListener('error', hideLoader, { once: true });
+    setTimeout(hideLoader, 8000);
+  }
 
   // Revelar ao rolar
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
