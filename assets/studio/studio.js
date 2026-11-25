@@ -334,13 +334,20 @@ document.getElementById('featured-open').addEventListener('click', event => {
   event.preventDefault();
   showDemo(activeIndex);
 });
-stage.addEventListener('click', event => {
-  if (layer.contains(event.target)) return;
-  video.paused ? video.play() : video.pause();
-});
 video.addEventListener('play', () => requestAnimationFrame(paint));
-// Abre parado no frame de 12s, com o monitor de frente e a tela bem visível
-video.addEventListener('loadeddata', () => { video.currentTime = 12; video.pause(); }, { once: true });
+// Animação de abertura: toca uma vez até 12s e para no frame com o monitor de frente
+const HOLD_AT = 12;
+function holdFrame() {
+  video.pause();
+  video.currentTime = HOLD_AT;
+}
+video.addEventListener('timeupdate', () => {
+  if (video.currentTime >= HOLD_AT) holdFrame();
+}, { passive: true });
+video.addEventListener('loadeddata', () => {
+  if (reducedMotion.matches) { holdFrame(); return; }
+  video.play().catch(holdFrame);
+}, { once: true });
 requestAnimationFrame(paint);
 
 // Tela ocupa 1280x720 do palco; demo interativa aparece ao iniciar
