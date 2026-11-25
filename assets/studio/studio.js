@@ -199,6 +199,7 @@ function renderDemo(mount, project, interactive, initialPane = 0) {
 
 const story = document.getElementById('experiencia');
 const scene = document.getElementById('scene');
+const sceneContent = scene.querySelector('.scene-content');
 const workstation = document.getElementById('workstation');
 const screen = document.getElementById('screen');
 const featuredPreview = document.getElementById('featured-preview');
@@ -292,17 +293,16 @@ function paintFrame() {
     selectProject(Math.round(motionState.progress * (projects.length - 1)));
   }
   const progress = useScroll ? motionState.progress : activeIndex / (projects.length - 1);
-  const angle = progress * 3 * Math.PI;
-  const wave = reducedMotion.matches ? 0 : Math.sin(angle);
-  const swing = reducedMotion.matches ? 0 : -12 * Math.cos(angle);
   const size = compact.matches ? .56 : 1;
+  const wave = reducedMotion.matches ? 0 : Math.sin(progress * 2.6 * Math.PI) * size;
+  const approach = reducedMotion.matches ? 0 : Math.sin(progress * .84 * Math.PI) * size;
 
-  scene.style.setProperty('--rx', (-3 + wave * 6 * size + motionState.hoverX + motionState.dragX) + 'deg');
-  scene.style.setProperty('--ry', (swing * size + motionState.hoverY + motionState.dragY) + 'deg');
-  scene.style.setProperty('--lift', (-Math.abs(wave) * 15 * size) + 'px');
-  scene.style.setProperty('--depth', (Math.abs(wave) * 15 * size) + 'px');
-  scene.style.setProperty('--zoom', String(1 + Math.abs(wave) * .045 * size));
-  scene.style.setProperty('--bg-shift', (reducedMotion.matches ? 0 : (progress - .5) * 26) + 'px');
+  scene.style.setProperty('--rx', (wave * 4 + motionState.hoverX + motionState.dragX) + 'deg');
+  scene.style.setProperty('--ry', (wave * -15 + motionState.hoverY + motionState.dragY) + 'deg');
+  scene.style.setProperty('--lift', (-approach * 9) + 'px');
+  scene.style.setProperty('--depth', (approach * 24) + 'px');
+  scene.style.setProperty('--zoom', String(1 + approach * .055));
+  scene.style.setProperty('--bg-shift', (approach * 15) + 'px');
   toolbar.style.setProperty('--story-progress', String(.25 + progress * .75));
 }
 function requestFrame() {
@@ -335,7 +335,6 @@ function openFeaturedDemo() {
   return showDemo(activeIndex, Number(featuredPreview.dataset.pane), selectedDevice);
 }
 
-document.getElementById('expand-preview').addEventListener('click', openFeaturedDemo);
 featuredLink.addEventListener('click', event => {
   if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   if (openFeaturedDemo()) event.preventDefault();
@@ -421,4 +420,10 @@ story.classList.add('is-ready');
 toolbar.hidden = false;
 screen.querySelector('.device-controls').hidden = false;
 selectProject(0);
+if (!compact.matches) selectDevice('phone');
 paintFrame();
+if (!reducedMotion.matches && scrollY < 30) {
+  sceneContent.animate([{ transform: 'scale(.65)' }, { transform: 'scale(1)' }], {
+    duration: 1180, easing: 'cubic-bezier(.21,.78,.24,1)'
+  });
+}
