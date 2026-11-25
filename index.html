@@ -3,168 +3,322 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jefferson Ramalho | Portfólio de sistemas</title>
-  <meta name="description" content="Explore Clinix Odonto, Advera, Viver Bem Home Care e Evolui Fit no portfólio interativo de Jefferson Ramalho.">
-  <meta name="theme-color" content="#151515">
+  <title>Jefferson Ramalho | Desenvolvedor de sistemas e sites</title>
+  <meta name="description" content="Sites, sistemas por assinatura e automações para negócios locais. Portfólio de Jefferson Ramalho.">
+  <meta name="theme-color" content="#0b0d12">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://jeffersonramalho.dev.br/">
-  <meta property="og:title" content="Jefferson Ramalho | Portfólio de sistemas">
-  <meta property="og:description" content="Uma vitrine interativa de quatro sistemas desenvolvidos por Jefferson Ramalho.">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" href="assets/studio/studio.css?v=b6e0ef43c">
-  <link rel="preload" as="image" href="assets/studio/parede-concreto.webp">
-  <script src="assets/studio/studio.js?v=7b170c57c" defer></script>
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --panel: #11141b;
+      --line: #ffffff1f;
+      --text: #f2f4f8;
+      --muted: #9aa3b2;
+      --accent: #4fa8ff;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif; line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1120px, 100% - 48px); margin-inline: auto; }
+    section { padding: 110px 0; border-top: 1px solid var(--line); }
+
+    /* Cabeçalho */
+    header.top {
+      position: sticky; top: 0; z-index: 10; background: #0b0d12e6; backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .top nav { display: flex; gap: 26px; font-size: .92rem; color: var(--muted); }
+    .top nav a:hover, .top nav a.active { color: var(--accent); }
+    .top .phone { font-size: .85rem; color: var(--muted); }
+
+    /* Início */
+    .hero { position: relative; min-height: calc(100svh - 64px); display: grid; align-items: center; overflow: hidden; }
+    .hero .photo {
+      position: absolute; inset: 0 0 0 auto; width: 58%;
+      background: url("assets/retrato.jpg") center/cover no-repeat;
+      filter: grayscale(.25) contrast(1.05) brightness(.7);
+      mask-image: linear-gradient(90deg, transparent, #000 35%);
+    }
+    .hero .content { position: relative; z-index: 2; padding: 60px 0; max-width: 560px; }
+    .hero .kicker { font-size: .85rem; letter-spacing: .2em; color: var(--accent); text-transform: uppercase; margin: 0 0 14px; }
+    .hero h1 { margin: 0; font-size: clamp(3rem, 8vw, 5.6rem); line-height: .95; font-weight: 800; letter-spacing: -.02em; }
+    .hero h1 span { display: block; }
+    .hero .role { margin: 18px 0 0; color: var(--muted); letter-spacing: .3em; font-size: .9rem; text-transform: uppercase; }
+    .btns { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; padding: 11px 26px; border-radius: 999px;
+      border: 1px solid #ffffff55; font-size: .92rem; transition: .2s;
+    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
+    .btn.solid { background: var(--accent); border-color: var(--accent); color: #05101e; font-weight: 600; }
+    .btn.solid:hover { color: #05101e; filter: brightness(1.08); }
+    .social { position: absolute; left: 0; bottom: 30px; z-index: 2; display: flex; gap: 18px; font-size: .85rem; color: var(--muted); }
+    .social a:hover { color: var(--accent); }
+
+    /* Sobre */
+    .about { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
+    .about .shot { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+    .about .shot img { width: 100%; height: 520px; object-fit: cover; object-position: center top; filter: grayscale(.2); }
+    h2.title { margin: 0 0 22px; font-size: clamp(2.2rem, 5vw, 3.4rem); letter-spacing: .02em; }
+    .about .email { color: var(--muted); margin: 0 0 26px; }
+    .about p { color: #cfd5e0; max-width: 56ch; }
+    .meta { margin-top: 30px; display: flex; gap: 40px; flex-wrap: wrap; }
+    .meta div span { display: block; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .meta div strong { font-weight: 600; }
+
+    /* Currículo */
+    .resume { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 48px; }
+    .resume h3 { margin: 0 0 18px; font-size: .95rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags span { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; color: #dfe4ee; background: var(--panel); }
+    .list { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; color: #cfd5e0; }
+    .list li::before { content: "— "; color: var(--accent); }
+    .timeline { position: relative; margin: 0; padding: 0; list-style: none; }
+    .timeline li { position: relative; padding: 0 0 26px 30px; border-left: 1px solid var(--line); }
+    .timeline li::before {
+      content: ""; position: absolute; left: -6px; top: 6px; width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 0 4px #4fa8ff26;
+    }
+    .timeline time { font-size: .8rem; color: var(--muted); letter-spacing: .08em; }
+    .timeline strong { display: block; font-weight: 600; }
+    .timeline p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+
+    /* Portfólio */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project {
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+    .project:hover { transform: translateY(-4px); border-color: #4fa8ff66; }
+    .project .thumb { aspect-ratio: 16 / 10; background: #1a1f29; overflow: hidden; }
+    .project .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .project .body { padding: 22px 24px 26px; }
+    .project .cat { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+    .project h3 { margin: 6px 0 8px; font-size: 1.3rem; }
+    .project p { margin: 0 0 16px; color: var(--muted); font-size: .95rem; }
+    .project a { color: var(--text); font-size: .9rem; border-bottom: 1px solid #4fa8ff; padding-bottom: 2px; }
+
+    /* Contato */
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+    .contact p.lede { color: #cfd5e0; max-width: 46ch; margin: 0; }
+    .contact .links { display: grid; gap: 14px; }
+    .contact .links a { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 12px; color: #dfe4ee; }
+    .contact .links a span { color: var(--muted); font-size: .85rem; }
+    .contact .links a:hover { color: var(--accent); }
+    footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    /* Responsivo */
+    @media (max-width: 960px) {
+      .resume { grid-template-columns: 1fr; gap: 56px; }
+      .about { grid-template-columns: 1fr; gap: 36px; }
+      .contact { grid-template-columns: 1fr; }
+      .projects { grid-template-columns: 1fr; }
+      .hero .photo { width: 100%; opacity: .35; mask-image: none; }
+      .top nav { display: none; }
+    }
+    @media (max-width: 560px) {
+      section { padding: 80px 0; }
+      .social { position: static; margin-top: 28px; }
+      .hero { min-height: auto; }
+      .hero .content { padding: 90px 0 40px; }
+      .about .shot img { height: 380px; }
+    }
+  </style>
 </head>
 <body>
-  <svg class="icons" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0">
-    <symbol id="i-clinix" viewBox="0 0 24 24"><path d="M12 7v10m-5-5h10"/><rect x="3" y="3" width="18" height="18" rx="4"/></symbol>
-    <symbol id="i-advera" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 8h14M5 8l-3 6h6L5 8Zm14 0-3 6h6l-3-6Z"/></symbol>
-    <symbol id="i-viver" viewBox="0 0 24 24"><path d="M20.8 8.4a4.1 4.1 0 0 0-7-2.8L12 7.5l-1.8-1.9a4.1 4.1 0 0 0-5.8 5.8l7.6 7.8 7.6-7.8a4.1 4.1 0 0 0 1.2-3Z"/><path d="M9 12h6M12 9v6"/></symbol>
-    <symbol id="i-evolui" viewBox="0 0 24 24"><path d="M3 9v6m4-9v12m10-12v12m4-9v6M7 12h10"/></symbol>
-    <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-35 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(35 12 12)"/><circle cx="12" cy="12" r="1"/></symbol>
-    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
-    <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
-    <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
-    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6"/></symbol>
-    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
-    <symbol id="i-open" viewBox="0 0 24 24"><path d="M12 5H5v14h14v-7M14 5h5v5m0-5-8 8"/></symbol>
-    <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4m-4 0h8"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
-  </svg>
-  <a class="skip-link" href="#projetos">Pular para os sistemas</a>
 
-  <header class="site-header" id="inicio">
-    <a class="identity" href="#inicio"><span class="monogram" aria-hidden="true">JR</span><span>Jefferson Ramalho</span></a>
+<header class="top">
+  <div class="wrap">
+    <a href="#inicio" style="font-weight:700; letter-spacing:.04em;">JEFFERSON RAMALHO</a>
     <nav aria-label="Navegação principal">
-      <a href="#projetos">Sistemas</a>
+      <a href="#inicio" class="active">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#curriculo">Currículo</a>
+      <a href="#portfolio">Portfólio</a>
       <a href="#contato">Contato</a>
-      <a class="header-cta" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento</a>
     </nav>
-  </header>
+    <span class="phone">(83) 9 2141-8988</span>
+  </div>
+</header>
 
-  <main>
-    <section class="hero-section" id="experiencia" aria-labelledby="hero-title">
-      <h1 class="visually-hidden" id="hero-title">Portfólio de sistemas de Jefferson Ramalho</h1>
-      <div class="hero" id="hero">
-        <div class="stage" id="stage">
-          <video id="monitor-video" src="assets/studio/monitor-bg.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
-          <div class="screen-layer" id="screen-layer">
-            <div id="featured-preview" class="preview-mount"></div>
-          </div>
-        </div>
-        <div class="hero-bar wrap">
-          <div class="featured" aria-live="polite">
-            <p class="featured-category" id="featured-category">Odontologia</p>
-            <h2 id="featured-name">Clinix Odonto</h2>
-            <p class="hero-lede">Sites, sistemas por assinatura e automações para negócios locais.</p>
-          </div>
-          <nav class="hero-nav" aria-label="Sistemas em destaque">
-            <button type="button" id="previous-project" aria-label="Sistema anterior">&#8249;</button>
-            <button type="button" id="next-project" aria-label="Próximo sistema">&#8250;</button>
-            <a id="featured-link" href="#projetos">Abrir</a>
-            <a class="primary" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento</a>
-            <button type="button" id="featured-open">Demonstração</button>
-          </nav>
+<main>
+  <section class="hero" id="inicio" style="border-top:0; padding:0;">
+    <div class="photo" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="content">
+        <p class="kicker">Mauriti, CE · Atendimento remoto</p>
+        <h1><span>JEFFERSON</span><span>RAMALHO</span></h1>
+        <p class="role">Desenvolvedor de sistemas e sites</p>
+        <div class="btns">
+          <a class="btn solid" href="#curriculo">Currículo</a>
+          <a class="btn" href="#portfolio">Portfólio</a>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="social wrap" style="position:absolute; bottom:30px; left:0; right:0; margin-inline:auto;">
+      <a href="https://github.com/jefframalho" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5583921418988" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </section>
 
-    <section class="catalog wrap" id="projetos" aria-labelledby="catalog-title">
-      <div class="section-heading">
-        <h2 id="catalog-title">Meus sistemas</h2>
-        <p>Experimente as demonstrações ou acesse cada sistema.</p>
+  <section id="sobre">
+    <div class="wrap about">
+      <div class="shot"><img src="assets/retrato.jpg" alt="Foto de Jefferson Ramalho"></div>
+      <div>
+        <h2 class="title">SOBRE</h2>
+        <p class="email">jeffersonramalhopb@gmail.com</p>
+        <p>Desenvolvo sites, sistemas por assinatura e automações para negócios locais, com atendimento remoto a partir de Mauriti, CE.</p>
+        <p>Também trabalho com vendas de máquinas de cartão de crédito, o que me aproxima da rotina de comércios e clínicas que usam esses sistemas.</p>
+        <div class="meta">
+          <div><span>Localização</span><strong>Mauriti, CE</strong></div>
+          <div><span>Atendimento</span><strong>Remoto</strong></div>
+        </div>
       </div>
-      <div class="project-grid">
-        <article class="project-card" id="clinix" data-project="clinix" style="--card-tint:#3d6579">
-          <div class="card-visual" aria-hidden="true"><div class="card-preview"></div></div>
-          <div class="card-copy">
-            <span class="card-category">Odontologia</span>
+    </div>
+  </section>
+
+  <section id="curriculo">
+    <div class="wrap resume">
+      <div>
+        <h3>Tecnologias</h3>
+        <div class="tags">
+          <span>JavaScript</span><span>HTML</span><span>CSS</span><span>Python</span><span>React</span><span>Firebase</span><span>PWA</span><span>Android</span><span>Windows</span><span>Banco de dados</span>
+        </div>
+        <h3 style="margin-top:40px;">Serviços</h3>
+        <ul class="list">
+          <li>Sites e landing pages</li>
+          <li>Sistemas por assinatura</li>
+          <li>Apps e automações</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Experiência</h3>
+        <ol class="timeline">
+          <li>
+            <time>Atual</time>
+            <strong>Vendedor de soluções de pagamento</strong>
+            <p>FaturePag, com foco em maquininhas de cartão de crédito e atendimento a comércios.</p>
+          </li>
+          <li>
+            <time>Projetos</time>
+            <strong>Sistemas e sites para clientes</strong>
+            <p>Clinix Odonto, Advera, Viver Bem Home Care e Evolui Fit.</p>
+          </li>
+        </ol>
+        <h3 style="margin-top:40px;">Formação</h3>
+        <ol class="timeline">
+          <li>
+            <time>Uniasselvi</time>
+            <strong>Desenvolvimento de Sistemas Web</strong>
+          </li>
+        </ol>
+      </div>
+
+      <div>
+        <h3>O que faço</h3>
+        <ul class="list">
+          <li>Sites e landing pages</li>
+          <li>Sistemas multi-empresa por assinatura</li>
+          <li>Automações com WhatsApp e planilhas</li>
+          <li>Apps Android e PWAs</li>
+        </ul>
+        <h3 style="margin-top:40px;">Interesses</h3>
+        <div class="tags">
+          <span>Programação</span><span>Automação</span><span>Marketing digital</span><span>Euro Truck Simulator 2</span><span>FiveM</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="wrap">
+      <h2 class="title">PORTFÓLIO</h2>
+      <div class="projects">
+        <article class="project">
+          <div class="thumb"><img src="assets/portfolio/clinix-desk.jpg" alt="Tela do Clinix Odonto"></div>
+          <div class="body">
+            <span class="cat">Odontologia</span>
             <h3>Clinix Odonto</h3>
             <p>Agenda online, prontuário e contratos para clínicas odontológicas.</p>
-            <div class="card-actions">
-              <button type="button" class="card-demo" hidden>Experimentar prévia</button>
-              <a href="https://www.clinixodonto.com.br/" target="_blank" rel="noopener">Acessar sistema <svg class="icon" aria-hidden="true"><use href="#i-open"/></svg></a>
-            </div>
+            <a href="https://www.clinixodonto.com.br/" target="_blank" rel="noopener">Acessar sistema →</a>
           </div>
         </article>
-        <article class="project-card" id="advera" data-project="advera" style="--card-tint:#476357">
-          <div class="card-visual" aria-hidden="true"><div class="card-preview"></div></div>
-          <div class="card-copy">
-            <span class="card-category">Advocacia</span>
+        <article class="project">
+          <div class="thumb"><img src="assets/portfolio/advera-desk.jpg" alt="Tela da Advera"></div>
+          <div class="body">
+            <span class="cat">Advocacia</span>
             <h3>Advera</h3>
             <p>Prazos, andamentos processuais, contratos e honorários para escritórios.</p>
-            <div class="card-actions">
-              <button type="button" class="card-demo" hidden>Experimentar prévia</button>
-              <a href="https://advera-6607b.web.app/" target="_blank" rel="noopener">Acessar sistema <svg class="icon" aria-hidden="true"><use href="#i-open"/></svg></a>
-            </div>
+            <a href="https://advera-6607b.web.app/" target="_blank" rel="noopener">Acessar sistema →</a>
           </div>
         </article>
-        <article class="project-card" id="viver" data-project="viver" style="--card-tint:#3a568b">
-          <div class="card-visual" aria-hidden="true"><div class="card-preview"></div></div>
-          <div class="card-copy">
-            <span class="card-category">Atendimento domiciliar</span>
+        <article class="project">
+          <div class="thumb"><img src="assets/portfolio/viverbem-desk.jpg" alt="Tela do Viver Bem Home Care"></div>
+          <div class="body">
+            <span class="cat">Atendimento domiciliar</span>
             <h3>Viver Bem Home Care</h3>
             <p>Portais para equipes e famílias, com gestão de plantões e check-in de visitas.</p>
-            <div class="card-actions">
-              <button type="button" class="card-demo" hidden>Experimentar prévia</button>
-              <a href="https://www.viverbemhomecare.com.br/" target="_blank" rel="noopener">Acessar sistema <svg class="icon" aria-hidden="true"><use href="#i-open"/></svg></a>
-            </div>
+            <a href="https://www.viverbemhomecare.com.br/" target="_blank" rel="noopener">Acessar sistema →</a>
           </div>
         </article>
-        <article class="project-card" id="evolui" data-project="evolui" style="--card-tint:#53693b">
-          <div class="card-visual" aria-hidden="true"><div class="card-preview"></div></div>
-          <div class="card-copy">
-            <span class="card-category">Treino e evolução</span>
+        <article class="project">
+          <div class="thumb" style="display:grid; place-items:center; background:linear-gradient(135deg,#1c2a3a,#0f1520);"><span style="color:#9fd0ff; font-size:1.1rem; letter-spacing:.1em;">EVOLUI FIT</span></div>
+          <div class="body">
+            <span class="cat">Treino e evolução</span>
             <h3>Evolui Fit</h3>
             <p>Treinos, cronômetro de séries e registro de cargas, medidas e metas.</p>
-            <div class="card-actions">
-              <button type="button" class="card-demo" hidden>Experimentar prévia</button>
-              <a href="https://jefframalho.github.io/evolui-fit/" target="_blank" rel="noopener">Acessar sistema <svg class="icon" aria-hidden="true"><use href="#i-open"/></svg></a>
-            </div>
+            <a href="https://jefframalho.github.io/evolui-fit/" target="_blank" rel="noopener">Acessar sistema →</a>
           </div>
         </article>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" id="contato">
-    <div class="wrap">
-      <div class="footer-main">
-        <div class="footer-intro">
-          <p class="eyebrow">Contato</p>
-          <h2>Vamos conversar?</h2>
-          <p class="contact-lede">Conte o tipo de sistema que você precisa, o prazo e o que já existe hoje. Assim a conversa começa com o que importa.</p>
-          <a class="identity" href="#inicio"><span class="monogram" aria-hidden="true">JR</span><span>Jefferson Ramalho</span></a>
-        </div>
-        <address class="contact-list">
-          <a href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener"><span>WhatsApp</span> (83) 9 2141-8988</a>
-          <a href="mailto:jeffersonramalhopb@gmail.com"><span>E-mail</span> jeffersonramalhopb@gmail.com</a>
-          <a href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener"><span>Instagram</span> @jefferson.ramalhodev</a>
-          <a href="https://github.com/jefframalho" target="_blank" rel="noopener"><span>GitHub</span> @jefframalho</a>
-        </address>
-      </div>
-      <div class="footer-bottom">
-        <p>© <span id="year">2026</span> Jefferson Ramalho. Todos os direitos reservados.</p>
-        <a href="#inicio">Voltar ao topo <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></a>
-      </div>
     </div>
-  </footer>
+  </section>
 
-  <dialog id="preview-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-heading">
+  <section id="contato">
+    <div class="wrap contact">
       <div>
-        <p class="eyebrow">Demonstração interativa</p>
-        <h2 id="dialog-title"></h2>
-        <p id="dialog-summary"></p>
+        <h2 class="title">CONTATO</h2>
+        <p class="lede">Conte o tipo de sistema que você precisa, o prazo e o que já existe hoje. Assim a conversa começa com o que importa.</p>
       </div>
-      <button class="dialog-close" type="button" aria-label="Fechar demonstração" autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <div class="links">
+        <a href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener"><span>WhatsApp</span> (83) 9 2141-8988</a>
+        <a href="mailto:jeffersonramalhopb@gmail.com"><span>E-mail</span> jeffersonramalhopb@gmail.com</a>
+        <a href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener"><span>Instagram</span> @jefferson.ramalhodev</a>
+        <a href="https://github.com/jefframalho" target="_blank" rel="noopener"><span>GitHub</span> @jefframalho</a>
+      </div>
     </div>
-    <div id="dialog-preview" class="preview-mount"></div>
-    <div class="dialog-footer">
-      <p>Prévia ilustrativa com dados fictícios.</p>
-      <a id="dialog-link" target="_blank" rel="noopener">Acessar sistema <svg class="icon" aria-hidden="true"><use href="#i-open"/></svg></a>
-    </div>
-  </dialog>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Jefferson Ramalho. Todos os direitos reservados.</span>
+    <a href="#inicio">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Destaca o item do menu conforme a seção visível
+  const links = [...document.querySelectorAll('.top nav a')];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  ['inicio', 'sobre', 'curriculo', 'portfolio', 'contato'].forEach(id => io.observe(document.getElementById(id)));
+</script>
 </body>
 </html>
