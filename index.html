@@ -42,10 +42,11 @@
     /* Início */
     .hero { position: relative; min-height: calc(100svh - 64px); display: grid; align-items: center; overflow: hidden; }
     .hero .photo {
-      position: absolute; inset: 0 0 0 auto; width: 58%;
-      background: url("assets/retrato.jpg") center/cover no-repeat;
-      filter: grayscale(.25) contrast(1.05) brightness(.7);
-      mask-image: linear-gradient(90deg, transparent, #000 35%);
+      position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+      width: min(360px, 30vw); aspect-ratio: 4 / 5; border-radius: var(--radius);
+      background: url("assets/retrato.jpg") center top/cover no-repeat;
+      border: 1px solid var(--line); box-shadow: 0 30px 60px #00000080;
+      filter: grayscale(.2) contrast(1.05);
     }
     .hero .content { position: relative; z-index: 2; padding: 60px 0; max-width: 560px; }
     .hero .kicker { font-size: .85rem; letter-spacing: .2em; color: var(--accent); text-transform: uppercase; margin: 0 0 14px; }
@@ -122,7 +123,7 @@
       .about { grid-template-columns: 1fr; gap: 36px; }
       .contact { grid-template-columns: 1fr; }
       .projects { grid-template-columns: 1fr; }
-      .hero .photo { width: 100%; opacity: .35; mask-image: none; }
+      .hero .photo { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 320px; margin: 0 auto 28px; aspect-ratio: 4 / 5; }
       .top nav { display: none; }
     }
     @media (max-width: 560px) {
