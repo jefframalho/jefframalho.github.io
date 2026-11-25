@@ -171,6 +171,42 @@
       .top .phone { display: none; }
       .top nav:not(.open) { display: none; }
     }
+
+    /* Animações */
+    @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 #4fa8ff66; } 70% { box-shadow: 0 0 0 10px #4fa8ff00; } 100% { box-shadow: 0 0 0 0 #4fa8ff00; } }
+    @keyframes drift { 0%, 100% { transform: translateY(-50%) translateY(0); } 50% { transform: translateY(-50%) translateY(-10px); } }
+    @keyframes glow { 0%, 100% { opacity: .35; } 50% { opacity: .7; } }
+    .hero .kicker, .hero h1 span, .hero .role-wrap, .hero .btns, .social { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+    .hero h1 span:nth-child(2) { animation-delay: .12s; }
+    .hero .role-wrap { animation-delay: .3s; }
+    .hero .btns { animation-delay: .45s; }
+    .social { animation-delay: .6s; }
+    .hero .photo { animation: glow 6s ease-in-out infinite; }
+    .hero .photo::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(circle at 70% 30%, #4fa8ff22, transparent 55%);
+    }
+    .timeline li::before { animation: pulse 2.4s ease-out infinite; }
+    .timeline li:nth-child(2)::before { animation-delay: .8s; }
+    .timeline li:nth-child(3)::before { animation-delay: 1.6s; }
+    .btn.solid { animation: pulse 2.6s ease-out infinite; }
+    .reveal .tags span { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.in .tags span { opacity: 1; transform: none; }
+    .reveal.in .tags span:nth-child(1) { transition-delay: .05s; }
+    .reveal.in .tags span:nth-child(2) { transition-delay: .1s; }
+    .reveal.in .tags span:nth-child(3) { transition-delay: .15s; }
+    .reveal.in .tags span:nth-child(4) { transition-delay: .2s; }
+    .reveal.in .tags span:nth-child(5) { transition-delay: .25s; }
+    .reveal.in .tags span:nth-child(6) { transition-delay: .3s; }
+    .reveal.in .tags span:nth-child(7) { transition-delay: .35s; }
+    .reveal.in .tags span:nth-child(8) { transition-delay: .4s; }
+    .reveal.in .tags span:nth-child(9) { transition-delay: .45s; }
+    .reveal.in .tags span:nth-child(10) { transition-delay: .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero .kicker, .hero h1 span, .hero .role-wrap, .hero .btns, .social, .hero .photo, .timeline li::before, .btn.solid { animation: none !important; }
+      .reveal .tags span { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -403,6 +439,18 @@
       setTimeout(() => btn.classList.remove('done'), 1600);
     });
   });
+
+  // Parallax suave da foto acompanhando o mouse (desktop)
+  const photo = document.querySelector('.hero .photo');
+  if (!reduce && photo && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const hero = document.getElementById('inicio');
+    hero.addEventListener('mousemove', e => {
+      const x = (e.clientX / innerWidth - .5) * 18;
+      const y = (e.clientY / innerHeight - .5) * 12;
+      photo.style.translate = `${x}px ${y}px`;
+    });
+    hero.addEventListener('mouseleave', () => { photo.style.translate = '0px 0px'; });
+  }
 
   // Menu no celular
   const menuBtn = document.getElementById('menuBtn');
