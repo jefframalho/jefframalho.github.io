@@ -1,286 +1,684 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jefferson Ramalho | Sites, sistemas e apps sob medida</title>
-<meta name="description" content="Jefferson Ramalho, desenvolvedor em Mauriti, CE. Sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Atendimento remoto.">
-<meta name="theme-color" content="#0a0a0a">
-<meta name="color-scheme" content="dark">
-<link rel="canonical" href="https://jeffersonramalho.dev.br/">
-<meta property="og:title" content="Jefferson Ramalho · Desenvolvedor">
-<meta property="og:description" content="Sites, sistemas e apps sob medida para o seu negócio.">
-<style>
-  :root{
-    --bg:#0a0a0a; --panel:#131211; --line:#2a2622; --text:#ece7df; --muted:#8e877d;
-    --gold:#d7b58c; --gold-2:#f0dcc0;
-    --serif:Georgia,"Times New Roman",Times,serif;
-  }
-  *,*::before,*::after{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-  img{display:block;max-width:100%;height:auto}
-  a{color:inherit}
-  h1,h2,h3{margin:0;font-weight:300;line-height:1.1;letter-spacing:-.01em}
-  p{margin:0}
-  .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
-  .skip{position:absolute;left:-999px}
-  .skip:focus{left:12px;top:12px;background:#fff;color:#000;padding:8px 12px;border-radius:8px;z-index:9}
-  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-  .serif{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--gold)}
-  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jefferson Ramalho | Portfólio de sistemas</title>
+  <meta name="description" content="Explore os sistemas de Jefferson Ramalho. Clinix Odonto, Advera, Viver Bem Home Care e Evolui Fit.">
+  <meta name="theme-color" content="#0b0912">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://jeffersonramalho.dev.br/">
+  <meta property="og:title" content="Jefferson Ramalho | Portfólio de sistemas">
+  <meta property="og:description" content="Uma vitrine interativa do Clinix Odonto, Advera, Viver Bem Home Care e Evolui Fit.">
+  <meta property="og:type" content="website">
+  <link rel="preload" as="image" href="assets/portfolio/clinix-desk.jpg">
+  <style>
+    :root {
+      --ink: #0b0912;
+      --white: #f7f5ff;
+      --quiet: #b9b1cb;
+      --accent: #c1abff;
+      --border: #ffffff24;
+      --shell: min(100% - 96px, 1280px);
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      color: var(--white);
+      background: var(--ink);
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid #ddd0ff; outline-offset: 5px; }
+    [hidden] { display: none !important; }
+    .wrap { width: var(--shell); margin-inline: auto; }
+    .skip { position: fixed; z-index: 10; top: 10px; left: 12px; transform: translateY(-160%); background: white; color: var(--ink); padding: 12px; }
+    .skip:focus { transform: none; }
+    .symbol { display: inline-grid; flex: 0 0 auto; place-items: center; }
+    .symbol svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .header {
+      position: relative; z-index: 2; width: var(--shell); margin: auto;
+      min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      border-bottom: 1px solid #ffffff1a;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 630; letter-spacing: -.03em; white-space: nowrap; }
+    .monogram {
+      display: grid; place-items: center; width: 38px; aspect-ratio: 1; border-radius: 11px;
+      background: linear-gradient(137deg, #302344, #14111f 65%); border: 1px solid #b39de44f;
+      color: #ddccff; font-size: 14px; letter-spacing: -.1em; padding-right: 2px;
+    }
+    .top-nav { display: flex; align-items: center; gap: 24px; font-size: .88rem; }
+    .top-nav a { color: var(--quiet); }
+    .top-nav a:hover { color: var(--white); }
+    .top-nav .contact-pill { color: var(--white); border: 1px solid var(--border); border-radius: 99px; padding: 10px 16px; }
+    .top-nav .contact-pill:hover { background: #ffffff13; }
 
-  /* navegação */
-  header{padding-top:22px}
-  .bar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px 12px;border:1px solid var(--line);border-radius:22px;padding:10px 10px 10px 20px;background:rgba(19,18,17,.7)}
-  .bar nav{grid-column:1/-1;order:3}
-  .bar nav ul{justify-content:center}
-  .bar .cta{order:2}
-  @media (min-width:760px){.bar{display:flex;justify-content:space-between;border-radius:999px;padding:8px 8px 8px 20px}.bar nav{order:0}}
-  .logo{font-size:13px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;font-weight:600}
-  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  nav a{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap;border-radius:999px}
-  nav a:hover,nav a.on{color:var(--text)}
-  .cta{display:inline-flex;align-items:center;min-height:38px;padding:0 18px;border-radius:999px;background:var(--gold);color:#120e09;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap}
-  .cta:hover{background:var(--gold-2)}
+    .showcase { position: relative; overflow: clip; isolation: isolate; padding-bottom: 34px; border-bottom: 1px solid #ffffff20; }
+    .showcase::before {
+      content: ""; position: absolute; z-index: -3; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 64%, #382067 0%, #21133d 28%, transparent 67%),
+        radial-gradient(ellipse at 14% 45%, #251738 0%, transparent 44%),
+        linear-gradient(180deg, #0c0a13, #120c21 80%, #0b0912);
+    }
+    .intro { position: relative; text-align: center; padding-top: clamp(48px, 6.1vw, 88px); z-index: 1; }
+    .intro-label {
+      display: inline-flex; gap: 10px; align-items: center; margin: 0 0 18px;
+      color: #d7c5ff; font-size: .82rem; font-weight: 660; letter-spacing: .16em; text-transform: uppercase;
+    }
+    .intro-label::before { content: ""; width: 22px; height: 1px; background: #ab89ee; }
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-size: clamp(3.5rem, 8.5vw, 8.125rem); line-height: .92; letter-spacing: -.09em;
+      font-weight: 600; text-wrap: balance;
+    }
+    h1 em {
+      color: #cfbaff; font-style: normal;
+      background: linear-gradient(100deg, #f1ddff, #bca0ff 67%, #9fb6ff);
+      background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .intro > p:last-child { color: #c8bfd9; margin-top: 21px; font-size: clamp(1rem, 1.7vw, 1.16rem); text-wrap: balance; }
+    .stage {
+      --rx: -3deg; --ry: -9deg; --lift: 0px; --zoom: 1;
+      --scene-glow: #6b5dff; --scene-cool: #7a96ff;
+      position: relative; width: min(100%, 1430px); margin: 17px auto 0;
+      height: clamp(335px, 36vw, 520px); perspective: 1080px;
+      touch-action: pan-y; isolation: isolate;
+    }
+    .stage::before {
+      content: ""; pointer-events: none; position: absolute; inset: 8% 1% 0; z-index: -1;
+      background: radial-gradient(ellipse at 46% 60%, color-mix(in srgb, var(--scene-glow) 42%, transparent), transparent 67%),
+        radial-gradient(ellipse at 77% 68%, color-mix(in srgb, var(--scene-cool) 18%, transparent), transparent 53%);
+      filter: blur(30px); transition: background .55s ease;
+    }
+    .stage::after {
+      content: ""; position: absolute; z-index: -1; pointer-events: none; inset: 1% 12% 5%;
+      background: repeating-linear-gradient(90deg, transparent 0 12.45%, #ae8aff17 12.5%, transparent 12.65% 25%);
+      mask-image: radial-gradient(ellipse at 50% 50%, #000 16%, transparent 74%);
+    }
+    .floor {
+      position: absolute; z-index: -1; pointer-events: none; bottom: -3%; left: -8%; right: -8%; height: 33%;
+      transform: rotateX(62deg); transform-origin: bottom;
+      background:
+        repeating-linear-gradient(90deg, #bcabf255 0 1px, transparent 1px 8%),
+        repeating-linear-gradient(0deg, #bdb2ff36 0 1px, transparent 1px 26px),
+        radial-gradient(ellipse at 50% 22%, #9486e43b, transparent 66%);
+      mask-image: radial-gradient(ellipse at 50% 59%, #000 6%, transparent 71%);
+    }
+    .side-screen {
+      position: absolute; top: 26%; width: 28%; height: 49%; overflow: hidden;
+      border: 1px solid #ad91ed52; border-radius: 14px; pointer-events: none;
+      background: #171223; box-shadow: 0 20px 60px #090610bd, 0 0 32px #a07af724;
+    }
+    .side-screen.left { left: 12%; transform: translate3d(-30%, -2%, -95px) rotateY(29deg) rotateZ(-9deg); }
+    .side-screen.right { right: 12%; top: 29%; transform: translate3d(30%, -2%, -95px) rotateY(-29deg) rotateZ(9deg); }
+    .side-screen::before { content: ""; display: block; height: 19px; border-bottom: 1px solid #d9ccff38; background: linear-gradient(90deg, #332449, #1c1729); }
+    .side-screen::after { content: ""; position: absolute; inset: 19px 0 0; background: linear-gradient(145deg, #110b1880, #25163a96); }
+    .side-screen img { display: block; width: 100%; opacity: .74; }
+    .side-screen .fit-preview { height: calc(100% - 19px); }
+    .side-screen .fit-preview strong { font-size: clamp(.9rem, 2vw, 1.8rem); }
+    .side-screen .fit-bars { height: clamp(20px, 4vw, 58px); }
+    .model {
+      position: absolute; width: min(67%, 820px); left: 50%; top: 4%;
+      transform-style: preserve-3d; will-change: transform;
+      transform: translate3d(-50%, var(--lift), 0) rotateX(var(--rx)) rotateY(var(--ry)) scale(var(--zoom));
+      transition: transform .25s cubic-bezier(.19,.75,.26,1);
+    }
+    .stage.is-dragging .model { transition: none; }
+    .frame {
+      position: relative; aspect-ratio: 2.13; padding: 7px; border-radius: 15px;
+      background: linear-gradient(151deg, #686282 0, #292435 17%, #0b0a12 45%, #151322 82%, #8378a0 100%);
+      box-shadow: 0 2px 0 #e2d3ff70 inset, 0 0 0 1px #a590cf4a;
+      transform-style: preserve-3d;
+    }
+    .frame::before, .frame::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+    .frame::before { background: #232031; transform: translateZ(-12px); box-shadow: 0 22px 55px #030207bd, 0 0 46px #936dff4f; }
+    .frame::after { inset: 7px 0; width: 12px; left: 0; background: linear-gradient(#68617b, #1a1529 65%, #494060); transform-origin: left; transform: rotateY(90deg); }
+    .screen {
+      position: relative; z-index: 1; display: grid; grid-template-rows: 28px minmax(0, 1fr);
+      height: 100%; overflow: hidden; border-radius: 9px; background: #120e1a;
+      box-shadow: 0 0 0 1px #030207;
+      transform: translateZ(1px); user-select: none;
+    }
+    .chrome { display: flex; align-items: center; gap: 5px; padding: 0 11px; background: #171321; border-bottom: 1px solid #ffffff22; }
+    .chrome i { width: 5px; height: 5px; border-radius: 50%; background: #8676a5; }
+    .chrome i:first-child { background: #ac89e5; }
+    .chrome b { color: #b6abc8; font-size: .63rem; margin-inline: auto; font-weight: 550; letter-spacing: .025em; }
+    .chrome::after { content: ""; width: 27px; }
+    .screen-deck {
+      background: #181220; position: relative; min-height: 0; overflow: hidden; cursor: grab;
+    }
+    .is-dragging .screen-deck { cursor: grabbing; }
+    .screen-slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.06) translateY(8px); transition: opacity .42s ease, transform .6s cubic-bezier(.2,.6,.25,1); }
+    .screen-slide.active { opacity: 1; transform: none; }
+    .screen-slide > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .foot {
+      position: absolute; z-index: -1; left: 50%; top: calc(100% - 2px); width: 24%; height: clamp(36px, 5.4vw, 76px);
+      transform: translateX(-50%) translateZ(-26px); background: linear-gradient(100deg, #242032, #6b617f 32%, #464256 62%, #272338 90%);
+      clip-path: polygon(33% 0, 67% 0, 75% 76%, 100% 87%, 100% 100%, 0 100%, 0 87%, 25% 76%);
+    }
+    .foot::after { content: ""; position: absolute; inset: 82% 0 0; background: linear-gradient(180deg, #8b809f 0%, #413751 44%, #17121f 80%); }
+    .stage-caption { position: absolute; left: max(24px, calc((100% - 1280px) / 2)); bottom: 9%; display: flex; align-items: center; gap: 8px; color: #c4b5db; font-size: .84rem; }
+    .stage-caption .symbol svg { width: 15px; height: 15px; }
+    .scene-reset {
+      position: absolute; right: max(24px, calc((100% - 1280px) / 2)); bottom: 8%;
+      width: 42px; height: 42px; border-radius: 50%; border: 1px solid #d5bfff4a; background: #1b1429bd;
+      display: grid; place-items: center;
+    }
+    .scene-reset:hover { background: #372858; }
 
-  /* hero */
-  .hero{text-align:center;padding-top:56px;padding-bottom:64px}
-  .hero .photo{width:min(340px,80vw);margin:0 auto 28px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-  .hero .photo img{width:100%;height:auto}
-  .hero h1{font-size:clamp(2.4rem,7vw,4.6rem)}
-  .hero h1 .serif{display:block;font-size:.9em;margin-top:.1em}
-  .hero .sub{max-width:52ch;margin:22px auto 0;color:var(--muted);font-size:clamp(.95rem,2.2vw,1.05rem)}
-  .hero .stack{margin-top:34px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
-  .ghost{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;border:1px solid #4a4238;color:var(--text);text-decoration:none;font-size:14px}
-  .ghost:hover{border-color:var(--gold);color:var(--gold)}
+    .fit-preview {
+      display: grid; grid-template-columns: 1fr .92fr; align-items: center; gap: 5%; height: 100%; width: 100%; overflow: hidden;
+      background: radial-gradient(ellipse at 83% 46%, #334829, transparent 57%), #101510;
+      color: #eff7ec; padding: 6% 8%;
+    }
+    .fit-preview .fit-label { color: #c4fa9c; font-size: clamp(.6rem, 1.15vw, 1.05rem); font-weight: 740; letter-spacing: -.01em; }
+    .fit-preview strong { display: block; font-size: clamp(1rem, 3.8vw, 3.75rem); font-weight: 660; line-height: .98; letter-spacing: -.075em; margin: 8% 0; }
+    .fit-preview .fit-note { display: block; color: #d2decf; font-size: clamp(.55rem, 1.05vw, .92rem); }
+    .fit-chart { padding: 11%; border: 1px solid #b6f78e38; border-radius: 11px; background: #181f17; box-shadow: 0 10px 45px #060b0759; }
+    .fit-chart b { font-size: clamp(.56rem, 1vw, .87rem); }
+    .fit-bars { display: flex; height: clamp(35px, 8vw, 108px); gap: 7%; align-items: end; margin-top: 12%; padding-bottom: 3%; border-bottom: 1px solid #b6f78e4a; }
+    .fit-bars i { flex: 1; height: var(--bar); border-radius: 4px 4px 0 0; background: linear-gradient(#ceffa4, #5e8e49); }
+    .fit-chart small { display: block; margin-top: 6%; color: #c5d6c1; font-size: clamp(.5rem, .89vw, .75rem); }
 
-  /* citações */
-  .quote{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0;text-align:center}
-  .quote blockquote{margin:0 auto;max-width:34ch}
-  .quote p{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3.6vw,1.9rem);line-height:1.35;color:var(--gold-2)}
-  .quote cite{display:block;margin-top:14px;font-style:normal;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .showcase-controls { display: flex; width: min(100% - 48px, 950px); margin: -7px auto 0; align-items: stretch; gap: 9px; position: relative; z-index: 1; }
+    .showcase-controls [role="tablist"] { display: grid; flex: 1; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 7px; }
+    .system-tab {
+      display: flex; align-items: center; gap: .65rem; padding: 11px 13px; justify-content: center;
+      min-height: 56px; border-radius: 11px; border: 1px solid #cdb9ff2e; background: #161122e0;
+      color: #dbd2ed; font-size: .91rem; font-weight: 550; white-space: nowrap; transition: background .25s, border-color .25s;
+    }
+    .system-tab:hover { background: #2c2042; color: white; }
+    .system-tab[aria-selected="true"] { background: linear-gradient(135deg, #352655, #251c3a); color: white; border-color: #bfa0ffac; box-shadow: inset 0 1px #d7baff38; }
+    .system-tab .symbol { color: #cbb1ff; }
+    .system-tab .symbol svg { width: 17px; height: 17px; }
+    .step {
+      flex: 0 0 45px; border: 1px solid #cdb9ff38; border-radius: 11px; background: #171122;
+      display: grid; place-items: center;
+    }
+    .step:hover { background: #36264f; }
+    .scene-info { width: min(100% - 48px, 816px); min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 15px auto 0; }
+    .scene-info p { color: #bfb4d1; line-height: 1.5; font-size: .93rem; }
+    .details-link { display: inline-flex; align-items: center; gap: 9px; font-size: .93rem; font-weight: 640; color: #e1d3ff; white-space: nowrap; text-underline-offset: 4px; }
+    .details-link:hover { text-decoration: underline; }
+    .details-link .symbol svg { width: 15px; height: 15px; }
 
-  /* seções */
-  section{padding:88px 0}
-  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:36px}
-  .head h2{font-size:clamp(1.8rem,4.5vw,2.6rem)}
+    .systems { padding: clamp(70px, 10vw, 134px) 0 clamp(78px, 10vw, 126px); }
+    .section-head { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 33px; }
+    .section-head h2 { font-size: clamp(2.65rem, 6.7vw, 6rem); font-weight: 590; line-height: .98; letter-spacing: -.082em; }
+    .section-head p { max-width: 34ch; color: var(--quiet); line-height: 1.6; }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 17px; }
+    .system-card { overflow: hidden; border: 1px solid #d7c3ff28; border-radius: 18px; background: #13101c; transition: border-color .25s ease, background .25s ease; }
+    .system-card:hover { border-color: #cbb0ff70; background: #191324; }
+    .card-art {
+      position: relative; display: block; min-height: 170px; aspect-ratio: 2.12; overflow: hidden;
+      background: radial-gradient(ellipse at 52% 85%, var(--card-halo), transparent 69%), #171222;
+      perspective: 650px;
+    }
+    .card-art::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .48;
+      background: repeating-linear-gradient(115deg, transparent 0 22px, #ffffff14 23px, transparent 24px 49px);
+      mask-image: linear-gradient(110deg, #000, transparent 60%, #000);
+    }
+    .card-art::after { content: ""; position: absolute; inset: auto 0 0; height: 22%; background: linear-gradient(transparent, #0a081249); pointer-events: none; }
+    .card-window {
+      position: absolute; top: 14%; left: 12%; right: 10%; height: 95%; overflow: hidden;
+      border-radius: 9px; background: #181223; border: 1px solid #d9d0ee6e; border-top: 14px solid #211b2f;
+      box-shadow: 1px 15px 34px #0b0813ab; transform-origin: 50% 60%;
+      transform: rotateX(9deg) rotateY(-10deg) rotateZ(-3deg); transition: transform .48s cubic-bezier(.2,.6,.2,1);
+    }
+    .system-card:nth-child(even) .card-window { transform: rotateX(9deg) rotateY(10deg) rotateZ(3deg); }
+    .system-card:hover .card-window, .system-card:focus-within .card-window { transform: rotateX(1deg) rotateY(0deg) rotateZ(0deg) translateY(-4%); }
+    .card-window > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .card-body { padding: clamp(20px, 3.1vw, 32px); }
+    .card-tag { color: #cbb9ef; font-size: .87rem; font-weight: 560; }
+    .card-body h3 { font-size: clamp(1.75rem, 3.5vw, 2.8rem); font-weight: 610; letter-spacing: -.067em; margin-top: 6px; }
+    .card-body p { margin-top: 9px; color: #c2b8d0; line-height: 1.54; }
+    .card-body .details-link { margin-top: 17px; min-height: 36px; }
+    .footer { border-top: 1px solid #d7c3ff27; background: #100d19; }
+    .footer-inner { min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer nav { display: flex; flex-wrap: wrap; gap: 12px 20px; color: var(--quiet); font-size: .91rem; }
+    .footer nav a:hover { color: white; }
+    .footer .monogram { width: 31px; border-radius: 8px; }
 
-  /* sobre */
-  .about{display:grid;gap:36px;align-items:center}
-  .about h2{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-top:14px}
-  .about p{color:#d3cdc4;max-width:60ch;font-size:17px}
-  .about p + p{margin-top:16px;color:var(--muted)}
-  .about .meta{margin-top:22px;font-size:14px;color:var(--muted)}
-  .about .meta a{color:var(--gold);text-decoration:none}
-  @media (min-width:800px){.about{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+    dialog {
+      margin: auto; width: min(100% - 32px, 780px); max-height: min(90dvh, 920px); padding: 0;
+      overflow: auto; border: 1px solid #bb9df87c; border-radius: 18px;
+      background: #171120; color: var(--white); box-shadow: 0 26px 100px #05030cd9;
+    }
+    dialog::backdrop { background: #0a0719d9; backdrop-filter: blur(9px); }
+    .dialog-top { position: relative; padding: 28px clamp(22px, 5vw, 42px) 24px; }
+    .dialog-top h2 { font-size: clamp(2rem, 6vw, 3.75rem); font-weight: 620; letter-spacing: -.065em; padding-right: 38px; }
+    .dialog-top .dialog-category { color: var(--accent); font-size: .91rem; margin-bottom: 8px; }
+    .dialog-top .dialog-copy { color: var(--quiet); line-height: 1.6; margin-top: 10px; }
+    .dialog-close { position: absolute; right: 16px; top: 16px; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--border); border-radius: 50%; background: #241934; }
+    .dialog-close:hover { background: #402d5d; }
+    .dialog-preview { height: clamp(175px, 37vw, 335px); background: #100a19; margin-inline: clamp(22px, 5vw, 42px); border-radius: 11px; overflow: hidden; border: 1px solid #cbb5fa48; }
+    .dialog-preview > img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .dialog-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; padding: 22px clamp(22px, 5vw, 42px) 28px; }
+    .dialog-actions small { color: var(--quiet); font-size: .89rem; }
+    .dialog-launch { display: inline-flex; align-items: center; gap: 10px; padding: 11px 16px; background: #d8c5ff; border-radius: 8px; color: #171026; font-weight: 680; }
+    .dialog-launch:hover { background: #eee3ff; }
 
-  /* serviços */
-  .services{display:grid;gap:14px}
-  .svc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column;gap:10px;text-decoration:none;transition:border-color .2s}
-  .svc:hover{border-color:#4a4238}
-  .svc .n{font-size:12px;color:var(--gold)}
-  .svc h3{font-size:22px;font-weight:400}
-  .svc p{color:var(--muted);font-size:15px}
-  .svc .go{margin-top:auto;padding-top:12px;font-size:13px;color:var(--text)}
-  @media (min-width:800px){.services{grid-template-columns:repeat(3,minmax(0,1fr))}}
-
-  /* projetos */
-  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
-  .work{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-  .work .shot{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top center;filter:brightness(.9)}
-  .work .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
-  .work h3{font-size:20px;font-weight:400}
-  .work .cat{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-  .work p{font-size:14px;color:var(--muted)}
-  .work .go{margin-top:auto;padding-top:10px;font-size:13px;color:var(--text);text-decoration:none}
-  .work .go:hover{color:var(--gold)}
-
-  /* contato */
-  .contact{text-align:center}
-  .contact h2{font-size:clamp(2rem,6vw,3.4rem)}
-  .contact h2 .serif{display:block;margin-top:.05em}
-  .contact p{color:var(--muted);max-width:50ch;margin:20px auto 0}
-  .contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-  .contact-links .cta{min-height:46px;padding:0 24px;font-size:14px}
-
-  footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:13px;color:var(--muted);text-align:center}
-</style>
+    @media (max-width: 850px) {
+      :root { --shell: min(100% - 48px, 1280px); }
+      .stage-caption { bottom: 4%; }
+      .scene-reset { bottom: 3%; }
+      .model { top: 5%; width: 74%; }
+      .showcase-controls { margin-top: 12px; }
+    }
+    @media (max-width: 620px) {
+      :root { --shell: calc(100% - 34px); }
+      .header { min-height: 65px; gap: 10px; }
+      .brand { gap: 8px; font-size: .93rem; }
+      .monogram { width: 32px; border-radius: 8px; }
+      .top-nav { gap: 12px; }
+      .top-nav .contact-pill { padding: 8px 10px; }
+      .intro { padding-top: 42px; }
+      .intro-label { margin-bottom: 14px; }
+      h1 { max-width: 10ch; margin-inline: auto; font-size: clamp(3.15rem, 12.8vw, 4.75rem); }
+      .intro > p:last-child { margin: 16px auto 0; max-width: 34ch; padding: 0 13px; line-height: 1.5; }
+      .stage { height: clamp(188px, 57vw, 342px); margin-top: 16px; perspective: 850px; }
+      .model { top: 9%; width: 83%; }
+      .frame { aspect-ratio: 1.89; border-radius: 10px; padding: 4px; }
+      .screen { border-radius: 6px; grid-template-rows: 17px minmax(0,1fr); }
+      .chrome { padding: 0 7px; gap: 3px; }
+      .chrome i { width: 4px; height: 4px; }
+      .chrome b { font-size: .5rem; }
+      .side-screen { border-radius: 7px; width: 37%; }
+      .side-screen.left { left: 5%; }
+      .side-screen.right { right: 5%; }
+      .side-screen::before { height: 11px; }
+      .side-screen::after { inset: 11px 0 0; }
+      .foot { height: 36px; }
+      .stage-caption { font-size: .73rem; bottom: 1%; left: 17px; }
+      .scene-reset { right: 17px; bottom: -2%; width: 35px; height: 35px; }
+      .showcase-controls { margin-top: 14px; width: var(--shell); gap: 5px; }
+      .showcase-controls [role="tablist"] { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 5px; }
+      .step { flex-basis: 32px; }
+      .system-tab { padding: 7px; gap: 6px; min-height: 42px; font-size: .82rem; }
+      .system-tab .symbol svg { width: 15px; height: 15px; }
+      .scene-info { width: var(--shell); margin-top: 12px; gap: 8px 15px; align-items: flex-start; flex-wrap: wrap; }
+      .scene-info p { font-size: .88rem; width: 100%; }
+      .scene-info .details-link { min-height: 36px; }
+      .showcase { padding-bottom: 21px; }
+      .section-head { display: block; margin-bottom: 24px; }
+      .section-head p { margin-top: 13px; }
+      .cards { grid-template-columns: 1fr; gap: 14px; }
+      .footer-inner { padding: 23px 0; flex-wrap: wrap; }
+    }
+    @media (max-width: 350px) {
+      :root { --shell: calc(100% - 24px); }
+      .header { gap: 6px; }
+      .top-nav { gap: 8px; font-size: .79rem; }
+      .top-nav .contact-pill { padding-inline: 7px; }
+      .brand { font-size: .82rem; }
+      .stage-caption { left: 12px; }
+      .system-tab { font-size: .75rem; padding-inline: 3px; gap: 4px; }
+      .step { flex-basis: 27px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+      .model { --lift: 0px !important; --zoom: 1 !important; }
+    }
+  </style>
 </head>
 <body>
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0" style="position:absolute">
+    <symbol id="i-clinix" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/><rect x="3" y="3" width="18" height="18" rx="4"/></symbol>
+    <symbol id="i-advera" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 8h14M5 8l-3 6h6L5 8Zm14 0-3 6h6l-3-6Z"/></symbol>
+    <symbol id="i-viver" viewBox="0 0 24 24"><path d="M20.8 8.4a4.1 4.1 0 0 0-7-2.8L12 7.5l-1.8-1.9a4.1 4.1 0 0 0-5.8 5.8l7.6 7.8 7.6-7.8a4.1 4.1 0 0 0 1.2-3Z"/><path d="M9 12h6M12 9v6"/></symbol>
+    <symbol id="i-evolui" viewBox="0 0 24 24"><path d="M3 9v6m4-9v12m10-12v12m4-9v6M7 12h10"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-35 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(35 12 12)"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 1 2.7 6.4M3 12V6m0 6h6"/></symbol>
+    <symbol id="i-open" viewBox="0 0 24 24"><path d="M12 5H5v14h14v-7M14 5h5v5m0-5-8 8"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  </svg>
 
-<a href="#projetos" class="skip">Pular para os projetos</a>
-
-<header class="wrap">
-  <div class="bar">
-    <a href="#inicio" class="logo">Jefferson Ramalho</a>
-    <nav aria-label="Principal">
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+  <a class="skip" href="#projetos">Pular para os sistemas</a>
+  <header class="header" id="inicio">
+    <a class="brand" href="#inicio"><span class="monogram" aria-hidden="true">JR</span> Jefferson Ramalho</a>
+    <nav aria-label="Navegação principal" class="top-nav">
+      <a href="#projetos">Sistemas</a>
+      <a class="contact-pill" href="#contato">Contato</a>
     </nav>
-    <a class="cta" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener">Orçamento</a>
-  </div>
-</header>
+  </header>
 
-<main>
+  <main>
+    <section class="showcase" aria-labelledby="hero-title">
+      <div class="intro wrap">
+        <p class="intro-label">Portfólio de sistemas</p>
+        <h1 id="hero-title">Sistemas em <em>movimento.</em></h1>
+        <p>Explore meus projetos de odontologia, advocacia, home care e treino.</p>
+      </div>
 
-<div id="inicio" class="wrap hero">
-  <div class="photo"><img src="assets/retrato.jpg" width="900" height="1200" alt="Retrato em grafite de Jefferson Ramalho"></div>
-  <p class="eyebrow">Mauriti, CE · Atendimento remoto</p>
-  <h1>Sites e sistemas<span class="serif">sob medida</span></h1>
-  <p class="sub">Faço sites, sistemas por assinatura e apps para clínicas, academias, lojas e escritórios. Você me conta como funciona o seu dia a dia e eu monto a ferramenta em cima disso.</p>
-  <div class="hero-actions">
-    <a class="cta" href="#projetos">Ver projetos</a>
-    <a class="ghost" href="#contato">Pedir orçamento</a>
-  </div>
-  <p class="stack"><span>Firebase</span><span>·</span><span>React</span><span>·</span><span>PWA</span><span>·</span><span>Android</span><span>·</span><span>Windows</span></p>
-</div>
+      <div class="stage" id="stage">
+        <div class="floor" aria-hidden="true"></div>
+        <div class="side-screen left" aria-hidden="true" data-side-screen><img src="assets/portfolio/advera-desk.jpg" alt="" width="800" height="2500"></div>
+        <div class="side-screen right" aria-hidden="true" data-side-screen><img src="assets/portfolio/viverbem-desk.jpg" alt="" width="800" height="2500"></div>
+        <div class="model" id="monitor">
+          <div class="frame">
+            <div class="screen" id="product-screen" aria-hidden="true">
+              <div class="chrome"><i></i><i></i><i></i><b id="screen-name">Clinix Odonto</b></div>
+              <div class="screen-deck" id="screen-deck">
+                <div class="screen-slide active"><img src="assets/portfolio/clinix-desk.jpg" alt="" width="800" height="2500" fetchpriority="high"></div>
+                <div class="screen-slide"><img src="assets/portfolio/advera-desk.jpg" alt="" width="800" height="2500"></div>
+                <div class="screen-slide"><img src="assets/portfolio/viverbem-desk.jpg" alt="" width="800" height="2500"></div>
+                <div class="screen-slide" id="fit-slide">
+                  <div class="fit-preview">
+                    <div><span class="fit-label">Evolui Fit</span><strong>Sua jornada de evolução.</strong><span class="fit-note">Prévia ilustrativa</span></div>
+                    <div class="fit-chart"><b>Histórico de treinos</b><div class="fit-bars"><i style="--bar:38%"></i><i style="--bar:62%"></i><i style="--bar:54%"></i><i style="--bar:75%"></i><i style="--bar:66%"></i><i style="--bar:94%"></i></div><small>Treinos e evolução</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="foot" aria-hidden="true"></div>
+        </div>
 
-<section id="sobre" class="wrap">
-  <div class="about">
-    <div>
-      <p class="eyebrow">Sobre</p>
-      <h2>Um desenvolvedor que <span class="serif">escuta</span> antes de codar.</h2>
+        <p class="stage-caption" id="stage-hint" hidden><span class="symbol" aria-hidden="true"><svg><use href="#i-orbit"/></svg></span> Arraste para girar</p>
+        <button class="scene-reset" id="scene-reset" aria-label="Reposicionar monitor" type="button" hidden><span class="symbol" aria-hidden="true"><svg><use href="#i-reset"/></svg></span></button>
+      </div>
+
+      <div class="showcase-controls" id="showcase-controls" hidden>
+        <button class="step" id="prev" aria-label="Sistema anterior" type="button"><span class="symbol" aria-hidden="true"><svg><use href="#i-prev"/></svg></span></button>
+        <div role="tablist" aria-label="Sistemas em destaque">
+          <button class="system-tab" id="tab-clinix" role="tab" aria-controls="scene-info" aria-selected="true" type="button"><span class="symbol" aria-hidden="true"><svg><use href="#i-clinix"/></svg></span> Clinix Odonto</button>
+          <button class="system-tab" id="tab-advera" role="tab" aria-controls="scene-info" aria-selected="false" tabindex="-1" type="button"><span class="symbol" aria-hidden="true"><svg><use href="#i-advera"/></svg></span> Advera</button>
+          <button class="system-tab" id="tab-viver" role="tab" aria-controls="scene-info" aria-selected="false" tabindex="-1" type="button"><span class="symbol" aria-hidden="true"><svg><use href="#i-viver"/></svg></span> Viver Bem</button>
+          <button class="system-tab" id="tab-evolui" role="tab" aria-controls="scene-info" aria-selected="false" tabindex="-1" type="button"><span class="symbol" aria-hidden="true"><svg><use href="#i-evolui"/></svg></span> Evolui Fit</button>
+        </div>
+        <button class="step" id="next" aria-label="Próximo sistema" type="button"><span class="symbol" aria-hidden="true"><svg><use href="#i-next"/></svg></span></button>
+      </div>
+
+      <div class="scene-info" id="scene-info" role="tabpanel" aria-labelledby="tab-clinix" hidden>
+        <p id="scene-description" aria-live="polite">Agenda online, prontuário e contratos para clínicas odontológicas.</p>
+        <a class="details-link" id="scene-details" href="https://www.clinixodonto.com.br/">Ver detalhes <span class="symbol" aria-hidden="true"><svg><use href="#i-expand"/></svg></span></a>
+      </div>
+    </section>
+
+    <section class="systems wrap" id="projetos" aria-labelledby="systems-title">
+      <div class="section-head">
+        <h2 id="systems-title">Meus sistemas</h2>
+        <p>Conheça os recursos de cada sistema e acesse a versão online.</p>
+      </div>
+      <div class="cards">
+        <article class="system-card" data-project="clinix" data-glow="#6156c9" data-cool="#89b1ff" style="--card-halo:#5044a7">
+          <div class="card-art">
+            <div class="card-window"><img src="assets/portfolio/clinix-desk.jpg" width="800" height="2500" alt="Página do Clinix Odonto" loading="lazy"></div>
+          </div>
+          <div class="card-body">
+            <p class="card-tag">Odontologia</p>
+            <h3>Clinix Odonto</h3>
+            <p class="summary">Agenda online, prontuário e contratos para clínicas odontológicas.</p>
+            <a class="details-link" href="https://www.clinixodonto.com.br/" target="_blank" rel="noopener" data-details>Conhecer Clinix Odonto <span class="symbol" aria-hidden="true"><svg><use href="#i-expand"/></svg></span></a>
+          </div>
+        </article>
+        <article class="system-card" data-project="advera" data-glow="#497c72" data-cool="#dfb565" style="--card-halo:#456965">
+          <div class="card-art">
+            <div class="card-window"><img src="assets/portfolio/advera-desk.jpg" width="800" height="2500" alt="Página do Advera" loading="lazy"></div>
+          </div>
+          <div class="card-body">
+            <p class="card-tag">Advocacia</p>
+            <h3>Advera</h3>
+            <p class="summary">Prazos, andamentos processuais, contratos e honorários para escritórios.</p>
+            <a class="details-link" href="https://advera-6607b.web.app/" target="_blank" rel="noopener" data-details>Conhecer Advera <span class="symbol" aria-hidden="true"><svg><use href="#i-expand"/></svg></span></a>
+          </div>
+        </article>
+        <article class="system-card" data-project="viver" data-glow="#3f70cb" data-cool="#8cbcff" style="--card-halo:#2e559d">
+          <div class="card-art">
+            <div class="card-window"><img src="assets/portfolio/viverbem-desk.jpg" width="800" height="2500" alt="Página do Viver Bem Home Care" loading="lazy"></div>
+          </div>
+          <div class="card-body">
+            <p class="card-tag">Atendimento domiciliar</p>
+            <h3>Viver Bem Home Care</h3>
+            <p class="summary">Portais para equipes e famílias, com gestão de plantões e check-in de visitas.</p>
+            <a class="details-link" href="https://www.viverbemhomecare.com.br/" target="_blank" rel="noopener" data-details>Conhecer Viver Bem <span class="symbol" aria-hidden="true"><svg><use href="#i-expand"/></svg></span></a>
+          </div>
+        </article>
+        <article class="system-card" data-project="evolui" data-glow="#668f4e" data-cool="#b2dc7d" style="--card-halo:#415b3c">
+          <div class="card-art">
+            <div class="card-window" data-fit-preview></div>
+          </div>
+          <div class="card-body">
+            <p class="card-tag">Treino e evolução</p>
+            <h3>Evolui Fit</h3>
+            <p class="summary">Treinos, cronômetro de séries e registro de cargas, medidas e metas.</p>
+            <a class="details-link" href="https://jefframalho.github.io/evolui-fit/" target="_blank" rel="noopener" data-details>Conhecer Evolui Fit <span class="symbol" aria-hidden="true"><svg><use href="#i-expand"/></svg></span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div class="footer-inner wrap">
+      <a class="brand" href="#inicio"><span class="monogram" aria-hidden="true">JR</span> Jefferson Ramalho</a>
+      <nav aria-label="Contato">
+        <a href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:jeffersonramalhopb@gmail.com">E-mail</a>
+        <a href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://github.com/jefframalho" target="_blank" rel="noopener">GitHub</a>
+      </nav>
     </div>
-    <div>
-      <p>Sou o Jefferson, desenvolvedor em Mauriti, CE. Trabalho com sistemas que resolvem problemas do dia a dia: agenda e contratos no Clinix Odonto, acesso para profissionais e famílias no Viver Bem e fichas de treino no Evolui Fit.</p>
-      <p>Como atendo remotamente, o cliente de qualquer cidade consegue trabalhar comigo do começo ao fim.</p>
-      <p class="meta">Aceitando novos projetos · <a href="mailto:jeffersonramalhopb@gmail.com">jeffersonramalhopb@gmail.com</a></p>
+  </footer>
+
+  <dialog id="details-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-top">
+      <button class="dialog-close" aria-label="Fechar detalhes" type="button" autofocus><span class="symbol" aria-hidden="true"><svg><use href="#i-close"/></svg></span></button>
+      <p class="dialog-category"></p>
+      <h2 id="dialog-title"></h2>
+      <p class="dialog-copy"></p>
     </div>
-  </div>
-</section>
+    <div class="dialog-preview"></div>
+    <div class="dialog-actions">
+      <small>Abre em uma nova aba</small>
+      <a class="dialog-launch" target="_blank" rel="noopener">Acessar sistema <span class="symbol" aria-hidden="true"><svg><use href="#i-open"/></svg></span></a>
+    </div>
+  </dialog>
 
-<section id="servicos" class="wrap">
-  <div class="head">
-    <h2>Serviços</h2>
-    <span class="eyebrow">Do primeiro site ao sistema completo</span>
-  </div>
-  <div class="services">
-    <a class="svc" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site%20ou%20landing%20page." target="_blank" rel="noopener">
-      <span class="n">01</span>
-      <h3>Sites e <span class="serif">landing pages</span></h3>
-      <p>Site institucional ou página de divulgação, com WhatsApp e ligação com Google e Instagram.</p>
-      <span class="go">Pedir orçamento →</span>
-    </a>
-    <a class="svc" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20sistema%20por%20assinatura." target="_blank" rel="noopener">
-      <span class="n">02</span>
-      <h3>Sistemas por <span class="serif">assinatura</span></h3>
-      <p>Login para clínicas, academias, lojas e escritórios, com agenda, financeiro e estoque.</p>
-      <span class="go">Pedir orçamento →</span>
-    </a>
-    <a class="svc" href="https://wa.me/5583921418988?text=Ol%C3%A1%2C%20Jefferson%21%20Quero%20um%20or%C3%A7amento%20para%20um%20app%20Android%20ou%20PWA." target="_blank" rel="noopener">
-      <span class="n">03</span>
-      <h3>Apps e <span class="serif">automações</span></h3>
-      <p>App Android ou PWA que o cliente instala pelo navegador, além de lembretes no WhatsApp, cobranças e relatórios automáticos.</p>
-      <span class="go">Pedir orçamento →</span>
-    </a>
-  </div>
-</section>
+  <script>
+    const stage = document.getElementById('stage');
+    const screen = document.getElementById('screen-deck');
+    const sideScreens = Array.from(stage.querySelectorAll('[data-side-screen]'));
+    const tabs = Array.from(document.querySelectorAll('.system-tab'));
+    const slides = Array.from(screen.children);
+    const cards = Array.from(document.querySelectorAll('.system-card'));
+    const sceneInfo = document.getElementById('scene-info');
+    const sceneDetails = document.getElementById('scene-details');
+    const dialog = document.getElementById('details-dialog');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+    const fitPreview = document.querySelector('#fit-slide .fit-preview');
+    const descriptions = {
+      clinix: 'Organize a agenda da clínica, registre informações no prontuário e no odontograma, envie lembretes pelo WhatsApp e gerencie contratos assinados pelos pacientes.',
+      advera: 'Acompanhe prazos com lembretes, consulte andamentos processuais e organize contratos assinados e honorários em um painel para o escritório.',
+      viver: 'Acompanhe plantões e visitas domiciliares. A equipe registra chegada e saída, e os portais oferecem acessos próprios para administração, profissionais e familiares.',
+      evolui: 'Registre treinos, cargas, peso e medidas. Use o cronômetro para acompanhar séries e intervalos e consulte seu histórico de evolução.'
+    };
 
-<section id="projetos" class="wrap">
-  <div class="head">
-    <h2>Projetos <span class="serif">selecionados</span></h2>
-    <span class="eyebrow">Os links estão no ar</span>
-  </div>
-  <div class="grid">
+    const projects = cards.map(card => ({
+      name: card.querySelector('h3').textContent,
+      category: card.querySelector('.card-tag').textContent,
+      summary: card.querySelector('.summary').textContent,
+      link: card.querySelector('[data-details]'),
+      preview: card.querySelector('img') || fitPreview,
+      description: descriptions[card.dataset.project],
+      glow: card.dataset.glow,
+      cool: card.dataset.cool
+    }));
 
-    <article class="work">
-      <img class="shot" src="assets/portfolio/clinix-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Clinix Odonto">
-      <div class="body">
-        <span class="cat">Sistema por assinatura · Odonto</span>
-        <h3>Clinix Odonto</h3>
-        <p>Agenda online, prontuário, odontograma, contratos assinados pelo paciente e lembretes no WhatsApp.</p>
-        <a class="go" href="https://www.clinixodonto.com.br/" target="_blank" rel="noopener">Abrir o site ↗</a>
-      </div>
-    </article>
+    document.querySelector('[data-fit-preview]').append(fitPreview.cloneNode(true));
 
-    <article class="work">
-      <img class="shot" src="assets/portfolio/advera-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Advera">
-      <div class="body">
-        <span class="cat">Sistema por assinatura · Advocacia</span>
-        <h3>Advera</h3>
-        <p>Prazos com lembrete, andamentos processuais, contratos assinados pelo cliente e controle de honorários.</p>
-        <a class="go" href="https://advera-6607b.web.app/" target="_blank" rel="noopener">Abrir o site ↗</a>
-      </div>
-    </article>
+    let active = 0;
+    const drag = { id: null, startX: 0, startY: 0, x: 0, y: 0, locked: false };
+    const hover = { x: 0, y: 0 };
+    let scrollProgress = 0;
+    let scheduled = false;
 
-    <article class="work">
-      <img class="shot" src="assets/portfolio/viverbem-desk.jpg" width="800" height="2500" loading="lazy" alt="Tela do Viver Bem Home Care">
-      <div class="body">
-        <span class="cat">Gestão · Atendimento domiciliar</span>
-        <h3>Viver Bem Home Care</h3>
-        <p>Acessos separados para administração, profissionais e familiares, check-in por localização e contratos com LGPD.</p>
-        <a class="go" href="https://www.viverbemhomecare.com.br/" target="_blank" rel="noopener">Abrir o site ↗</a>
-      </div>
-    </article>
+    const clamp = (value, limit) => Math.min(limit, Math.max(-limit, value));
 
+    function applyPose() {
+      const motion = reducedMotion.matches ? 0 : 1;
+      stage.style.setProperty('--rx', (-3 + drag.x + motion * (hover.x + scrollProgress * 10)) + 'deg');
+      stage.style.setProperty('--ry', (-9 + drag.y + motion * (hover.y + scrollProgress * 18)) + 'deg');
+      stage.style.setProperty('--lift', (-scrollProgress * 12) + 'px');
+      stage.style.setProperty('--zoom', String(1 + scrollProgress * .022));
+    }
 
+    function requestPose() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        applyPose();
+      });
+    }
 
+    function updateScrollPose() {
+      scrollProgress = Math.min(1, Math.max(0, scrollY / Math.max(stage.offsetHeight, 1)));
+      requestPose();
+    }
 
+    function selectProject(index, focusTab = false) {
+      active = (index + projects.length) % projects.length;
+      const project = projects[active];
 
+      tabs.forEach((tab, index) => {
+        const selected = index === active;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        slides[index].classList.toggle('active', selected);
+      });
 
-    <article class="work">
-      <img class="shot" src="assets/portfolio/pizzaria-desk.jpg" width="1200" height="595" loading="lazy" alt="Tela do site da Pizzaria em Conceição">
-      <div class="body">
-        <span class="cat">Cardápio online · Pizzaria</span>
-        <h3>Pizzaria em Conceição</h3>
-        <p>Cardápio de pizzas do forno a lenha. O cliente escolhe sabor, formato e quantidade, monta o pedido e envia pelo WhatsApp.</p>
-        <a class="go" href="https://ornate-cocada-413b1e.netlify.app/" target="_blank" rel="noopener">Abrir o site ↗</a>
-      </div>
-    </article>
+      sceneInfo.setAttribute('aria-labelledby', tabs[active].id);
+      document.getElementById('screen-name').textContent = project.name;
+      document.getElementById('scene-description').textContent = project.summary;
+      sceneDetails.href = project.link.href;
+      stage.style.setProperty('--scene-glow', project.glow);
+      stage.style.setProperty('--scene-cool', project.cool);
+      sideScreens.forEach((panel, offset) => {
+        const preview = projects[(active + offset + 1) % projects.length].preview.cloneNode(true);
+        if (preview instanceof HTMLImageElement) preview.alt = '';
+        panel.replaceChildren(preview);
+      });
+      if (focusTab) tabs[active].focus();
+    }
 
-    <article class="work">
-      <img class="shot" src="assets/portfolio/rafael-desk.jpg" width="1200" height="595" loading="lazy" alt="Tela do site do Rafael Advocacia">
-      <div class="body">
-        <span class="cat">Site institucional · Advocacia</span>
-        <h3>Rafael Advocacia</h3>
-        <p>Site do escritório com áreas de atuação explicadas em linguagem simples e formulário ou WhatsApp para uma análise inicial.</p>
-        <a class="go" href="https://jefframalho.github.io/rafael-cabral-/" target="_blank" rel="noopener">Abrir o site ↗</a>
-      </div>
-    </article>
+    function showDetails(project) {
+      document.getElementById('dialog-title').textContent = project.name;
+      dialog.querySelector('.dialog-category').textContent = project.category;
+      dialog.querySelector('.dialog-copy').textContent = project.description;
+      dialog.querySelector('.dialog-preview').replaceChildren(project.preview.cloneNode(true));
+      dialog.querySelector('.dialog-launch').href = project.link.href;
+      dialog.showModal();
+      dialog.scrollTop = 0;
+    }
 
-  </div>
-</section>
-
-<div class="quote">
-  <blockquote class="wrap">
-    <p>“Continuem com fome. Continuem insensatos.”</p>
-    <cite>Steve Jobs, discurso em Stanford, 2005</cite>
-  </blockquote>
-</div>
-
-<section id="contato" class="wrap contact">
-  <h2>Vamos tirar seu projeto <span class="serif">do papel?</span></h2>
-  <p>Diga o que você precisa e como o seu dia a dia funciona. Eu respondo com uma proposta.</p>
-  <div class="contact-links">
-    <a class="cta" href="https://wa.me/5583921418988?text=Ol%C3%A1%20Jefferson!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp (83) 9 2141-8988</a>
-    <a class="ghost" href="mailto:jeffersonramalhopb@gmail.com">E-mail</a>
-    <a class="ghost" href="https://www.instagram.com/jefferson.ramalhodev/" target="_blank" rel="noopener">Instagram</a>
-    <a class="ghost" href="https://github.com/jefframalho" target="_blank" rel="noopener">GitHub</a>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <p>© <span id="yr">2026</span> Jefferson Ramalho · Mauriti, CE</p>
-</footer>
-
-<script>
-  document.getElementById("yr").textContent = new Date().getFullYear();
-  // destaca o item do menu conforme a seção visível
-  const links = [...document.querySelectorAll("nav a")];
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectProject(index));
+      tab.addEventListener('keydown', event => {
+        const nextIndex = {
+          ArrowLeft: index - 1,
+          ArrowRight: index + 1,
+          ArrowUp: index - 2,
+          ArrowDown: index + 2,
+          Home: 0,
+          End: tabs.length - 1
+        }[event.key];
+        if (typeof nextIndex !== 'number') return;
+        event.preventDefault();
+        selectProject(nextIndex, true);
+      });
     });
-  }, { rootMargin: "-45% 0px -50% 0px" });
-  document.querySelectorAll("section[id]").forEach(s => io.observe(s));
-</script>
+
+    document.getElementById('prev').addEventListener('click', () => selectProject(active - 1));
+    document.getElementById('next').addEventListener('click', () => selectProject(active + 1));
+
+    const openDetails = (event, project) => {
+      if (typeof dialog.showModal !== 'function' || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      showDetails(project);
+    };
+
+    projects.forEach(project => project.link.addEventListener('click', event => openDetails(event, project)));
+    sceneDetails.addEventListener('click', event => openDetails(event, projects[active]));
+    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right ||
+          event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+    });
+
+    stage.addEventListener('pointermove', event => {
+      if (!finePointer.matches || drag.locked || drag.id !== null || reducedMotion.matches) return;
+      const box = stage.getBoundingClientRect();
+      hover.x = clamp((.5 - (event.clientY - box.top) / box.height) * 12, 6);
+      hover.y = clamp(((event.clientX - box.left) / box.width - .5) * 22, 11);
+      requestPose();
+    });
+    stage.addEventListener('pointerleave', () => {
+      hover.x = 0;
+      hover.y = 0;
+      requestPose();
+    });
+
+    screen.addEventListener('pointerdown', event => {
+      if (event.button !== 0 || !event.isPrimary) return;
+      drag.id = event.pointerId;
+      drag.startX = event.clientX;
+      drag.startY = event.clientY;
+      drag.baseX = drag.x;
+      drag.baseY = drag.y;
+      screen.setPointerCapture(event.pointerId);
+    });
+    screen.addEventListener('pointermove', event => {
+      if (event.pointerId !== drag.id) return;
+      const dx = event.clientX - drag.startX;
+      const dy = event.clientY - drag.startY;
+      if (Math.abs(dx) + Math.abs(dy) < 5 && !stage.classList.contains('is-dragging')) return;
+      stage.classList.add('is-dragging');
+      drag.locked = true;
+      drag.x = clamp(drag.baseX - dy * .15, 19);
+      drag.y = clamp(drag.baseY + dx * .17, 34);
+      hover.x = 0;
+      hover.y = 0;
+      requestPose();
+    });
+
+    function finishDrag(event) {
+      if (event.pointerId !== drag.id) return;
+      drag.id = null;
+      stage.classList.remove('is-dragging');
+    }
+
+    screen.addEventListener('lostpointercapture', finishDrag);
+    screen.addEventListener('pointercancel', finishDrag);
+    screen.addEventListener('dragstart', event => event.preventDefault());
+
+    const reset = document.getElementById('scene-reset');
+    reset.addEventListener('click', () => {
+      drag.x = 0;
+      drag.y = 0;
+      drag.locked = false;
+      requestPose();
+    });
+
+    addEventListener('scroll', updateScrollPose, { passive: true });
+    addEventListener('resize', updateScrollPose, { passive: true });
+    reducedMotion.addEventListener('change', requestPose);
+
+    document.getElementById('stage-hint').hidden = false;
+    document.getElementById('showcase-controls').hidden = false;
+    reset.hidden = false;
+    sceneInfo.hidden = false;
+    selectProject(0);
+    updateScrollPose();
+  </script>
 </body>
 </html>
