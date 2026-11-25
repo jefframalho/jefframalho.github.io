@@ -339,6 +339,8 @@ stage.addEventListener('click', event => {
   video.paused ? video.play() : video.pause();
 });
 video.addEventListener('play', () => requestAnimationFrame(paint));
+// Abre parado no frame de 12s, com o monitor de frente e a tela bem visível
+video.addEventListener('loadeddata', () => { video.currentTime = 12; video.pause(); }, { once: true });
 requestAnimationFrame(paint);
 
 // Tela ocupa 1280x720 do palco; demo interativa aparece ao iniciar

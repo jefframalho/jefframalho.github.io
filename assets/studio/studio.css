@@ -477,8 +477,8 @@ dialog::backdrop { background: #080611dc; backdrop-filter: blur(7px); }
 .hero-section { position: relative; }
 .hero { position: relative; height: 100svh; overflow: hidden; background: #000; }
 .hero::before, .hero::after { content: ""; position: absolute; left: 0; right: 0; z-index: 2; pointer-events: none; }
-.hero::before { top: 0; height: 130px; background: linear-gradient(#0a0a11e6, #0a0a1100); }
-.hero::after { bottom: 0; height: 190px; background: linear-gradient(#0a0a1100, #0a0a11e0); }
+.hero::before { top: 0; height: 90px; background: linear-gradient(#0a0a11cc, #0a0a1100); }
+.hero::after { bottom: 0; height: 120px; background: linear-gradient(#0a0a1100, #0a0a11cc); }
 .hero .stage { position: absolute; left: 0; top: 0; width: 1440px; height: 1080px; transform-origin: 0 0; }
 .hero #monitor-video { position: absolute; inset: 0; width: 1440px; height: 1080px; display: block; }
 .hero .screen-layer {
