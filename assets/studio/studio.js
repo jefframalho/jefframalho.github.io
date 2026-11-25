@@ -197,28 +197,9 @@ function renderDemo(mount, project, interactive, initialPane = 0) {
   mount.replaceChildren(app);
 }
 
-const story = document.getElementById('experiencia');
-const scene = document.getElementById('scene');
-const sceneContent = scene.querySelector('.scene-content');
-const workstation = document.getElementById('workstation');
-const screen = document.getElementById('screen');
-const featuredPreview = document.getElementById('featured-preview');
-const featuredLink = document.getElementById('featured-link');
-const toolbar = document.getElementById('toolbar');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const dialog = document.getElementById('preview-dialog');
 const dialogPreview = document.getElementById('dialog-preview');
-const projectNav = Array.from(document.querySelectorAll('[data-scene-project]'));
-const lightButtons = Array.from(document.querySelectorAll('[data-light]'));
-const deviceButtons = Array.from(screen.querySelectorAll('[data-device]'));
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
-const compact = matchMedia('(max-width: 760px)');
-const motionState = { progress: 0, hoverX: 0, hoverY: 0, dragX: 0, dragY: 0, pointer: null, dragging: false };
-const lightOptions = { violet: '#a075ff', blue: '#56a5f7' };
-let selectedLight = 'auto';
-let selectedDevice = 'desktop';
-let activeIndex = -1;
-let framePending = false;
 
 const projects = Array.from(document.querySelectorAll('[data-project]'), card => {
   const id = card.dataset.project;
@@ -233,111 +214,23 @@ const projects = Array.from(document.querySelectorAll('[data-project]'), card =>
   };
 });
 
-function setLighting() {
-  scene.style.setProperty('--ambient', lightOptions[selectedLight] || projects[activeIndex].light);
-  lightButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.light === selectedLight)));
-}
-function selectDevice(device) {
-  if (selectedDevice === device) return;
-  selectedDevice = device;
-  featuredPreview.classList.toggle('device-phone', device === 'phone');
-  deviceButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.device === device)));
-  if (!reducedMotion.matches) {
-    featuredPreview.animate([{ opacity: .55 }, { opacity: 1 }], { duration: 260, easing: 'ease-out' });
-  }
-}
-function selectProject(index) {
-  if (activeIndex === index) return;
-  activeIndex = index;
-  const project = projects[index];
-  document.getElementById('featured-category').textContent = project.category;
-  document.getElementById('featured-name').textContent = project.name;
-  document.getElementById('featured-description').textContent = project.summary;
-  featuredLink.href = project.url;
-  projectNav.forEach((item, navIndex) => {
-    if (navIndex === index) item.setAttribute('aria-current', 'true');
-    else item.removeAttribute('aria-current');
-  });
-
-  renderDemo(featuredPreview, project, true);
-  if (!reducedMotion.matches) {
-    featuredPreview.animate([{ opacity: .4, transform: 'scale(1.025)' }, { opacity: 1, transform: 'none' }],
-      { duration: 400, easing: 'cubic-bezier(.16,.62,.33,1)' });
-  }
-  setLighting();
-}
-
-function storyRange() {
-  return Math.max(0, story.offsetHeight - scene.offsetHeight);
-}
-function jumpToProject(index) {
-  const normalized = (index + projects.length) % projects.length;
-  const range = storyRange();
-  if (range > 0 && !reducedMotion.matches) {
-    window.scrollTo({ top: story.offsetTop + (normalized / (projects.length - 1)) * range, behavior: 'instant' });
-  }
-  selectProject(normalized);
-  requestFrame();
-}
-
-function clamp(value, minimum, maximum) {
-  return Math.min(maximum, Math.max(minimum, value));
-}
-
-function paintFrame() {
-  framePending = false;
-  const range = storyRange();
-  const useScroll = range > 0 && !reducedMotion.matches;
-  if (useScroll && !dialog.open) {
-    motionState.progress = clamp((scrollY - story.offsetTop) / range, 0, 1);
-    selectProject(Math.round(motionState.progress * (projects.length - 1)));
-  }
-  const progress = useScroll ? motionState.progress : activeIndex / (projects.length - 1);
-  const size = compact.matches ? .56 : 1;
-  const wave = reducedMotion.matches ? 0 : Math.sin(progress * 2.6 * Math.PI) * size;
-  const approach = reducedMotion.matches ? 0 : Math.sin(progress * .84 * Math.PI) * size;
-
-  scene.style.setProperty('--rx', (wave * 4 + motionState.hoverX + motionState.dragX) + 'deg');
-  scene.style.setProperty('--ry', (wave * -15 + motionState.hoverY + motionState.dragY) + 'deg');
-  scene.style.setProperty('--lift', (-approach * 9) + 'px');
-  scene.style.setProperty('--depth', (approach * 24) + 'px');
-  scene.style.setProperty('--zoom', String(1 + approach * .055));
-  scene.style.setProperty('--bg-shift', (approach * 15) + 'px');
-  toolbar.style.setProperty('--story-progress', String(.25 + progress * .75));
-}
-function requestFrame() {
-  if (framePending) return;
-  framePending = true;
-  requestAnimationFrame(paintFrame);
-}
-
-function showDemo(index, paneIndex = 0, device = 'desktop') {
+// Demos dos cards do catálogo e diálogo de demonstração
+function showDemo(index, paneIndex = 0) {
   if (typeof dialog.showModal !== 'function') return false;
   const project = projects[index];
   document.getElementById('dialog-title').textContent = project.name;
   document.getElementById('dialog-summary').textContent = project.summary;
   document.getElementById('dialog-link').href = project.url;
-  dialogPreview.classList.toggle('device-phone', device === 'phone');
   renderDemo(dialogPreview, project, true, paneIndex);
   dialog.showModal();
   dialog.scrollTop = 0;
   return true;
 }
-
-projectNav.forEach((link, index) => link.addEventListener('click', event => {
-  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-  event.preventDefault();
-  jumpToProject(index);
-}));
-document.getElementById('previous-project').addEventListener('click', () => jumpToProject(activeIndex - 1));
-document.getElementById('next-project').addEventListener('click', () => jumpToProject(activeIndex + 1));
-function openFeaturedDemo() {
-  return showDemo(activeIndex, Number(featuredPreview.dataset.pane), selectedDevice);
-}
-
-featuredLink.addEventListener('click', event => {
-  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-  if (openFeaturedDemo()) event.preventDefault();
+projects.forEach((project, index) => {
+  renderDemo(project.card.querySelector('.card-preview'), project, false);
+  const trigger = project.card.querySelector('.card-demo');
+  trigger.hidden = typeof dialog.showModal !== 'function';
+  trigger.addEventListener('click', () => showDemo(index));
 });
 dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => {
@@ -345,85 +238,111 @@ dialog.addEventListener('click', event => {
   const box = dialog.getBoundingClientRect();
   if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
 });
-lightButtons.forEach(button => button.addEventListener('click', () => {
-  selectedLight = button.dataset.light;
-  setLighting();
-}));
-deviceButtons.forEach(button => button.addEventListener('click', () => selectDevice(button.dataset.device)));
 
-projects.forEach((project, index) => {
-  renderDemo(project.card.querySelector('.card-preview'), project, false);
-  const trigger = project.card.querySelector('.card-demo');
-  trigger.hidden = typeof dialog.showModal !== 'function';
-  trigger.addEventListener('click', () => showDemo(index));
-});
+// ---- Monitor 3D: vídeo de fundo + demo interativa projetada na tela ----
+const hero = document.getElementById('hero');
+const video = document.getElementById('monitor-video');
+const layer = document.getElementById('screen-layer');
+const featuredPreview = document.getElementById('featured-preview');
+const stage = document.getElementById('stage');
+let activeIndex = -1;
 
-document.getElementById('reset-camera').addEventListener('click', () => {
-  motionState.dragX = 0;
-  motionState.dragY = 0;
-  motionState.hoverX = 0;
-  motionState.hoverY = 0;
-  requestFrame();
-});
+// Área da tela do monitor no vídeo (1440x1080), medida em dois momentos.
+// Ordem: topo-esq, topo-dir, base-dir, base-esq.
+const KEY = [
+  { t: 9,  q: [[37,113],[1404,113],[1404,884],[37,884]] },
+  { t: 12, q: [[-20,88],[1460,88],[1460,918],[-20,918]] },
+  { t: 20, q: [[137,103],[1262,242],[1276,912],[120,826]] }
+];
+const LW = 1280, LH = 720;
+const SRC = [[0,0],[LW,0],[LW,LH],[0,LH]];
 
-workstation.addEventListener('pointermove', event => {
-  if (motionState.pointer !== null || !finePointer.matches || reducedMotion.matches) return;
-  const box = workstation.getBoundingClientRect();
-  motionState.hoverX = (.5 - (event.clientY - box.top) / box.height) * 6;
-  motionState.hoverY = ((event.clientX - box.left) / box.width - .5) * 9;
-  requestFrame();
-});
-workstation.addEventListener('pointerleave', () => {
-  motionState.hoverX = 0;
-  motionState.hoverY = 0;
-  requestFrame();
-});
-screen.addEventListener('pointerdown', event => {
-  if (event.button !== 0 || !event.isPrimary || event.target.closest('button, a')) return;
-  motionState.pointer = event.pointerId;
-  motionState.originX = event.clientX;
-  motionState.originY = event.clientY;
-  motionState.baseX = motionState.dragX;
-  motionState.baseY = motionState.dragY;
-  screen.setPointerCapture(event.pointerId);
-});
-screen.addEventListener('pointermove', event => {
-  if (motionState.pointer !== event.pointerId) return;
-  const dx = event.clientX - motionState.originX;
-  const dy = event.clientY - motionState.originY;
-  if (!motionState.dragging && Math.abs(dx) + Math.abs(dy) < 5) return;
-  motionState.dragging = true;
-  workstation.classList.add('is-dragging');
-  motionState.dragX = clamp(motionState.baseX - dy * .13, -22, 22);
-  motionState.dragY = clamp(motionState.baseY + dx * .16, -34, 34);
-  motionState.hoverX = 0;
-  motionState.hoverY = 0;
-  requestFrame();
-});
-
-function finishDrag(event) {
-  if (motionState.pointer !== event.pointerId) return;
-  motionState.pointer = null;
-  motionState.dragging = false;
-  workstation.classList.remove('is-dragging');
+function solve(A, b) {
+  const n = b.length;
+  for (let i = 0; i < n; i++) {
+    let p = i;
+    for (let r = i + 1; r < n; r++) if (Math.abs(A[r][i]) > Math.abs(A[p][i])) p = r;
+    [A[i], A[p]] = [A[p], A[i]]; [b[i], b[p]] = [b[p], b[i]];
+    for (let r = i + 1; r < n; r++) {
+      const f = A[r][i] / A[i][i];
+      for (let c = i; c < n; c++) A[r][c] -= f * A[i][c];
+      b[r] -= f * b[i];
+    }
+  }
+  const x = new Array(n).fill(0);
+  for (let i = n - 1; i >= 0; i--) {
+    let s = b[i];
+    for (let c = i + 1; c < n; c++) s -= A[i][c] * x[c];
+    x[i] = s / A[i][i];
+  }
+  return x;
 }
-screen.addEventListener('lostpointercapture', finishDrag);
-screen.addEventListener('pointercancel', finishDrag);
+function homography(src, dst) {
+  const A = [], b = [];
+  for (let i = 0; i < 4; i++) {
+    const [x, y] = src[i], [X, Y] = dst[i];
+    A.push([x, y, 1, 0, 0, 0, -X * x, -X * y]); b.push(X);
+    A.push([0, 0, 0, x, y, 1, -Y * x, -Y * y]); b.push(Y);
+  }
+  return solve(A, b);
+}
+function matrix3d(h) {
+  const [h0, h1, h2, h3, h4, h5, h6, h7] = h;
+  return `matrix3d(${h0},${h3},0,${h6},${h1},${h4},0,${h7},0,0,1,0,${h2},${h5},0,1)`;
+}
+const ease = t => t * t * (3 - 2 * t);
+function quadAt(t) {
+  let i = 0;
+  while (i < KEY.length - 2 && t > KEY[i + 1].t) i++;
+  const a = KEY[i], b = KEY[i + 1];
+  const f = ease(Math.min(1, Math.max(0, (t - a.t) / (b.t - a.t))));
+  return a.q.map((p, k) => [p[0] + (b.q[k][0] - p[0]) * f, p[1] + (b.q[k][1] - p[1]) * f]);
+}
 
-const keyboard = document.getElementById('keyboard');
-keyboard.replaceChildren(...Array.from({ length: 61 }, () => make('i')));
-document.getElementById('year').textContent = new Date().getFullYear();
-addEventListener('scroll', requestFrame, { passive: true });
-addEventListener('resize', requestFrame, { passive: true });
-reducedMotion.addEventListener('change', requestFrame);
-story.classList.add('is-ready');
-toolbar.hidden = false;
-screen.querySelector('.device-controls').hidden = false;
+function selectProject(index) {
+  activeIndex = (index + projects.length) % projects.length;
+  const project = projects[activeIndex];
+  document.getElementById('featured-category').textContent = project.category;
+  document.getElementById('featured-name').textContent = project.name;
+  document.getElementById('featured-link').href = project.url;
+  renderDemo(featuredPreview, project, true);
+}
+
+function fit() {
+  const s = Math.min(innerWidth / 1440, innerHeight / 1080);
+  stage.style.transform = `translate(${(innerWidth - 1440 * s) / 2}px, ${(innerHeight - 1080 * s) / 2}px) scale(${s})`;
+}
+addEventListener('resize', fit);
+fit();
+
+function paint() {
+  const t = video.currentTime;
+  const inside = t >= KEY[0].t && t <= KEY[KEY.length - 1].t;
+  layer.classList.toggle('on', inside);
+  if (inside) layer.style.transform = matrix3d(homography(SRC, quadAt(t)));
+  if (!reducedMotion.matches) requestAnimationFrame(paint);
+}
+
+document.getElementById('previous-project').addEventListener('click', () => selectProject(activeIndex - 1));
+document.getElementById('next-project').addEventListener('click', () => selectProject(activeIndex + 1));
+document.getElementById('featured-open').addEventListener('click', event => {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  showDemo(activeIndex);
+});
+stage.addEventListener('click', event => {
+  if (layer.contains(event.target)) return;
+  video.paused ? video.play() : video.pause();
+});
+video.addEventListener('play', () => requestAnimationFrame(paint));
+requestAnimationFrame(paint);
+
+// Tela ocupa 1280x720 do palco; demo interativa aparece ao iniciar
+featuredPreview.style.width = LW + 'px';
+featuredPreview.style.height = LH + 'px';
 selectProject(0);
-if (!compact.matches) selectDevice('phone');
-paintFrame();
-if (!reducedMotion.matches && scrollY < 30) {
-  sceneContent.animate([{ transform: 'scale(.65)' }, { transform: 'scale(1)' }], {
-    duration: 1180, easing: 'cubic-bezier(.21,.78,.24,1)'
-  });
-}
+if (reducedMotion.matches) video.pause();
+
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();
+hero.classList.add('is-ready');

@@ -43,75 +43,28 @@
   </header>
 
   <main>
-    <section class="story" id="experiencia" aria-labelledby="hero-title">
+    <section class="hero-section" id="experiencia" aria-labelledby="hero-title">
       <h1 class="visually-hidden" id="hero-title">Portfólio de sistemas de Jefferson Ramalho</h1>
-      <div class="scene" id="scene">
-        <div class="room" aria-hidden="true"></div>
-        <div class="room-light" aria-hidden="true"></div>
-        <div class="scene-desk" aria-hidden="true"></div>
-        <div class="scene-content">
-          <div class="workstation" id="workstation">
-            <div class="monitor" id="monitor">
-              <div class="monitor-panel">
-                <div class="monitor-screen" id="screen">
-                  <div class="monitor-toolbar">
-                    <p>Demonstração</p>
-                    <div class="device-controls" role="group" aria-label="Visualização da demonstração" hidden>
-                      <button type="button" data-device="desktop" aria-pressed="true" aria-label="Visualizar como computador" title="Computador"><svg class="icon" aria-hidden="true"><use href="#i-desktop"/></svg></button>
-                      <button type="button" data-device="phone" aria-pressed="false" aria-label="Visualizar como celular" title="Celular"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></button>
-                    </div>
-                  </div>
-                  <div id="featured-preview" class="preview-mount">
-                    <div class="screen-fallback">
-                      <svg class="icon" aria-hidden="true"><use href="#i-clinix"/></svg>
-                      <strong>Clinix Odonto</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="stand" aria-hidden="true"><div class="stand-neck"></div><div class="stand-base"></div></div>
-            </div>
-            <div class="desk-items" aria-hidden="true">
-              <div class="keyboard" id="keyboard"></div>
-              <div class="mouse"></div>
-            </div>
+      <div class="hero" id="hero">
+        <div class="stage" id="stage">
+          <video id="monitor-video" src="assets/studio/monitor-bg.mp4" muted autoplay loop playsinline aria-hidden="true"></video>
+          <div class="screen-layer" id="screen-layer">
+            <div id="featured-preview" class="preview-mount"></div>
           </div>
         </div>
-
-        <div class="toolbar wrap" id="toolbar" hidden>
+        <div class="hero-bar wrap">
           <div class="featured" aria-live="polite">
             <p class="featured-category" id="featured-category">Odontologia</p>
             <h2 id="featured-name">Clinix Odonto</h2>
-            <p class="visually-hidden" id="featured-description">Agenda online, prontuário e contratos para clínicas odontológicas.</p>
           </div>
-
-          <nav class="project-nav" aria-label="Sistemas em destaque">
-            <button type="button" id="previous-project" title="Sistema anterior" aria-label="Sistema anterior"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
-            <a href="#clinix" data-scene-project="clinix" aria-label="Clinix Odonto" aria-current="true"><span>Clinix<span class="long-nav-name"> Odonto</span></span></a>
-            <a href="#advera" data-scene-project="advera">Advera</a>
-            <a href="#viver" data-scene-project="viver">Viver Bem</a>
-            <a href="#evolui" data-scene-project="evolui">Evolui Fit</a>
-            <button type="button" id="next-project" title="Próximo sistema" aria-label="Próximo sistema"><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
-            <span class="progress-track" aria-hidden="true"><span id="story-progress"></span></span>
+          <nav class="hero-nav" aria-label="Sistemas em destaque">
+            <button type="button" id="previous-project" aria-label="Sistema anterior">&#8249;</button>
+            <button type="button" id="next-project" aria-label="Próximo sistema">&#8250;</button>
+            <a id="featured-link" href="#projetos">Abrir</a>
+            <button type="button" id="featured-open">Demonstração</button>
           </nav>
-
-          <div class="scene-actions">
-            <div class="tool-group lighting" aria-label="Iluminação da cena">
-              <button type="button" data-light="auto" aria-pressed="true" aria-label="Luz do sistema" title="Luz do sistema"></button>
-              <button type="button" data-light="violet" aria-pressed="false" aria-label="Luz violeta" title="Luz violeta"></button>
-              <button type="button" data-light="blue" aria-pressed="false" aria-label="Luz azul" title="Luz azul"></button>
-            </div>
-            <div class="tool-group scene-tools" aria-label="Controles da cena">
-              <button id="reset-camera" type="button" title="Centralizar monitor" aria-label="Centralizar monitor"><svg class="icon" aria-hidden="true"><use href="#i-orbit"/></svg></button>
-              <a id="featured-link" href="https://www.clinixodonto.com.br/" title="Ampliar demonstração" aria-label="Ampliar demonstração"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></a>
-            </div>
-          </div>
         </div>
-
-        <div class="scroll-note">
-          <span class="scroll-instruction"><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg> Role para aproximar</span>
-          <a href="#projetos">Ver todos os sistemas</a>
-        </div>
+        <p class="hero-hint">Clique no vídeo para pausar ou continuar</p>
       </div>
     </section>
 
