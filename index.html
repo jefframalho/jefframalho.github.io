@@ -43,9 +43,10 @@
     .hero { position: relative; min-height: calc(100svh - 64px); display: grid; align-items: center; overflow: hidden; }
     .hero .photo {
       position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
-      width: min(360px, 30vw); aspect-ratio: 4 / 5; border-radius: var(--radius);
+      width: min(380px, 32vw); aspect-ratio: 4 / 5;
       background: url("assets/retrato.jpg") center top/cover no-repeat;
-      border: 1px solid var(--line); box-shadow: 0 30px 60px #00000080;
+      -webkit-mask-image: radial-gradient(ellipse 46% 50% at 50% 46%, #000 50%, transparent 100%);
+      mask-image: radial-gradient(ellipse 46% 50% at 50% 46%, #000 50%, transparent 100%);
       filter: grayscale(.2) contrast(1.05);
     }
     .hero .content { position: relative; z-index: 2; padding: 60px 0; max-width: 560px; }
@@ -123,7 +124,7 @@
       .about { grid-template-columns: 1fr; gap: 36px; }
       .contact { grid-template-columns: 1fr; }
       .projects { grid-template-columns: 1fr; }
-      .hero .photo { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 320px; margin: 0 auto 28px; aspect-ratio: 4 / 5; }
+      .hero .photo { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 320px; margin: 0 auto 28px; aspect-ratio: 4 / 5; -webkit-mask-image: radial-gradient(ellipse 46% 50% at 50% 46%, #000 50%, transparent 100%); mask-image: radial-gradient(ellipse 46% 50% at 50% 46%, #000 50%, transparent 100%); }
       .top nav { display: none; }
     }
     @media (max-width: 560px) {
